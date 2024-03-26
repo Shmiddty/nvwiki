@@ -16,5 +16,7 @@ module.exports.table = function table(cap, columns, rows) {
 }
 
 module.exports.icon = function icon(i, cap = '') {
-  return `[[File:Icons_${i}.png|class="icon64"${cap ? '|' + cap : ''}]]`
+  return i
+    ? `[[File:Icons_${i}.png|class=pixel|64px${cap ? '|' + cap : ''}]]`
+    : '(not found)'
 }
