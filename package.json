@@ -4,7 +4,7 @@
   "description": "Tool for updating the wiki for Into the Necrovale",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint . --ext .js,.cjs,.mjs --fix",
+    "lint": "eslint . --ext .js,.mjs --fix",
     "format": "prettier --write ./"
   },
   "author": "",
@@ -13,7 +13,7 @@
     "atlas-parser": "github:Shmiddty/atlas-parser",
     "jimp": "^0.22.12",
     "jsonata": "^2.0.4",
-    "mwbot": "github:gesinn-it-pub/mwbot"
+    "nodemw": "^0.21.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.3",

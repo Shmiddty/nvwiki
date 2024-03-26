@@ -1,74 +1,65 @@
 const fs = require('fs').promises
-//const atl = require('atlas-parser')
-const $ = require('jsonata')
-//const mwbot = require('mwbot')
-//const apiUrl = 'https://intothenecrovale.wiki.gg/api.php'
-//const bot = new mwbot({ apiUrl }})
+const atl = require('atlas-parser')
+const wiki = require('./wiki.js')
+const db = require('./db.js')
+const bot = require('nodemw')
+const util = require('util')
+const jimp = require('jimp')
+
+function promisify(obj, funcs = []) {
+  funcs.forEach((k) => {
+    obj[k] = util.promisify(obj[k])
+  })
+  return obj
+}
+
+const client = promisify(new bot('mwconfig.json'), [
+  'logIn',
+  'getAllPages',
+  'upload'
+])
 
 function str(o) {
   return o.toString()
 }
 
-function wkTable(cap, columns, rows) {
-  return `
-{| class="wikitable sortable" 
- |+ ${cap}
- |-
- ! ${columns.join(' !! ')}${rows.reduce(
-   (r, i) => r + ['', ' |-', ' | ' + i.join(' || ')].join('\n'),
-   ''
- )}
- |}
-`
-}
-
-function wkIcon(i, cap = '') {
-  return `[[File:${i}.png${cap ? '|' + cap : ''}]]`
-}
-
 Promise.all([
-  fs.readFile('./lib/nv/gamedata.json').then(str).then(JSON.parse)
-  //fs.readFile('./lib/nv/UI.atlas').then(str).then(atl.parse),
+  fs
+    .readFile('./credentials.secret')
+    .then(str)
+    .then((str) => str.split('\n')),
+  fs.readFile('./lib/nv/gamedata.json').then(str).then(JSON.parse),
+  fs.readFile('./lib/nv/UI.atlas').then(str).then(atl.parse),
+  jimp.read('./lib/nv/UI.png')
   //fs.readFile('./lib/nv/Characters.atlas').then(str).then(atl.parse)
-]).then(([data /*, ui, ch*/]) => {
-  $(`
-  $eq:=sheets[name="equipment"].(
-    $types:=$split($substring(columns[name="type"].typeStr,2),",");
-    $rarities:=$split($substring(columns[name="rarity"].typeStr,2),",");
-    $stats:=$$.sheets[name="stats"].lines;
-    $eqByType:=[lines[active=true].(
-      $i:=$;
-      $ ~> | $ | {
-        "type": $types[$i.type],
-        "rarity": $rarities[$i.rarity],
-        "properties": [properties.(
-          $me:=$;
-          $ ~> | $ | { 
-            "name": $stats[id=$me.stat].display
-          } |
-        )]
-      } |
-    )]{ type: $ };
-    $eqByType
-  )`)
-    .evaluate(data)
+]).then(([[uname, pw], data, ui, UI /*, ch */]) => {
+  Object.entries(ui['UI.png'].frames)
+    .filter(([k]) => k.includes('icons'))
+    .forEach(([k, v]) => {
+      UI.clone()
+        .crop(...v.xy, ...v.size)
+        .write(`./dist/${k.replace('/', '_')}.png`)
+    })
+
+  const $db = db(data)
+
+  $db
+    .equipmentByType()
     .then((eqByType) =>
-      Object.entries(eqByType).reduce(
-        (o, [k, v]) =>
-          o +
-          wkTable(
-            k,
-            ['Icon', 'Name', 'Rarity', 'Type', 'Description', 'Flavor Text'],
-            v.map((i) => [
-              wkIcon(i.icon),
-              i.name,
-              i.rarity,
-              i.type,
-              i.description,
-              i.flavor
-            ])
-          )
+      Object.entries(eqByType).map(([k, v]) =>
+        wiki.table(
+          k,
+          ['Icon', 'Name', 'Rarity', 'Category', 'Description', 'Flavor Text'],
+          v.map((i) => [
+            wiki.icon(i.icon),
+            i.name,
+            i.rarity,
+            i.category,
+            i.description,
+            i.flavor
+          ])
+        )
       )
     )
-    .then(console.log)
+    .then((types) => console.log(types.join('\n\n')))
 })

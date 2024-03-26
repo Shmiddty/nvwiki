@@ -1,0 +1,8 @@
+{
+      "protocol": "https",  
+      "server": "intothenecrovale.wiki.gg",
+      "path": "/",
+      "debug": false,
+      "userAgent": "nvwikibot",
+      "concurrency": 5
+}
