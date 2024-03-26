@@ -1,3 +1,7 @@
+module.exports.pagetype = function (type) {
+  return `{{PAGENAME}} is a type of [[${type}]]s.`
+}
+
 module.exports.table = function table(cap, columns, rows) {
   return `
 {| class="wikitable sortable" 
@@ -12,5 +16,5 @@ module.exports.table = function table(cap, columns, rows) {
 }
 
 module.exports.icon = function icon(i, cap = '') {
-  return `[[File:Icons_${i}.png${cap ? '|' + cap : ''}]]`
+  return `[[File:Icons_${i}.png|class="icon64"${cap ? '|' + cap : ''}]]`
 }
