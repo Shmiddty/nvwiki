@@ -1,16 +1,12 @@
 module.exports.pagetype = function (type) {
-  return `{{PAGENAME}} is a type of [[${type}]]s.`
+  return `{{PAGENAME}} is a type of [[${type}]].`
 }
 
-module.exports.table = function table(cap, columns, rows) {
+module.exports.table = function table(columns, rows) {
   return `
-{| class="wikitable sortable" 
- |+ ${cap}
- |-
- ! ${columns.join(' !! ')}${rows.reduce(
-   (r, i) => r + ['', ' |-', ' | ' + i.join(' || ')].join('\n'),
-   ''
- )}
+{| class="wikitable sortable"
+ ! ${columns.join(' !! ')}
+${rows.map((i) => [' |-', ' | ' + i.join('\n | ')].join('\n')).join('\n')}
  |}
 `
 }

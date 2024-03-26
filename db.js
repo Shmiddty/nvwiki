@@ -13,6 +13,7 @@ module.exports = function (data) {
       $ ~> | $ | {
         "type": $types[$i.type],
         "rarity": $rarities[$i.rarity],
+        "rarityId": $i.rarity,
         "properties": [properties.(
           $me:=$;
           $ ~> | $ | { 
