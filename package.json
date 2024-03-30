@@ -13,7 +13,7 @@
     "atlas-parser": "github:Shmiddty/atlas-parser",
     "jimp": "^0.22.12",
     "jsonata": "^2.0.4",
-    "nodemw": "^0.21.0"
+    "mwbot": "^2.1.3"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.3",

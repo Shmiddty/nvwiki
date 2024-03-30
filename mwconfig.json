@@ -1,4 +1,5 @@
 {
+  "apiUrl": "https://intothenecrovale.wiki.gg/api.php",
       "protocol": "https",  
       "server": "intothenecrovale.wiki.gg",
       "path": "/",

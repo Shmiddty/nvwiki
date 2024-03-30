@@ -10,7 +10,13 @@ ${rows.map((i) => [' |-', ' | ' + i.join('\n | ')].join('\n')).join('\n')}
  |}
 `
 }
+module.exports.license = function (lic) {
+  return `
 
+== License ==
+{{License/${lic}}}
+`
+}
 module.exports.icon = function icon(i, cap = '') {
   return i
     ? `[[File:Icons_${i}.png|class=pixel|64px${cap ? '|' + cap : ''}]]`

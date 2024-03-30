@@ -20,7 +20,7 @@ grep -l -Z -r 'Characters.png' $fdir | xargs -0 -I{} mv {} ./Characters.atlas
 
 file $fdir*.png | awk -v dim="$(sed -n '2p' ./UI.atlas | awk '{print $2,$3}' | sed 's/,/ x/')" '$0 ~ dim' | sed 's/:.*//' | tr -d '\n' | xargs -0 -I{} mv {} ./UI.png
 
-file $fdir*.png | awk -v dim="$(sed -n '2p' ./Characters.atlas | awk '{print $2,$3}' | sed 's/,/ x/')" '$0 ~ dim' | sed 's/:.*//' | tr -d '\n' | xargs -0 -I{} mv {} ./Charcters.png
+file $fdir*.png | awk -v dim="$(sed -n '2p' ./Characters.atlas | awk '{print $2,$3}' | sed 's/,/ x/')" '$0 ~ dim' | sed 's/:.*//' | tr -d '\n' | xargs -0 -I{} mv {} ./Characters.png
 
 echo "Cleaning up..."
 

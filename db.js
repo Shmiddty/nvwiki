@@ -24,6 +24,11 @@ module.exports = function (data) {
     )]{ type: $ };
     $eqByType
   )`).evaluate(data)
+    },
+    equipmentSchema: function () {
+      return $(`
+  sheets[name="equipment"].columns
+      `).evaluate(data)
     }
   }
 }

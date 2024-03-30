@@ -45,7 +45,7 @@
 				{
 					"id": "size",
 					"type": 0,
-					"base": 10,
+					"base": 16,
 					"breakpoint": 0,
 					"bound": 0,
 					"display": "Size",
@@ -89,7 +89,7 @@
 				},
 				{
 					"id": "roll_speed",
-					"display": "Roll Speed",
+					"display": "Dodge Speed",
 					"type": 0,
 					"base": 3,
 					"breakpoint": 4,
@@ -98,7 +98,16 @@
 				},
 				{
 					"id": "roll_cooldown",
-					"display": "Roll Cooldown",
+					"display": "Dodge Cooldown",
+					"type": 0,
+					"display_type": 1,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "roll_length",
+					"display": "Dodge Length",
 					"type": 0,
 					"display_type": 1,
 					"base": 1,
@@ -182,22 +191,13 @@
 					"display": "Nearby Damage Mod",
 					"type": 0,
 					"display_type": 1,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0
-				},
-				{
-					"id": "singularity_damage",
-					"display": "Singularity Damage",
-					"type": 0,
-					"display_type": 1,
 					"base": 0,
 					"breakpoint": 0,
 					"bound": 0
 				},
 				{
 					"id": "max_damage_percent",
-					"display": "Max Damage",
+					"display": "Max Damage Taken",
 					"type": 0,
 					"display_type": 1,
 					"base": 0,
@@ -237,6 +237,69 @@
 					"type": 0,
 					"display_type": 1,
 					"base": 1,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "poise_mod",
+					"display": "Poise",
+					"type": 0,
+					"display_type": 1,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "poise_recovery_mod",
+					"display": "Poise Recovery",
+					"type": 0,
+					"display_type": 1,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "inaccuracy",
+					"display": "Inaccuracy",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "knockback",
+					"display": "Knockback",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "knockback_time",
+					"display": "Knockback Time",
+					"type": 0,
+					"display_type": 1,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "knockback_distance",
+					"display": "Knockback Distance",
+					"type": 0,
+					"display_type": 1,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "knockback_explosion",
+					"display": "Knockback Explosion",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
 					"breakpoint": 0,
 					"bound": 0
 				},
@@ -295,8 +358,8 @@
 					"display_type": 0
 				},
 				{
-					"id": "kill_distance",
-					"display": "Kill Distance",
+					"id": "foetus_kill_distance",
+					"display": "Foetus Kill Distance",
 					"type": 0,
 					"base": 0,
 					"breakpoint": 0,
@@ -347,6 +410,132 @@
 					"bound": 0,
 					"display": "Heal Effect",
 					"display_type": 1
+				},
+				{
+					"id": "hope_gain_mod",
+					"display": "Hope Gain",
+					"type": 0,
+					"display_type": 1,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "hope_lost_death",
+					"display": "Despair from Death",
+					"type": 0,
+					"display_type": 0,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "despair_gain_mod",
+					"display": "Despair Gain",
+					"type": 0,
+					"display_type": 1,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "despair_per_kill",
+					"display": "Despair per Kill",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "hope_per_kill",
+					"display": "Hope per Kill",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "hope_per_level",
+					"display": "Hope per Level",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "health_per_coin",
+					"display": "Health per Coin",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "power_gain_mod",
+					"display": "Power Gain",
+					"type": 0,
+					"display_type": 1,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "power_self_gen",
+					"display": "Power Generation",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "power_per_kill",
+					"display": "Power per Kill",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "power_per_damage",
+					"display": "Power per Damage",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "power_cost",
+					"display": "Power Costs",
+					"type": 0,
+					"display_type": 1,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "health_to_power",
+					"display": "Health to Power",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "health_per_level",
+					"display": "Health per Level",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
 				},
 				{
 					"id": "defense",
@@ -439,31 +628,13 @@
 					"bound": 0
 				},
 				{
-					"id": "poise_mod",
+					"id": "proj_reflection",
+					"display": "Reflection Chance",
 					"type": 0,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Poise",
-					"display_type": 1
-				},
-				{
-					"id": "poise_recovery_mod",
-					"type": 0,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Poise Recovery",
-					"display_type": 1
-				},
-				{
-					"type": 0,
+					"display_type": 1,
 					"base": 0,
-					"id": "inaccuracy",
-					"bound": 0,
 					"breakpoint": 0,
-					"display": "Inaccuracy",
-					"display_type": 1
+					"bound": 0
 				},
 				{
 					"id": "amulet_effect",
@@ -518,6 +689,60 @@
 					"bound": 0,
 					"display": "Rune Effect",
 					"display_type": 1
+				},
+				{
+					"type": 0,
+					"base": 1,
+					"id": "potion_effect",
+					"bound": 5,
+					"breakpoint": 4,
+					"display": "Potion Effect",
+					"display_type": 1
+				},
+				{
+					"id": "potion_duration",
+					"type": 0,
+					"base": 1,
+					"bound": 5,
+					"breakpoint": 4,
+					"display": "Potion Duration",
+					"display_type": 1
+				},
+				{
+					"id": "potion_damage",
+					"display": "Damage per Effect",
+					"type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0,
+					"display_type": 1
+				},
+				{
+					"id": "potion_applied_duration",
+					"display": "Duration",
+					"type": 0,
+					"display_type": 3,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "potion_constant_effect",
+					"display": "Potion 1 Effect",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "emission_effect",
+					"display": "Emission Effect",
+					"type": 0,
+					"display_type": 1,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0
 				},
 				{
 					"id": "potion_drop_rate",
@@ -610,58 +835,13 @@
 					"display_type": 1
 				},
 				{
+					"id": "tele_strike_dist",
+					"display": "Teleport Distance",
 					"type": 0,
-					"base": 1,
-					"id": "potion_effect",
-					"bound": 5,
-					"breakpoint": 4,
-					"display": "Potion Effect",
-					"display_type": 1
-				},
-				{
-					"id": "potion_duration",
-					"type": 0,
-					"base": 1,
-					"bound": 5,
-					"breakpoint": 4,
-					"display": "Potion Duration",
-					"display_type": 1
-				},
-				{
-					"id": "potion_gobbler",
-					"display": "Potion Guzzler",
-					"type": 2,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display_type": 2
-				},
-				{
-					"id": "potion_damage",
-					"display": "Damage per Effect",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display_type": 1
-				},
-				{
-					"id": "potion_applied_duration",
-					"display": "Duration",
-					"type": 0,
-					"display_type": 3,
+					"display_type": 0,
 					"base": 0,
 					"breakpoint": 0,
 					"bound": 0
-				},
-				{
-					"type": 0,
-					"base": 0,
-					"id": "tele_strike_dist",
-					"bound": 0,
-					"breakpoint": 0,
-					"display": "Teleport Distance",
-					"display_type": 0
 				},
 				{
 					"id": "tele_cooldown",
@@ -817,15 +997,6 @@
 					"bound": 0
 				},
 				{
-					"id": "block_knockback",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Block Knockback",
-					"display_type": 0
-				},
-				{
 					"type": 0,
 					"base": 1,
 					"id": "proj_speed",
@@ -863,12 +1034,12 @@
 				},
 				{
 					"id": "proj_seeking",
-					"type": 2,
+					"type": 0,
 					"base": 0,
 					"breakpoint": 0,
 					"bound": 0,
 					"display": "Projectile Seeking",
-					"display_type": 2
+					"display_type": 1
 				},
 				{
 					"id": "proj_poise_damage",
@@ -889,69 +1060,6 @@
 					"display_type": 1
 				},
 				{
-					"id": "execution_chance",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Execution Chance",
-					"display_type": 1
-				},
-				{
-					"type": 1,
-					"base": 0,
-					"id": "clone_count",
-					"bound": 0,
-					"breakpoint": 0,
-					"display": "Clones",
-					"display_type": 0
-				},
-				{
-					"type": 0,
-					"base": 0,
-					"id": "knockback",
-					"bound": 0,
-					"breakpoint": 0,
-					"display": "Knockback",
-					"display_type": 0
-				},
-				{
-					"id": "knockback_touch",
-					"display": "Knockback From Touch",
-					"type": 0,
-					"display_type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0
-				},
-				{
-					"id": "knockback_damage",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Collision Damage",
-					"display_type": 0
-				},
-				{
-					"id": "knockback_time",
-					"type": 0,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Knockback Time",
-					"display_type": 1
-				},
-				{
-					"id": "knockback_distance",
-					"type": 0,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Knockback Distance",
-					"display_type": 1
-				},
-				{
 					"type": 0,
 					"base": 0,
 					"id": "ice_strike",
@@ -961,93 +1069,12 @@
 					"display_type": 1
 				},
 				{
-					"type": 0,
-					"base": 0,
-					"id": "shock_strike",
-					"bound": 0,
-					"breakpoint": 0,
-					"display": "Shockstrike",
-					"display_type": 1
-				},
-				{
-					"id": "fire_strike",
-					"display": "Firestrike",
-					"type": 0,
-					"display_type": 1,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0
-				},
-				{
-					"id": "fire_attack_damage",
-					"type": 0,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Fire Attack Damage",
-					"display_type": 1
-				},
-				{
 					"id": "ice_attack_damage",
 					"type": 0,
 					"base": 1,
 					"breakpoint": 0,
 					"bound": 0,
 					"display": "Ice Attack Damage",
-					"display_type": 1
-				},
-				{
-					"id": "electric_attack_damage",
-					"type": 0,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Electric Attack Damage",
-					"display_type": 1
-				},
-				{
-					"type": 0,
-					"base": 4,
-					"id": "burning_duration",
-					"bound": 0,
-					"breakpoint": 0,
-					"display": "Burning Duration",
-					"display_type": 0
-				},
-				{
-					"type": 0,
-					"base": 1,
-					"id": "burning_effect",
-					"bound": 0,
-					"breakpoint": 0,
-					"display": "Burning Effect",
-					"display_type": 1
-				},
-				{
-					"id": "burning_rate",
-					"type": 0,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Burning Rate",
-					"display_type": 0
-				},
-				{
-					"id": "burning_enemy_damage",
-					"display": "Burning Enemy Damage",
-					"type": 0,
-					"display_type": 1,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0
-				},
-				{
-					"id": "burning_damage",
-					"display": "Burning Damage",
-					"type": 0,
-					"base": 0.2,
-					"breakpoint": 0,
-					"bound": 0,
 					"display_type": 1
 				},
 				{
@@ -1078,6 +1105,78 @@
 					"display_type": 0
 				},
 				{
+					"id": "ice_burst_damage",
+					"type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0,
+					"display": "Ice Burst Damage",
+					"display_type": 0
+				},
+				{
+					"id": "ice_shard_damage",
+					"type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0,
+					"display": "Ice Shard Damage",
+					"display_type": 0
+				},
+				{
+					"id": "ice_ward_damage",
+					"display": "Ice Ward",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "ice_emission_damage",
+					"display": "Ice Emission Damage",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "frozen_defense",
+					"display": "Frozen Defense",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "ice_shatter_chance",
+					"type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0,
+					"display": "Shatter Chance",
+					"display_type": 1
+				},
+				{
+					"type": 0,
+					"base": 0,
+					"id": "shock_strike",
+					"bound": 0,
+					"breakpoint": 0,
+					"display": "Shockstrike",
+					"display_type": 1
+				},
+				{
+					"id": "electric_attack_damage",
+					"type": 0,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0,
+					"display": "Electric Attack Damage",
+					"display_type": 1
+				},
+				{
 					"type": 0,
 					"base": 4,
 					"id": "electrified_duration",
@@ -1103,96 +1202,6 @@
 					"bound": 0,
 					"display": "Electrified Range",
 					"display_type": 0
-				},
-				{
-					"type": 0,
-					"base": 0,
-					"id": "flame_spread",
-					"bound": 0,
-					"breakpoint": 0,
-					"display": "Flame Spread",
-					"display_type": 0
-				},
-				{
-					"id": "freezing",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Freezing",
-					"display_type": 2
-				},
-				{
-					"type": 2,
-					"base": 0,
-					"id": "electrified",
-					"bound": 0,
-					"breakpoint": 0,
-					"display": "Electrified",
-					"display_type": 2
-				},
-				{
-					"type": 0,
-					"base": 0,
-					"id": "fire_burst_damage",
-					"bound": 0,
-					"breakpoint": 0,
-					"display": "Fire Burst Damage",
-					"display_type": 0
-				},
-				{
-					"id": "ice_burst_damage",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Ice Burst Damage",
-					"display_type": 0
-				},
-				{
-					"id": "fire_trail_damage",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Fire Trail Damage",
-					"display_type": 0
-				},
-				{
-					"id": "meteor_call_damage",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Meteor Damage",
-					"display_type": 0
-				},
-				{
-					"id": "ice_shard_damage",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Ice Shard Damage",
-					"display_type": 0
-				},
-				{
-					"id": "ice_shatter_chance",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Shatter Chance",
-					"display_type": 1
-				},
-				{
-					"type": 0,
-					"base": 0,
-					"id": "lightning_fire",
-					"bound": 0,
-					"breakpoint": 0,
-					"display": "Firelightning",
-					"display_type": 2
 				},
 				{
 					"type": 0,
@@ -1240,35 +1249,89 @@
 					"bound": 0
 				},
 				{
+					"type": 0,
+					"base": 0,
+					"id": "lightning_fire",
+					"bound": 0,
+					"breakpoint": 0,
+					"display": "Firelightning",
+					"display_type": 2
+				},
+				{
+					"id": "fire_strike",
+					"display": "Firestrike",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "fire_attack_damage",
+					"type": 0,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0,
+					"display": "Fire Attack Damage",
+					"display_type": 1
+				},
+				{
+					"type": 0,
+					"base": 4,
+					"id": "burning_duration",
+					"bound": 0,
+					"breakpoint": 0,
+					"display": "Burning Duration",
+					"display_type": 0
+				},
+				{
+					"id": "burning_rate",
+					"type": 0,
+					"base": 1,
+					"breakpoint": 0,
+					"bound": 0,
+					"display": "Burning Rate",
+					"display_type": 0
+				},
+				{
+					"id": "burning_enemy_damage",
+					"display": "Burning Enemy Damage",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "burning_damage",
+					"display": "Burning Damage",
+					"type": 0,
+					"base": 0.2,
+					"breakpoint": 0,
+					"bound": 0,
+					"display_type": 1
+				},
+				{
+					"type": 0,
+					"base": 0,
+					"id": "fire_burst_damage",
+					"bound": 0,
+					"breakpoint": 0,
+					"display": "Fire Burst Damage",
+					"display_type": 0
+				},
+				{
+					"id": "fire_trail_damage",
+					"type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0,
+					"display": "Fire Trail Damage",
+					"display_type": 0
+				},
+				{
 					"id": "flame_block_damage",
 					"display": "Flame Block Damage",
-					"type": 0,
-					"display_type": 1,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0
-				},
-				{
-					"id": "ice_ward_damage",
-					"display": "Ice Ward",
-					"type": 0,
-					"display_type": 1,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0
-				},
-				{
-					"id": "ice_emission_damage",
-					"display": "Ice Emission Damage",
-					"type": 0,
-					"display_type": 1,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0
-				},
-				{
-					"id": "frozen_defense",
-					"display": "Frozen Defense",
 					"type": 0,
 					"display_type": 1,
 					"base": 0,
@@ -1303,6 +1366,24 @@
 					"bound": 0
 				},
 				{
+					"id": "sunlit_burn",
+					"display": "Sunlit Burn",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "sunscorch_effect",
+					"display": "Sunscorch Effect",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
 					"id": "moon_strike",
 					"display": "Moon Strike",
 					"type": 0,
@@ -1321,121 +1402,31 @@
 					"bound": 0
 				},
 				{
-					"id": "instant_kill_threshold",
+					"id": "moonlit_damage",
+					"display": "Moonlit Damage",
 					"type": 0,
-					"base": 0,
-					"bound": 0,
-					"breakpoint": 0,
-					"display": "Kill Threshold",
-					"display_type": 1
-				},
-				{
-					"id": "despair_blocking_defense",
-					"type": 0,
+					"display_type": 1,
 					"base": 0,
 					"breakpoint": 0,
-					"bound": 0,
-					"display": "Despair Blocking",
-					"display_type": 1
+					"bound": 0
 				},
 				{
-					"id": "hope_gain_mod",
+					"id": "moonfrost_effect",
+					"display": "Moonfrost Effect",
 					"type": 0,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Hope Gain",
-					"display_type": 1
-				},
-				{
-					"id": "hope_lost_death",
-					"type": 0,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Despair from Death",
-					"display_type": 0
-				},
-				{
-					"id": "despair_gain_mod",
-					"type": 0,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Despair Gain",
-					"display_type": 1
-				},
-				{
-					"id": "despair_per_kill",
-					"display": "Despair per Kill",
-					"type": 0,
+					"display_type": 1,
 					"base": 0,
 					"breakpoint": 0,
-					"bound": 0,
-					"display_type": 0
+					"bound": 0
 				},
 				{
-					"id": "hope_damage_mod",
+					"id": "moonlit_blizzard",
+					"display": "Moonlit Blizzard Damage",
 					"type": 0,
+					"display_type": 1,
 					"base": 0,
 					"breakpoint": 0,
-					"bound": 0,
-					"display": "Hope Damage Mod",
-					"display_type": 1
-				},
-				{
-					"id": "hope_per_kill",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Hope per Kill",
-					"display_type": 0
-				},
-				{
-					"id": "hope_per_level",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Hope per Level",
-					"display_type": 0
-				},
-				{
-					"id": "power_gain_mod",
-					"type": 0,
-					"base": 1,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Power Gain",
-					"display_type": 1
-				},
-				{
-					"id": "power_self_gen",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Power Generation",
-					"display_type": 1
-				},
-				{
-					"id": "power_per_kill",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Power per Kill",
-					"display_type": 0
-				},
-				{
-					"id": "power_per_damage",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Power per Damage",
-					"display_type": 0
+					"bound": 0
 				},
 				{
 					"id": "enemy_start_health",
@@ -1447,15 +1438,6 @@
 					"display_type": 1
 				},
 				{
-					"id": "end_level_health",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0,
-					"display": "Health Gained",
-					"display_type": 0
-				},
-				{
 					"id": "laughter_damage",
 					"type": 0,
 					"base": 0,
@@ -1463,15 +1445,6 @@
 					"bound": 0,
 					"display": "Laughter Damage",
 					"display_type": 1
-				},
-				{
-					"id": "health_per_coin",
-					"display": "Health per Coin",
-					"type": 0,
-					"display_type": 0,
-					"base": 0,
-					"breakpoint": 0,
-					"bound": 0
 				},
 				{
 					"id": "buzzsaw_count",
@@ -1520,7 +1493,16 @@
 				},
 				{
 					"id": "mortar_roll_damage",
-					"display": "Mortar Damage",
+					"display": "Mortar Roll Damage",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "mortar_block_damage",
+					"display": "Mortar Block Damage",
 					"type": 0,
 					"display_type": 1,
 					"base": 0,
@@ -1546,6 +1528,87 @@
 					"bound": 0
 				},
 				{
+					"id": "dagger_emission_damage",
+					"display": "Dagger Emission Damage",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "block_knockback",
+					"display": "Block Knockback",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "evade_knockback",
+					"display": "Evade Knockback",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "execution_chance",
+					"display": "Execution Chance",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "clone_count",
+					"display": "Clones",
+					"type": 1,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "knockback_touch",
+					"display": "Knockback From Touch",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "knockback_damage",
+					"display": "Collision Damage",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "flame_spread",
+					"display": "Flame Spread",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "meteor_call_damage",
+					"display": "Meteor Damage",
+					"type": 0,
+					"display_type": 0,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
 					"id": "health_on_crit",
 					"display": "Health on Crit",
 					"type": 0,
@@ -1555,17 +1618,84 @@
 					"bound": 0
 				},
 				{
-					"id": "dagger_emission_damage",
-					"display": "Dagger Emission Damage",
+					"id": "instant_kill_threshold",
+					"display": "Kill Threshold",
 					"type": 0,
 					"display_type": 1,
 					"base": 0,
 					"breakpoint": 0,
 					"bound": 0
+				},
+				{
+					"id": "despair_blocking_defense",
+					"display": "Despair Blocking",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "hope_damage_mod",
+					"display": "Hope Damage Mod",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "health_damage_mod",
+					"display": "Health Damage Mod",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "singularity_damage",
+					"display": "Singularity Damage",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "potion_gobbler",
+					"display": "Potion Guzzler",
+					"type": 2,
+					"display_type": 2,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
 				}
 			],
-			"separators": [],
-			"props": {}
+			"separators": [
+				1,
+				12,
+				30,
+				56,
+				67,
+				79,
+				89,
+				114,
+				155
+			],
+			"props": {
+				"separatorTitles": [
+					"Movement",
+					"Combat",
+					"Resources",
+					"Defenses",
+					"Item Effects",
+					"Loot",
+					"Attacks",
+					"Elemental",
+					"Special"
+				]
+			}
 		},
 		{
 			"name": "equipment",
@@ -2187,6 +2317,32 @@
 					"power_cost": 0
 				},
 				{
+					"id": "DwarvenBrew",
+					"active": true,
+					"name": "Dwarven Brew",
+					"type": 9,
+					"category": "Potion",
+					"icon": "dwarven_brew",
+					"description": "Reduces the cost of power moves.",
+					"flavor": "",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "power_cost",
+							"mode": 0,
+							"valence": 0,
+							"base": -50,
+							"increment": -3,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					],
+					"sound": "drink_potion"
+				},
+				{
 					"id": "Cyanide",
 					"active": true,
 					"type": 9,
@@ -2274,7 +2430,7 @@
 							"valence": 0,
 							"scale": false,
 							"mode": 0,
-							"stat": "kill_distance"
+							"stat": "foetus_kill_distance"
 						},
 						{
 							"base": 20,
@@ -3219,6 +3375,75 @@
 					]
 				},
 				{
+					"id": "SteelFist",
+					"active": true,
+					"name": "Steel Fist",
+					"type": 0,
+					"category": "Fist",
+					"icon": "steel_fist",
+					"description": "Unlease a quick series of jabs.",
+					"flavor": "It's the strength of the fist underneath that counts.",
+					"anim_set": "unarmed",
+					"power_cost": 3,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "attack_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 6,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "execution_chance",
+							"mode": 1,
+							"valence": 0,
+							"base": 30,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					],
+					"attacks": [
+						{
+							"attack": "knuckles1"
+						},
+						{
+							"attack": "knuckles2"
+						},
+						{
+							"attack": "knuckles3"
+						},
+						{
+							"attack": "knuckles1"
+						},
+						{
+							"attack": "knuckles2"
+						},
+						{
+							"attack": "knuckles3"
+						}
+					],
+					"power_attacks": [
+						{
+							"attack": "knuckles3"
+						}
+					],
+					"power_description": "Gain a chance to Execute enemies, dealing massive damage."
+				},
+				{
 					"id": "Lochaber",
 					"active": true,
 					"type": 0,
@@ -3609,6 +3834,95 @@
 						}
 					],
 					"power_description": "Kills are likely to drop health."
+				},
+				{
+					"id": "RazorFan",
+					"active": true,
+					"name": "Razor Fan",
+					"type": 0,
+					"category": "Fan",
+					"icon": "razor_fan",
+					"description": "Swing a sequence of sharp blades.",
+					"flavor": "Not the weapon anyone would hope to be killed by.",
+					"anim_set": "unarmed",
+					"power_cost": 4,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 60,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "attack_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 1,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "attack_sequence",
+							"mode": 0,
+							"valence": 0,
+							"base": 4,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "attack_dash",
+							"mode": 1,
+							"valence": 0,
+							"base": 200,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "attack_sequence",
+							"mode": 1,
+							"valence": 0,
+							"base": 10,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "attack_count",
+							"mode": 1,
+							"valence": 0,
+							"base": 2,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "attack_size",
+							"mode": 1,
+							"valence": 0,
+							"base": 100,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					],
+					"attacks": [
+						{
+							"attack": "razor_fan"
+						}
+					],
+					"power_description": "Dash through enemies while twirling the fan."
 				},
 				{
 					"id": "DancingDeath",
@@ -4227,6 +4541,82 @@
 						}
 					],
 					"power_projectile": "Moonbolt"
+				},
+				{
+					"id": "RamielsShamshir",
+					"active": true,
+					"name": "Ramiel's Shamshir",
+					"type": 0,
+					"category": "Sword",
+					"icon": "shamshir",
+					"description": "Slash enemies and call down a bolt of Lightning.",
+					"flavor": "The sacred sword of the thundering prophet.",
+					"anim_set": "sword",
+					"power_cost": 5,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "attack_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 3,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "shock_strike",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "attack_dash",
+							"mode": 1,
+							"valence": 0,
+							"base": 240,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "attack_count",
+							"mode": 1,
+							"valence": 0,
+							"base": 4,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						}
+					],
+					"power_description": "Dash forward, striking all foes in your path.",
+					"attacks": [
+						{
+							"attack": "dance1"
+						},
+						{
+							"attack": "dance2"
+						},
+						{
+							"attack": "dance3"
+						}
+					],
+					"projectile": "Lightning"
 				},
 				{
 					"id": "WindSword",
@@ -4943,6 +5333,73 @@
 					"power_projectile": "Cure"
 				},
 				{
+					"id": "BigFlopper",
+					"active": true,
+					"name": "The Big Flopper",
+					"type": 0,
+					"category": "Fish Club",
+					"icon": "big_flopper",
+					"description": "Slaps enemies, sending them flying into the wall.",
+					"flavor": "It's a big one.",
+					"anim_set": "unarmed",
+					"power_cost": 5,
+					"rarity": 4,
+					"properties": [
+						{
+							"stat": "damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 40,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "attack_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 0.5,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "attack_poise_damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 200,
+							"increment": 10,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "knockback",
+							"mode": 0,
+							"valence": 0,
+							"base": 120,
+							"increment": 10,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						}
+					],
+					"power_description": "Spin the flopper, sending all nearby enemies flying.",
+					"attacks": [
+						{
+							"attack": "flopper1"
+						},
+						{
+							"attack": "flopper2"
+						}
+					],
+					"power_attacks": [
+						{
+							"attack": "flopper_spin"
+						}
+					]
+				},
+				{
 					"id": "",
 					"active": false,
 					"name": "--- RANGE ---",
@@ -5466,6 +5923,87 @@
 							"attack": "staff3"
 						}
 					]
+				},
+				{
+					"id": "Arbalest",
+					"active": true,
+					"name": "Arbalest",
+					"type": 0,
+					"category": "Bow",
+					"icon": "arbalest",
+					"description": "Slow attack rate, but can pierce enemies.",
+					"flavor": "Forbidden to be used against men of Faith.",
+					"anim_set": "bow",
+					"power_cost": 4,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 60,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "attack_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 1,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "proj_pierce",
+							"mode": 0,
+							"valence": 0,
+							"base": 40,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "attack_sequence",
+							"mode": 1,
+							"valence": 0,
+							"base": 5,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "attack_count",
+							"mode": 1,
+							"valence": 0,
+							"base": 5,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "inaccuracy",
+							"mode": 1,
+							"valence": 0,
+							"base": 30,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					],
+					"projectile": "HeavyArrow",
+					"attacks": [
+						{
+							"attack": "bow"
+						}
+					],
+					"power_projectile": "Pellet",
+					"power_description": "Release a cluster of chaff into the crowd."
 				},
 				{
 					"id": "DartGun",
@@ -7462,7 +8000,7 @@
 					"category": "Shield",
 					"icon": "bulwark",
 					"description": "Increases your poise, making you harder to stun, but slows poise recovery.",
-					"flavor": "",
+					"flavor": "Stand fast, often there is nothing more you can do.",
 					"anim_set": "",
 					"power_cost": 0,
 					"rarity": 1,
@@ -7591,6 +8129,95 @@
 							"attack": "throw_dagger"
 						}
 					]
+				},
+				{
+					"id": "LaughingShield",
+					"active": true,
+					"name": "Laughing Shield",
+					"type": 1,
+					"category": "Shield",
+					"icon": "laughing_shield",
+					"description": "Launch mortars when you block an attack.",
+					"flavor": "All comedies are tragedies. All tragedies are comedies.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "mortar_block_damage",
+							"mode": 2,
+							"valence": 0,
+							"base": 20,
+							"increment": 20,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					],
+					"attacks": [
+						{
+							"attack": "block"
+						}
+					]
+				},
+				{
+					"id": "CowardsLantern",
+					"active": true,
+					"name": "Coward's Lantern",
+					"type": 1,
+					"category": "Totem",
+					"icon": "cowards_lantern",
+					"description": "Activate for a chance to inflict Sunlit to all nearby enemies, negating their Evasion.",
+					"flavor": "Do you really want to see what awaits you in the dark?",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "attack_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 0.2,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 0,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "sun_strike",
+							"mode": 0,
+							"valence": 0,
+							"base": 60,
+							"increment": 4,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "attack_count",
+							"mode": 0,
+							"valence": 0,
+							"base": 27,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 2
+						}
+					],
+					"attacks": [
+						{
+							"attack": "lantern"
+						}
+					],
+					"projectile": "Sunbit"
 				},
 				{
 					"id": "Salto",
@@ -7869,7 +8496,7 @@
 					"description": "Throw screaming skulls.",
 					"flavor": "Ask yourself, why do they scream?",
 					"anim_set": "staff",
-					"power_cost": 5,
+					"power_cost": 0,
 					"rarity": 4,
 					"properties": [
 						{
@@ -8478,7 +9105,7 @@
 					"flavor": "Obedience or death, the options of a true cult.",
 					"anim_set": "",
 					"power_cost": 0,
-					"rarity": 1,
+					"rarity": 2,
 					"properties": [
 						{
 							"stat": "attack_stun_range",
@@ -8503,7 +9130,7 @@
 					"flavor": "Always read the fine print.",
 					"anim_set": "",
 					"power_cost": 0,
-					"rarity": 1,
+					"rarity": 2,
 					"properties": [
 						{
 							"stat": "book_effect",
@@ -9264,6 +9891,76 @@
 					]
 				},
 				{
+					"id": "RabbleCoat",
+					"active": true,
+					"name": "Rabble Coat",
+					"type": 3,
+					"category": "Armor",
+					"icon": "rabble_coat",
+					"description": "Some defense, some health.",
+					"flavor": "Nothing special, just a few bits of hardened leather riveted together.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "defense",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 3,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "health",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 20,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "CamelhairCoat",
+					"active": true,
+					"name": "Camelhair Coat",
+					"type": 3,
+					"category": "Robe",
+					"icon": "camelhair",
+					"description": "Adds a lot of health, but healing is ineffective.",
+					"flavor": "Best to take what you need. You might not find more.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "health",
+							"mode": 0,
+							"valence": 0,
+							"base": 80,
+							"increment": 80,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "heal_effect",
+							"mode": 0,
+							"valence": 0,
+							"base": -80,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
 					"id": "LeatherArmor",
 					"active": true,
 					"type": 3,
@@ -9739,6 +10436,41 @@
 					]
 				},
 				{
+					"id": "CursedBosom",
+					"active": true,
+					"name": "Cursed Bosom",
+					"type": 3,
+					"category": "Armor",
+					"icon": "cursed_bosom",
+					"description": "You gain hope from killing, but you also lose health.",
+					"flavor": "Everything is for sale, even hope.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "hope_per_kill",
+							"mode": 0,
+							"valence": 0,
+							"base": 0.2,
+							"increment": 0.2,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "pain_per_kill",
+							"mode": 0,
+							"valence": 0,
+							"base": 1,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
 					"id": "TiarnasMantle",
 					"active": true,
 					"type": 3,
@@ -9972,6 +10704,56 @@
 							"valence": 0,
 							"base": 30,
 							"increment": 30,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "Witchichor",
+					"active": true,
+					"name": "Witchichor",
+					"type": 3,
+					"category": "Robe",
+					"icon": "witchichor",
+					"description": "The first potion in your belt constantly applies its effects.",
+					"flavor": "Ritualistically soaked in Witch blood.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 3,
+					"properties": [
+						{
+							"stat": "potion_constant_effect",
+							"mode": 0,
+							"valence": 0,
+							"base": 6,
+							"increment": 4,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "PureglassPlate",
+					"active": true,
+					"name": "Pureglass Plate",
+					"type": 3,
+					"category": "Armor",
+					"icon": "pureglass",
+					"description": "Projectiles have a chance to reflect off of you.",
+					"flavor": "",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 3,
+					"properties": [
+						{
+							"stat": "proj_reflection",
+							"mode": 0,
+							"valence": 0,
+							"base": 14,
+							"increment": 6,
 							"type": 2,
 							"scale": false,
 							"op": 1
@@ -10279,6 +11061,30 @@
 					]
 				},
 				{
+					"id": "GripMitts",
+					"active": true,
+					"name": "Grip Mitts",
+					"type": 4,
+					"category": "Gloves",
+					"icon": "grip_mitts",
+					"description": "You attack faster.",
+					"flavor": "Hold on tight and keep going.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "attack_rate_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 6,
+							"type": 2,
+							"scale": false
+						}
+					]
+				},
+				{
 					"id": "LeatherGloves",
 					"active": true,
 					"type": 4,
@@ -10314,8 +11120,8 @@
 					"category": "Gloves",
 					"properties": [
 						{
-							"base": 50,
-							"increment": 25,
+							"base": 30,
+							"increment": 20,
 							"type": 2,
 							"stat": "proj_speed",
 							"op": 1,
@@ -10484,6 +11290,31 @@
 					]
 				},
 				{
+					"id": "TrickReach",
+					"active": true,
+					"name": "Trick Reach",
+					"type": 4,
+					"category": "Gloves",
+					"icon": "trick_reach",
+					"description": "Your attacks have more range.",
+					"flavor": "A clever design, perhaps wasted in its utility.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "attack_range",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 10,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
 					"id": "MageGloves",
 					"active": true,
 					"type": 4,
@@ -10622,6 +11453,101 @@
 							"valence": 0,
 							"base": 5,
 							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "VicarWraps",
+					"active": true,
+					"name": "Vicar Wraps",
+					"type": 4,
+					"category": "Gloves",
+					"icon": "vicar_wraps",
+					"description": "With higher hope, you deal more damage.",
+					"flavor": "Is killing a sin? It depends who you kill.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "hope_damage_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 10,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "LeadenWeights",
+					"active": true,
+					"name": "Leaden Weights",
+					"type": 4,
+					"category": "Gauntlets",
+					"icon": "leaden_weights",
+					"description": "You attack slower, but deal more damage.",
+					"flavor": "Think before you act. But don't think too hard.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "attack_rate_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": -30,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "damage_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": 40,
+							"increment": 30,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "Gomjabar",
+					"active": true,
+					"name": "Gomjabar",
+					"type": 4,
+					"category": "Gloves",
+					"icon": "gomjabar",
+					"description": "Your critical hit chance is massively increased, while your base damage is reduced.",
+					"flavor": "It only kills animals.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "crit_chance",
+							"mode": 0,
+							"valence": 0,
+							"base": 100,
+							"increment": 30,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "damage_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": -50,
+							"increment": 0,
 							"type": 2,
 							"scale": false,
 							"op": 1
@@ -11055,7 +11981,7 @@
 					"icon": "running_shoes",
 					"name": "Messenger's Shoes",
 					"category": "Shoes",
-					"description": "Provides no defense, but slightly increases movement speed.",
+					"description": "Slightly increases movement speed.",
 					"flavor": "The soles provide extra traction, allowing a quicker pace.",
 					"rarity": 0,
 					"properties": [
@@ -11235,6 +12161,31 @@
 							"op": 1,
 							"scale": false,
 							"mode": 0
+						}
+					]
+				},
+				{
+					"id": "PatientSlippers",
+					"active": true,
+					"name": "Patient Slippers",
+					"type": 5,
+					"category": "Shoes",
+					"icon": "patient_slippers",
+					"description": "Healing is more effective.",
+					"flavor": "The medicine only works if you want it to.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "heal_effect",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
 						}
 					]
 				},
@@ -11430,6 +12381,56 @@
 							"type": 2,
 							"scale": false,
 							"op": 1
+						}
+					]
+				},
+				{
+					"id": "WadingBoots",
+					"active": true,
+					"name": "Wading Boots",
+					"type": 5,
+					"category": "Boots",
+					"icon": "wading_boots",
+					"description": "Potions are much more likely to drop.",
+					"flavor": "Wade in, root around, see what you find.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "potion_drop_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 100,
+							"increment": 30,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "DesertTramps",
+					"active": true,
+					"name": "Desert Tramps",
+					"type": 5,
+					"category": "Boots",
+					"icon": "desert_tramps",
+					"description": "Burning lasts an excruciating long time.",
+					"flavor": "In every direction, heat.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "burning_duration",
+							"mode": 0,
+							"valence": 0,
+							"base": 300,
+							"increment": 100,
+							"type": 2,
+							"scale": false,
+							"op": 0
 						}
 					]
 				},
@@ -11859,6 +12860,116 @@
 					"power_cost": 0
 				},
 				{
+					"id": "BloodyGrit",
+					"active": true,
+					"name": "Bloody Grit",
+					"type": 5,
+					"category": "Boots",
+					"icon": "bloody_grit",
+					"description": "The lower your health, the more damage you do.",
+					"flavor": "You never know the truth of a mans soul until he's desperate.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 3,
+					"properties": [
+						{
+							"stat": "health_damage_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": 30,
+							"increment": 30,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "Moondancers",
+					"active": true,
+					"name": "Moondancers",
+					"type": 5,
+					"category": "Shoes",
+					"icon": "moondancers",
+					"description": "You deal far more damage to Moonlit enemies.",
+					"flavor": "The shadow of our soul is only visible at night.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 3,
+					"properties": [
+						{
+							"stat": "moonlit_damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 40,
+							"increment": 40,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "FormationGuards",
+					"active": true,
+					"name": "Formation Guards",
+					"type": 5,
+					"category": "Boots",
+					"icon": "formation_guards",
+					"description": "You have increased mobility while blocking.",
+					"flavor": "In its time, the formation was at the forefront of military technology.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 3,
+					"properties": [
+						{
+							"stat": "block_mobility",
+							"mode": 0,
+							"valence": 0,
+							"base": 12,
+							"increment": 3,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "Quicksteppers",
+					"active": true,
+					"name": "Quicksteppers",
+					"type": 5,
+					"category": "Shoes",
+					"icon": "quicksteppers",
+					"description": "Your roll is replaced with a quick dash.",
+					"flavor": "Somersaulting too often hurts. Good footwork does not.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 3,
+					"properties": [
+						{
+							"stat": "roll_length",
+							"mode": 0,
+							"valence": 0,
+							"base": -40,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "roll_speed",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 10,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
 					"id": "MerchantBoots",
 					"active": true,
 					"name": "Merchant's Shoes",
@@ -11995,7 +13106,7 @@
 							"base": 5,
 							"increment": 5,
 							"type": 0,
-							"stat": "end_level_health",
+							"stat": "health_per_level",
 							"op": 1,
 							"scale": false,
 							"mode": 0
@@ -12027,6 +13138,91 @@
 						}
 					],
 					"power_cost": 0
+				},
+				{
+					"id": "GuidingSpirit",
+					"active": true,
+					"name": "Guiding Spirit",
+					"type": 6,
+					"category": "Amulet",
+					"icon": "guiding_spirit",
+					"description": "You are more likely to deliver a critical hit.",
+					"flavor": "Listen before you speak, and speak with power.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "crit_chance",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 10,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "DevilSpirit",
+					"active": true,
+					"name": "Devilish Spirit",
+					"type": 6,
+					"category": "Amulet",
+					"icon": "devil_spirit",
+					"description": "You deal slightly more damage.",
+					"flavor": "Joy in inflicting pain.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "damage_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "SilverLocket",
+					"active": true,
+					"name": "Silver Locket",
+					"type": 6,
+					"category": "Amulet",
+					"icon": "silver_locket",
+					"description": "Your attacks can electrify enemy, and the electrified status is more effective.",
+					"flavor": "The electrical and spiritual world can only be understood through metaphor.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "shock_strike",
+							"mode": 0,
+							"valence": 0,
+							"base": 6,
+							"increment": 4,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "electrified_effect",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 4,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						}
+					]
 				},
 				{
 					"id": "HealthAmulet",
@@ -12092,11 +13288,11 @@
 					"id": "SeersAmulet",
 					"active": true,
 					"type": 6,
-					"icon": "stoic",
+					"icon": "seers",
 					"name": "Seer's Amulet",
 					"category": "Amulet",
 					"description": "Your attacks have much more range.",
-					"flavor": "A smooth ancient stone, unchanged for a thousand generations.",
+					"flavor": "The eye only sees a fraction of the truth.",
 					"rarity": 1,
 					"properties": [
 						{
@@ -12112,6 +13308,41 @@
 					],
 					"anim_set": "",
 					"power_cost": 0
+				},
+				{
+					"id": "StoicAmulet",
+					"active": true,
+					"name": "Stoic Amulet",
+					"type": 6,
+					"category": "Amulet",
+					"icon": "stoic",
+					"description": "You have much more pose, and your poise recovers faster.",
+					"flavor": "A smooth ancient stone, unchanged for a thousand generations.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "poise_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 20,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "poise_recovery_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 10,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
 				},
 				{
 					"id": "ExtinctionAmulet",
@@ -12133,6 +13364,101 @@
 							"base": 1,
 							"increment": 1,
 							"type": 0,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "RuthlessSymbol",
+					"active": true,
+					"name": "Ruthless Symbol",
+					"type": 6,
+					"category": "Amulet",
+					"icon": "ruthless_symbol",
+					"description": "When you knock an enemy into a wall, they take damage.",
+					"flavor": "Its vulgarity shatters the illusion of civility.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "knockback_damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 20,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "WindPendant",
+					"active": true,
+					"name": "Wind Pendant",
+					"type": 6,
+					"category": "Amulet",
+					"icon": "wind_pendant",
+					"description": "Your projectiles move faster.",
+					"flavor": "The wise man follows the wind.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "proj_speed",
+							"mode": 0,
+							"valence": 0,
+							"base": 30,
+							"increment": 30,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "HuntersBroach",
+					"active": true,
+					"name": "Hunter's Broach",
+					"type": 6,
+					"category": "Amulet",
+					"icon": "hunters_broach",
+					"description": "Your range and crit chance are increased, but you do less damage to nearby enemies.",
+					"flavor": "The predator gives meaning to the prey.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "attack_range",
+							"mode": 0,
+							"valence": 0,
+							"base": 40,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "crit_chance",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 3,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "nearby_damage_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": -80,
+							"increment": 0,
+							"type": 2,
 							"scale": false,
 							"op": 1
 						}
@@ -12354,6 +13680,81 @@
 					]
 				},
 				{
+					"id": "SinCleanser",
+					"active": true,
+					"name": "Sin Cleanser",
+					"type": 6,
+					"category": "Amulet",
+					"icon": "sin_cleanser",
+					"description": "When you hit a burning enemy, they are hit with a meteor..",
+					"flavor": "There is only one way to purify sin.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "meteor_call_damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 20,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "MoonfrostAmulet",
+					"active": true,
+					"name": "Moonfrost Amulet",
+					"type": 6,
+					"category": "Amulet",
+					"icon": "moonfrost_amulet",
+					"description": "Freezing is vastly more effective on Moonlit enemies.",
+					"flavor": "The world is not promised a Sunrise.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "moonfrost_effect",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 10,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "SunscorchAmulet",
+					"active": true,
+					"name": "Sunscorch Amulet",
+					"type": 6,
+					"category": "Amulet",
+					"icon": "sunscorch_amulet",
+					"description": "Burning is vastly more effective on Sunlit enemies.",
+					"flavor": "The world is not promised a Sunset.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "sunscorch_effect",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 10,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
 					"id": "ElementalWhirlwind",
 					"type": 6,
 					"icon": "whirlwind",
@@ -12557,11 +13958,11 @@
 							"stat": "damage_mod",
 							"mode": 0,
 							"valence": 2,
-							"base": 40,
+							"base": -60,
 							"increment": 4,
 							"type": 2,
 							"scale": false,
-							"op": 0
+							"op": 1
 						}
 					],
 					"active": true,
@@ -12600,6 +14001,31 @@
 							"stat": "potion_gobbler",
 							"op": 2,
 							"mode": 0
+						}
+					]
+				},
+				{
+					"id": "PotentStone",
+					"active": true,
+					"name": "Potentcy Stone",
+					"type": 6,
+					"category": "Amulet",
+					"icon": "potent_stone",
+					"description": "Passive projectile emissions do more damage.",
+					"flavor": "Seeking more potent emissions is nothing new.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 3,
+					"properties": [
+						{
+							"stat": "emission_effect",
+							"mode": 0,
+							"valence": 0,
+							"base": 12,
+							"increment": 12,
+							"type": 2,
+							"scale": false,
+							"op": 1
 						}
 					]
 				},
@@ -12825,7 +14251,7 @@
 					"type": 7,
 					"category": "Book",
 					"icon": "lullaby",
-					"description": "Gain Hope when starting a level.",
+					"description": "Gain Hope when completing a level.",
 					"flavor": "A new life is all potential, and potential is hope.",
 					"anim_set": "",
 					"rarity": 0,
@@ -12863,6 +14289,66 @@
 							"base": 1,
 							"increment": 1,
 							"type": 1,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "FoolCard",
+					"active": true,
+					"name": "The Fool Card",
+					"type": 7,
+					"category": "Book",
+					"icon": "tarot",
+					"description": "Evading an attack knocks the attacker back.",
+					"flavor": "If you come at the Fool, it's best to miss.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "evade_knockback",
+							"mode": 0,
+							"valence": 0,
+							"base": 80,
+							"increment": 20,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "WarChant",
+					"active": true,
+					"name": "War Chant",
+					"type": 7,
+					"category": "Book",
+					"icon": "war_chant",
+					"description": "You do more poise damage, knocking back enemies, and they are knocked back farther.",
+					"flavor": "Powerful words are simple.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "attack_poise_damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 20,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "knockback",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 20,
+							"type": 0,
 							"scale": false,
 							"op": 1
 						}
@@ -13059,6 +14545,31 @@
 					]
 				},
 				{
+					"id": "MoonchildRites",
+					"active": true,
+					"name": "Moonchild's Rites",
+					"type": 7,
+					"category": "Book",
+					"icon": "moonchild_rites",
+					"description": "When an enemy becomes Moonlit, a Blizzard is created.",
+					"flavor": "The Children of the Moon pray for a night that never ends.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "moonlit_blizzard",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 10,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
 					"id": "Makar",
 					"active": true,
 					"type": 7,
@@ -13190,7 +14701,7 @@
 					"type": 7,
 					"category": "Book",
 					"icon": "yadomejutsu",
-					"description": "Your attacks reflect projectiles.",
+					"description": "Your melee attacks reflect projectiles.",
 					"flavor": "Turnabout is fair play.",
 					"anim_set": "",
 					"power_cost": 0,
@@ -13228,6 +14739,56 @@
 							"base": 1,
 							"increment": 1,
 							"type": 1,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "SandScript",
+					"active": true,
+					"name": "Sand Script",
+					"type": 7,
+					"category": "Book",
+					"icon": "sand_script",
+					"description": "Burning applies more frequently.",
+					"flavor": "The language is lost, but the meaning lives on.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "burning_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 30,
+							"increment": 30,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "VulgarScrawl",
+					"active": true,
+					"name": "Vulgar Scrawl",
+					"type": 7,
+					"category": "Book",
+					"icon": "vulgar_scrawl",
+					"description": "When you break an enemies poise, they explode.",
+					"flavor": "Crude and repulsive.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "knockback_explosion",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 20,
+							"type": 2,
 							"scale": false,
 							"op": 1
 						}
@@ -13394,6 +14955,131 @@
 					]
 				},
 				{
+					"id": "SunseekerPsalm",
+					"active": true,
+					"name": "Sunseeker's Psalm",
+					"type": 7,
+					"category": "Book",
+					"icon": "sunseeker",
+					"description": "Inflicting the Sunlit condition removes a percentage of an enemies health.",
+					"flavor": "The Sun reveals the true half of us, and burns the false half.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 3,
+					"properties": [
+						{
+							"stat": "sunlit_burn",
+							"mode": 0,
+							"valence": 0,
+							"base": 30,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "LastPrinciples",
+					"active": true,
+					"name": "Last Principles",
+					"type": 7,
+					"category": "Book",
+					"icon": "last_principles",
+					"description": "Provides a strange mixture of benefits.",
+					"flavor": "A strange fragment of writing, whose profound wisdom seems just out of reach.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 3,
+					"properties": [
+						{
+							"stat": "ice_strike",
+							"mode": 0,
+							"valence": 0,
+							"base": 5,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "burning_damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 5,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "electrified_effect",
+							"mode": 0,
+							"valence": 0,
+							"base": 5,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "crit_damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 30,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "roll_cooldown",
+							"mode": 0,
+							"valence": 0,
+							"base": -5,
+							"increment": -5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "speed_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": 5,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "VladsGrimoire",
+					"active": true,
+					"name": "Vlad's Grimoire",
+					"type": 7,
+					"category": "Book",
+					"icon": "vlad_grimoire",
+					"description": "Health can be used to perform power moves.",
+					"flavor": "Health is power. You just didn't know how to use it until now.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 3,
+					"properties": [
+						{
+							"stat": "health_to_power",
+							"mode": 0,
+							"valence": 1,
+							"base": 100,
+							"increment": -5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
 					"id": "CraftsmanBlueprints",
 					"active": true,
 					"name": "Craftsman's Blueprints",
@@ -13530,7 +15216,7 @@
 					"type": 8,
 					"category": "Rune",
 					"icon": "rune_lizard",
-					"description": "While sitting in your inventory, burning does more damage.",
+					"description": "While this is in your inventory, burning does more damage.",
 					"flavor": "The mark left by a hot iron.",
 					"anim_set": "",
 					"rarity": 2,
@@ -13555,7 +15241,7 @@
 					"type": 8,
 					"category": "Rune",
 					"icon": "rune_wolf",
-					"description": "While sitting in your inventory, freeze slows enemies more.",
+					"description": "While this is in your inventory, freeze slows enemies more.",
 					"flavor": "Drawn with blue ink under the skin.",
 					"anim_set": "",
 					"rarity": 2,
@@ -13580,7 +15266,7 @@
 					"type": 8,
 					"category": "Rune",
 					"icon": "rune_hawk",
-					"description": "While sitting in your inventory, electrified causes more damage.",
+					"description": "While this is in your inventory, electrified causes more damage.",
 					"flavor": "Honoring those who have freed themselves from this world.",
 					"anim_set": "",
 					"rarity": 2,
@@ -13605,7 +15291,7 @@
 					"icon": "rune_horse",
 					"name": "Rune of the Horse",
 					"category": "Rune",
-					"description": "While this is sitting in your inventory, you move faster.",
+					"description": "While this is in your inventory, you move faster.",
 					"flavor": "Relic of the forebearers, the men who tamed horses.",
 					"rarity": 2,
 					"properties": [
@@ -13624,13 +15310,113 @@
 					"power_cost": 0
 				},
 				{
+					"id": "EagleTalon",
+					"active": true,
+					"name": "Eagle Talon",
+					"type": 8,
+					"category": "Rune",
+					"icon": "eagle_talon",
+					"description": "While this is in your inventory, your visibility is increased.",
+					"flavor": "Light and sharp.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "visibility_bonus",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 2,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "MagiciteChunk",
+					"active": true,
+					"name": "Magicite Chunk",
+					"type": 8,
+					"category": "Rune",
+					"icon": "magicite_chunk",
+					"description": "While this is in your inventory, your barrier regenerates quicker.",
+					"flavor": "Once more valuable than life itself.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "barrier_regen",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 4,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "SharkTooth",
+					"active": true,
+					"name": "Shark Tooth",
+					"type": 8,
+					"category": "Rune",
+					"icon": "shark_tooth",
+					"description": "While this is in your inventory, you do more damage while moving.",
+					"flavor": "We move to hunt, we hunt to live.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "moving_damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 5,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "SlugRune",
+					"active": true,
+					"name": "Rune of the Slug",
+					"type": 8,
+					"category": "Rune",
+					"icon": "rune_slug",
+					"description": "While sitting in your inventory, potions are more effective.",
+					"flavor": "Lowly but vital.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"valence": 1,
+							"base": 5,
+							"increment": 1,
+							"type": 2,
+							"scale": false,
+							"stat": "potion_effect",
+							"op": 1,
+							"mode": 0
+						}
+					]
+				},
+				{
 					"id": "WormRune",
 					"active": true,
 					"type": 8,
 					"icon": "rune_worm",
 					"name": "Rune of the Worm",
 					"category": "Rune",
-					"description": "While this is sitting in your inventory, you steal a small amount of health from enemies.",
+					"description": "While this is in your inventory, you steal a small amount of health from enemies.",
 					"flavor": "Beneath notice, quietly rejuvenating the world.",
 					"rarity": 3,
 					"properties": [
@@ -13655,7 +15441,7 @@
 					"icon": "rune_boar",
 					"name": "Rune of the Boar",
 					"category": "Rune",
-					"description": "While this is sitting in your inventory, you do more damage.",
+					"description": "While this is in your inventory, you do more damage.",
 					"flavor": "Giver and taker of life, full of masculine vitality.",
 					"rarity": 3,
 					"properties": [
@@ -13680,7 +15466,7 @@
 					"icon": "rune_snake",
 					"name": "Rune of the Snake",
 					"category": "Rune",
-					"description": "While this is sitting in your inventory, you attack faster.",
+					"description": "While this is in your inventory, you attack faster.",
 					"flavor": "The most ancient foe of man. We have not forgotten his many forms.",
 					"rarity": 3,
 					"properties": [
@@ -13705,7 +15491,7 @@
 					"type": 8,
 					"category": "Rune",
 					"icon": "rune_sparrow",
-					"description": "While this is sitting in your inventory, you gain more Hope.",
+					"description": "While this is in your inventory, you gain more Hope.",
 					"flavor": "A hint of the freedom of a sparrow, in your pocket.",
 					"anim_set": "",
 					"rarity": 3,
@@ -13730,7 +15516,7 @@
 					"type": 8,
 					"category": "Rune",
 					"icon": "chemical",
-					"description": "While this is sitting in your inventory, potions are more effective, but don't last as long.",
+					"description": "While this is in your inventory, potions are more effective, but don't last as long.",
 					"flavor": "A flame that burns twice as bright lasts one fifth as long.",
 					"anim_set": "",
 					"power_cost": 0,
@@ -13765,7 +15551,7 @@
 					"type": 8,
 					"category": "Rune",
 					"icon": "carved_crystal",
-					"description": "While this is sitting in your inventory, blessings are more effective.",
+					"description": "While this is in your inventory, blessings are more effective.",
 					"flavor": "Man cannot create beauty. Only discover it.",
 					"anim_set": "",
 					"power_cost": 0,
@@ -13790,7 +15576,7 @@
 					"type": 8,
 					"category": "Rune",
 					"icon": "underwood",
-					"description": "Your health constantly drains, but you steal health.",
+					"description": "While this is in your inventory, your health constantly drains, but you steal health.",
 					"flavor": "It just runs in their blood.",
 					"anim_set": "",
 					"power_cost": 0,
@@ -13819,13 +15605,38 @@
 					]
 				},
 				{
+					"id": "ChunkAmber",
+					"active": true,
+					"name": "Chunk of Amber",
+					"type": 8,
+					"category": "Rune",
+					"icon": "chunk_amber",
+					"description": "While this is in your inventory, your power moves cost less.",
+					"flavor": "The effects of the past don't fade, they just transform.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 3,
+					"properties": [
+						{
+							"stat": "power_cost",
+							"mode": 0,
+							"valence": 0,
+							"base": -5,
+							"increment": -2,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
 					"id": "RunePhoenix",
 					"active": true,
 					"name": "Rune of the Phoenix",
 					"type": 8,
 					"category": "Rune",
 					"icon": "rune_phoenix",
-					"description": "While sitting in your inventory, you are resurrected upon death. However, this rune will be destroyed in the process.",
+					"description": "While this is in your inventory, you are resurrected upon death. However, this rune will be destroyed in the process.",
 					"flavor": "Life is a dream you are perpetually waking from.",
 					"anim_set": "",
 					"power_cost": 0,
@@ -13839,7 +15650,7 @@
 					"type": 8,
 					"category": "Rune",
 					"icon": "wretch_memento",
-					"description": "While in your inventory, you lose fewer Coins upon dying.",
+					"description": "While this is in your inventory, you lose fewer Coins upon dying.",
 					"flavor": "To live is to let yourself fail.",
 					"anim_set": "",
 					"power_cost": 0,
@@ -13864,7 +15675,7 @@
 					"type": 8,
 					"category": "Rune",
 					"icon": "wishing_well",
-					"description": "While sitting in your inventory, increases the levels of items you find.",
+					"description": "While this is in your inventory, increases the levels of items you find.",
 					"flavor": "Wish, but never wish for too much.",
 					"anim_set": "",
 					"power_cost": 0,
@@ -13889,14 +15700,14 @@
 					"type": 8,
 					"category": "Rune",
 					"icon": "rune_ass",
-					"description": "Gain a small amount of health upon completing a level.",
+					"description": "While this is in your inventory, a small amount of health upon completing a level.",
 					"flavor": "If you're not good, you damn sure better be persistent.",
 					"anim_set": "",
 					"power_cost": 0,
 					"rarity": 4,
 					"properties": [
 						{
-							"stat": "end_level_health",
+							"stat": "health_per_level",
 							"mode": 0,
 							"valence": 1,
 							"base": 1,
@@ -13914,7 +15725,7 @@
 					"type": 8,
 					"category": "Rune",
 					"icon": "tessera",
-					"description": "While sitting in your inventory, you are more mobile while blocking.",
+					"description": "While this is in your inventory, you are more mobile while blocking.",
 					"flavor": "Our deeds are not judged, merely recorded.",
 					"anim_set": "",
 					"power_cost": 0,
@@ -18164,31 +19975,6 @@
 					]
 				},
 				{
-					"id": "SlugRune",
-					"active": false,
-					"name": "Rune of the Slug",
-					"type": 8,
-					"category": "Rune",
-					"icon": "rune_slug",
-					"description": "While sitting in your inventory, potions are more effective.",
-					"flavor": "Lowly but vital.",
-					"anim_set": "",
-					"power_cost": 0,
-					"rarity": 0,
-					"properties": [
-						{
-							"valence": 1,
-							"base": 5,
-							"increment": 0.1,
-							"type": 2,
-							"scale": false,
-							"stat": "potion_effect",
-							"op": 1,
-							"mode": 0
-						}
-					]
-				},
-				{
 					"id": "BeetleRune",
 					"active": false,
 					"name": "Rune of the Beetle",
@@ -18344,11 +20130,11 @@
 					"title": "Level 6",
 					"id": "LaserStaff"
 				},
-				23,
-				35,
-				38,
-				271,
-				430
+				24,
+				36,
+				39,
+				303,
+				479
 			],
 			"props": {
 				"displayColumn": "name"
@@ -18762,6 +20548,89 @@
 					"sound": "attack_chopper",
 					"hit_sound": "attack_club_hit",
 					"shape": 0
+				},
+				{
+					"name": "razor_fan",
+					"anim": "unarmed/attack1",
+					"effect_anim": "attack_stab1",
+					"time": 0.08,
+					"size": 12,
+					"shape": 0,
+					"nudge": 20,
+					"knockback": 20,
+					"poise_damage": 1,
+					"start_angle": -60,
+					"end_angle": 90,
+					"start_offset": 5,
+					"end_offset": 40,
+					"sound": "attack_dagger",
+					"hit_sound": "attack_sword_hit"
+				},
+				{
+					"name": "lantern",
+					"anim": "unarmed/attack1",
+					"effect_anim": "",
+					"time": 0,
+					"size": 0,
+					"shape": 0,
+					"nudge": 0,
+					"knockback": 0,
+					"poise_damage": 0,
+					"start_angle": 0,
+					"end_angle": 0,
+					"start_offset": 0,
+					"end_offset": 0
+				},
+				{
+					"name": "flopper1",
+					"anim": "unarmed/attack1",
+					"effect_anim": "flopper",
+					"time": 0.6,
+					"size": 20,
+					"shape": 0,
+					"nudge": 30,
+					"knockback": 200,
+					"poise_damage": 2,
+					"start_angle": -90,
+					"end_angle": 90,
+					"start_offset": 40,
+					"end_offset": 80,
+					"sound": "attack_club",
+					"hit_sound": "attack_club_hit"
+				},
+				{
+					"name": "flopper2",
+					"anim": "unarmed/attack1",
+					"effect_anim": "flopper",
+					"time": 0.6,
+					"size": 20,
+					"shape": 0,
+					"nudge": 30,
+					"knockback": 200,
+					"poise_damage": 2,
+					"start_angle": 90,
+					"end_angle": -90,
+					"start_offset": 40,
+					"end_offset": 80,
+					"sound": "attack_club",
+					"hit_sound": "attack_club_hit"
+				},
+				{
+					"name": "flopper_spin",
+					"anim": "unarmed/attack1",
+					"effect_anim": "flopper",
+					"time": 0.6,
+					"size": 20,
+					"shape": 0,
+					"nudge": 30,
+					"knockback": 200,
+					"poise_damage": 2,
+					"start_angle": -180,
+					"end_angle": 900,
+					"start_offset": 40,
+					"end_offset": 80,
+					"sound": "attack_club",
+					"hit_sound": "attack_club_hit"
 				},
 				{
 					"name": "sword1",
@@ -20101,10 +21970,10 @@
 			],
 			"separators": [
 				3,
-				20,
-				52,
-				64,
-				74
+				25,
+				57,
+				69,
+				79
 			],
 			"props": {
 				"separatorTitles": [
@@ -20730,6 +22599,25 @@
 					"trail": "EnergyTrail",
 					"explosion": "EnergyBits",
 					"sound": "proj_energy"
+				},
+				{
+					"id": "Sunbit",
+					"speed": 80,
+					"size": 1,
+					"range": 60,
+					"arc_segments": 27,
+					"knockback": 0,
+					"poise_damage": 0.2,
+					"moves": true,
+					"vel_align": false,
+					"pierces": true,
+					"layer": 0,
+					"loops": true,
+					"offset": 5,
+					"damage_type": "Sun",
+					"anim": "firebit",
+					"trail": "Trail",
+					"explosion": "TrailBurst"
 				},
 				{
 					"id": "Boomerang",
@@ -21411,8 +23299,8 @@
 			"separators": [
 				0,
 				7,
-				28,
-				36
+				29,
+				37
 			],
 			"props": {
 				"separatorTitles": [
@@ -21486,7 +23374,8 @@
 						{
 							"anim": "",
 							"wide": false,
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 0
 						}
 					],
 					"stat": [],
@@ -21505,7 +23394,8 @@
 					"visual": [
 						{
 							"anim": "",
-							"wide": false
+							"wide": false,
+							"body_type": 3
 						}
 					],
 					"stat": [],
@@ -21526,7 +23416,8 @@
 					"visual": [
 						{
 							"anim": "guardian_despair",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -21555,7 +23446,8 @@
 					"visual": [
 						{
 							"anim": "guardian_arrogance",
-							"wide": false
+							"wide": false,
+							"body_type": 2
 						}
 					],
 					"value": 10,
@@ -21617,7 +23509,8 @@
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"value": 0.8,
@@ -21664,7 +23557,8 @@
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"value": 1,
@@ -21706,7 +23600,8 @@
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"value": 2,
@@ -21747,7 +23642,8 @@
 							"anim": "draugur_magi",
 							"hit_sound": "enemy_draugur_hit",
 							"wide": false,
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"value": 3,
@@ -21789,7 +23685,8 @@
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 2
 						}
 					],
 					"value": 4,
@@ -21833,7 +23730,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -21878,7 +23776,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -21917,7 +23816,8 @@
 					"visual": [
 						{
 							"anim": "",
-							"wide": true
+							"wide": true,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -21948,7 +23848,8 @@
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 2
 						}
 					],
 					"stat": [
@@ -21990,7 +23891,8 @@
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 2
 						}
 					],
 					"stat": [
@@ -22030,7 +23932,8 @@
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_hound_die",
 							"wide": true,
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22077,7 +23980,8 @@
 							"wide": false,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22131,7 +24035,8 @@
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22173,7 +24078,8 @@
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22215,7 +24121,8 @@
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22262,7 +24169,8 @@
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 2
 						}
 					],
 					"stat": [
@@ -22313,7 +24221,8 @@
 							"wide": false,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_cretin_die",
-							"hit_emitter": "CretinBlood"
+							"hit_emitter": "CretinBlood",
+							"body_type": 2
 						}
 					],
 					"stat": [
@@ -22355,7 +24264,8 @@
 							"wide": false,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_cretin_die",
-							"hit_emitter": "CretinBlood"
+							"hit_emitter": "CretinBlood",
+							"body_type": 1
 						}
 					],
 					"stat": [
@@ -22405,7 +24315,8 @@
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_cretin_die",
 							"wide": false,
-							"hit_emitter": "CretinBlood"
+							"hit_emitter": "CretinBlood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22457,7 +24368,8 @@
 							"wide": false,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_cretin_die",
-							"hit_emitter": "CretinBlood"
+							"hit_emitter": "CretinBlood",
+							"body_type": 2
 						}
 					],
 					"stat": [
@@ -22507,7 +24419,8 @@
 							"wide": false,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_cretin_die",
-							"hit_emitter": "CretinBlood"
+							"hit_emitter": "CretinBlood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22558,7 +24471,8 @@
 							"wide": false,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_cretin_die",
-							"hit_emitter": "CretinBlood"
+							"hit_emitter": "CretinBlood",
+							"body_type": 1
 						}
 					],
 					"stat": [
@@ -22604,7 +24518,8 @@
 							"wide": false,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_cretin_die",
-							"hit_emitter": "CretinBlood"
+							"hit_emitter": "CretinBlood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22650,7 +24565,8 @@
 							"wide": false,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_cretin_die",
-							"hit_emitter": "CretinBlood"
+							"hit_emitter": "CretinBlood",
+							"body_type": 2
 						}
 					],
 					"stat": [
@@ -22726,7 +24642,8 @@
 					"visual": [
 						{
 							"anim": "guardian_greed",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22782,7 +24699,8 @@
 						{
 							"anim": "remnant_honorblade",
 							"wide": false,
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22822,7 +24740,8 @@
 						{
 							"anim": "remnant_protectorate",
 							"wide": false,
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22862,7 +24781,8 @@
 						{
 							"anim": "remnant_deadshot",
 							"wide": false,
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22902,7 +24822,8 @@
 						{
 							"anim": "remnant_soulknight",
 							"wide": false,
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -22940,7 +24861,8 @@
 					"visual": [
 						{
 							"anim": "guardian_ire",
-							"wide": true
+							"wide": true,
+							"body_type": 2
 						}
 					],
 					"stat": [
@@ -22991,7 +24913,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 2
 						}
 					],
 					"stat": [
@@ -23030,7 +24953,8 @@
 							"wide": false,
 							"hit_emitter": "Bones",
 							"hit_sound": "enemy_draugur_hit",
-							"die_sound": "enemy_draugur_die"
+							"die_sound": "enemy_draugur_die",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23079,7 +25003,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23122,7 +25047,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23171,7 +25097,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23214,7 +25141,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23263,7 +25191,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23305,7 +25234,8 @@
 							"wide": false,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_hound_die",
-							"hit_emitter": "CretinBlood"
+							"hit_emitter": "CretinBlood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23347,7 +25277,8 @@
 							"wide": true,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_hound_die",
-							"hit_emitter": "CretinBlood"
+							"hit_emitter": "CretinBlood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23389,7 +25320,8 @@
 							"wide": false,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_hound_die",
-							"hit_emitter": "CretinBlood"
+							"hit_emitter": "CretinBlood",
+							"body_type": 1
 						}
 					],
 					"stat": [
@@ -23426,7 +25358,8 @@
 							"wide": false,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_hound_die",
-							"hit_emitter": "CretinBlood"
+							"hit_emitter": "CretinBlood",
+							"body_type": 2
 						}
 					],
 					"stat": [
@@ -23466,7 +25399,8 @@
 					"visual": [
 						{
 							"anim": "guardian_shame",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23517,7 +25451,8 @@
 							"wide": true,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23563,7 +25498,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "ShadowBlood"
+							"hit_emitter": "ShadowBlood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23609,7 +25545,8 @@
 							"wide": true,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23655,7 +25592,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23701,7 +25639,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "Bones"
+							"hit_emitter": "Bones",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23750,7 +25689,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "LandPuff"
+							"hit_emitter": "LandPuff",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23787,7 +25727,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "LandPuff"
+							"hit_emitter": "LandPuff",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23842,7 +25783,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "LandPuff"
+							"hit_emitter": "LandPuff",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23879,7 +25821,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "LandPuff"
+							"hit_emitter": "LandPuff",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23916,7 +25859,8 @@
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
-							"hit_emitter": "LandPuff"
+							"hit_emitter": "LandPuff",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23946,7 +25890,8 @@
 					"visual": [
 						{
 							"anim": "guardian_fear",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -23983,7 +25928,8 @@
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "DemonBlood"
+							"hit_emitter": "DemonBlood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24025,7 +25971,8 @@
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "DemonBlood"
+							"hit_emitter": "DemonBlood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24067,7 +26014,8 @@
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "DemonBlood"
+							"hit_emitter": "DemonBlood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24110,7 +26058,8 @@
 							"wide": false,
 							"hit_sound": "enemy_innocent_hit",
 							"die_sound": "enemy_innocent_die",
-							"hit_emitter": "DemonBlood"
+							"hit_emitter": "DemonBlood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24151,7 +26100,8 @@
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
 							"wide": false,
-							"hit_emitter": "DemonBlood"
+							"hit_emitter": "DemonBlood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24195,7 +26145,8 @@
 					"visual": [
 						{
 							"anim": "pit_beast",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24233,7 +26184,8 @@
 							"wide": true,
 							"hit_sound": "enemy_spider_hit",
 							"die_sound": "enemy_spider_die",
-							"hit_emitter": "Spiderbits"
+							"hit_emitter": "Spiderbits",
+							"body_type": 1
 						}
 					],
 					"stat": [
@@ -24277,7 +26229,8 @@
 							"wide": true,
 							"hit_sound": "enemy_spider_hit",
 							"die_sound": "enemy_spider_die",
-							"hit_emitter": "Spiderbits"
+							"hit_emitter": "Spiderbits",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24317,7 +26270,8 @@
 							"wide": true,
 							"hit_sound": "enemy_spider_hit",
 							"die_sound": "enemy_spider_die",
-							"hit_emitter": "Spiderbits"
+							"hit_emitter": "Spiderbits",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24363,7 +26317,8 @@
 							"die_sound": "enemy_spider_die",
 							"hit_sound": "enemy_spider_hit",
 							"wide": true,
-							"hit_emitter": "Spiderbits"
+							"hit_emitter": "Spiderbits",
+							"body_type": 1
 						}
 					],
 					"stat": [
@@ -24413,7 +26368,8 @@
 							"hit_sound": "enemy_spider_hit",
 							"die_sound": "enemy_spider_die",
 							"wide": true,
-							"hit_emitter": "Spiderbits"
+							"hit_emitter": "Spiderbits",
+							"body_type": 1
 						}
 					],
 					"stat": [
@@ -24450,7 +26406,8 @@
 							"hit_sound": "enemy_spider_hit",
 							"die_sound": "enemy_spider_die",
 							"wide": true,
-							"hit_emitter": "Spiderbits"
+							"hit_emitter": "Spiderbits",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24492,7 +26449,8 @@
 							"die_sound": "enemy_spider_die",
 							"hit_sound": "enemy_spider_hit",
 							"wide": true,
-							"hit_emitter": "Spiderbits"
+							"hit_emitter": "Spiderbits",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24539,7 +26497,8 @@
 							"hit_sound": "enemy_spider_hit",
 							"die_sound": "enemy_spider_die",
 							"wide": true,
-							"hit_emitter": "Spiderbits"
+							"hit_emitter": "Spiderbits",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24575,7 +26534,8 @@
 					"visual": [
 						{
 							"anim": "npc_alchemist",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24598,7 +26558,8 @@
 					"visual": [
 						{
 							"anim": "npc_merchant",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"value": 0,
@@ -24623,7 +26584,8 @@
 					"visual": [
 						{
 							"anim": "npc_craftsman",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24647,7 +26609,8 @@
 					"visual": [
 						{
 							"anim": "npc_harlot",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24670,7 +26633,8 @@
 					"visual": [
 						{
 							"anim": "npc_coward",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"value": 0,
@@ -24695,7 +26659,8 @@
 					"visual": [
 						{
 							"anim": "npc_wretch",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24719,7 +26684,8 @@
 					"visual": [
 						{
 							"anim": "npc_gardener",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24743,7 +26709,8 @@
 					"visual": [
 						{
 							"anim": "npc_mystic",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24767,7 +26734,8 @@
 					"visual": [
 						{
 							"anim": "npc_cynic",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24790,7 +26758,8 @@
 					"visual": [
 						{
 							"anim": "npc_judge",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"value": 0,
@@ -24815,7 +26784,8 @@
 					"visual": [
 						{
 							"anim": "npc_treasure_cat",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24842,7 +26812,8 @@
 					"visual": [
 						{
 							"anim": "npc_weeping_goddess",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24866,7 +26837,8 @@
 					"visual": [
 						{
 							"anim": "npc_wraith",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24894,7 +26866,8 @@
 							"wide": true,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_cretin_die",
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24923,7 +26896,8 @@
 					"visual": [
 						{
 							"anim": "npc_brewster",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24947,7 +26921,8 @@
 					"visual": [
 						{
 							"anim": "npc_crusader",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24971,7 +26946,8 @@
 					"visual": [
 						{
 							"anim": "npc_destitute",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -24995,7 +26971,8 @@
 					"visual": [
 						{
 							"anim": "npc_flameseeker",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -25019,7 +26996,8 @@
 					"visual": [
 						{
 							"anim": "npc_seraph",
-							"wide": true
+							"wide": true,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -25040,7 +27018,8 @@
 					"visual": [
 						{
 							"anim": "npc_innocent",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -25074,7 +27053,8 @@
 					"visual": [
 						{
 							"anim": "hornslack_guard",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -25139,7 +27119,8 @@
 							"wide": true,
 							"hit_sound": "enemy_cretin_hit",
 							"die_sound": "enemy_hound_die",
-							"hit_emitter": "Blood"
+							"hit_emitter": "Blood",
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -25188,7 +27169,8 @@
 					"visual": [
 						{
 							"anim": "npc_outlander",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -25247,7 +27229,8 @@
 					"visual": [
 						{
 							"anim": "npc_vagrant",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -25306,7 +27289,8 @@
 					"visual": [
 						{
 							"anim": "npc_drifter",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -25365,7 +27349,8 @@
 					"visual": [
 						{
 							"anim": "npc_destitute",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -25399,7 +27384,8 @@
 					"visual": [
 						{
 							"anim": "hornslack_guard",
-							"wide": false
+							"wide": false,
+							"body_type": 0
 						}
 					],
 					"stat": [
@@ -33295,6 +35281,10 @@
 					"typeStr": "2",
 					"name": "wide",
 					"display": null
+				},
+				{
+					"typeStr": "5:Medium,Small,Large,None",
+					"name": "body_type"
 				}
 			]
 		},
