@@ -1,9 +1,10 @@
 {
   "apiUrl": "https://intothenecrovale.wiki.gg/api.php",
-      "protocol": "https",  
-      "server": "intothenecrovale.wiki.gg",
-      "path": "/",
-      "debug": false,
-      "userAgent": "nvwikibot",
-      "concurrency": 5
+  "protocol": "https",  
+  "server": "intothenecrovale.wiki.gg",
+  "path": "/",
+  "debug": false,
+  "userAgent": "nvwikibot",
+  "concurrency": 5,
+  "apiLimit": { "count":90, "period": 60000 }
 }

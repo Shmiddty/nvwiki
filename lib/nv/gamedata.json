@@ -45,7 +45,7 @@
 				{
 					"id": "size",
 					"type": 0,
-					"base": 16,
+					"base": 18,
 					"breakpoint": 0,
 					"bound": 0,
 					"display": "Size",
@@ -1349,7 +1349,7 @@
 				},
 				{
 					"id": "sun_strike",
-					"display": "Sun Strike",
+					"display": "Sunstrike",
 					"type": 0,
 					"display_type": 1,
 					"base": 0,
@@ -1385,7 +1385,7 @@
 				},
 				{
 					"id": "moon_strike",
-					"display": "Moon Strike",
+					"display": "Moonstrike",
 					"type": 0,
 					"display_type": 1,
 					"base": 0,
@@ -1667,6 +1667,15 @@
 					"display": "Potion Guzzler",
 					"type": 2,
 					"display_type": 2,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
+					"id": "spirit_damage",
+					"display": "Spirit Damage",
+					"type": 0,
+					"display_type": 1,
 					"base": 0,
 					"breakpoint": 0,
 					"bound": 0
@@ -7888,6 +7897,86 @@
 					"power_projectile": "Firebit"
 				},
 				{
+					"id": "RainTears",
+					"active": true,
+					"name": "Rain of Tears",
+					"type": 0,
+					"category": "Bow",
+					"icon": "rain_tears",
+					"description": "Call down a rain of arrows.",
+					"flavor": "A dream that grows old becomes a nightmare.",
+					"anim_set": "bow",
+					"power_cost": 5,
+					"rarity": 4,
+					"properties": [
+						{
+							"stat": "damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 4,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "attack_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 15,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "inaccuracy",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "inaccuracy",
+							"mode": 1,
+							"valence": 0,
+							"base": 50,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 2
+						},
+						{
+							"stat": "attack_count",
+							"mode": 1,
+							"valence": 0,
+							"base": 10,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "attack_sequence",
+							"mode": 1,
+							"valence": 0,
+							"base": 10,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						}
+					],
+					"projectile": "AnguishedArrow",
+					"attacks": [
+						{
+							"attack": "bow"
+						}
+					],
+					"power_description": "Carpet an area with arrows."
+				},
+				{
 					"id": "",
 					"active": false,
 					"name": "--- OFHND ---",
@@ -9572,7 +9661,7 @@
 					"category": "Helmet",
 					"icon": "whiteout",
 					"description": "Frozen enemies emit shards of ice, damaging nearby enemies.",
-					"flavor": "",
+					"flavor": "The horrors in the light are greater than those in the dark.",
 					"anim_set": "",
 					"rarity": 3,
 					"properties": [
@@ -9664,6 +9753,31 @@
 						}
 					],
 					"power_attacks": []
+				},
+				{
+					"id": "ReapersHood",
+					"active": true,
+					"name": "Reaper's Hood",
+					"type": 2,
+					"category": "Hood",
+					"icon": "reaper_hood",
+					"description": "Dying enemies release their spirit, seeking other enemies.",
+					"flavor": "The riddle of life is never solved, only set down upon dying.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 4,
+					"properties": [
+						{
+							"stat": "spirit_damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 20,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
 				},
 				{
 					"id": "",
@@ -11555,6 +11669,31 @@
 					]
 				},
 				{
+					"id": "Viperfists",
+					"active": true,
+					"name": "Viperfists",
+					"type": 4,
+					"category": "Gauntlets",
+					"icon": "viperfist",
+					"description": "You attack faster.",
+					"flavor": "The proof of the Viper is in the strike.",
+					"anim_set": "",
+					"rarity": 2,
+					"properties": [
+						{
+							"valence": 1,
+							"base": 30,
+							"increment": 20,
+							"type": 2,
+							"stat": "attack_rate_mod",
+							"op": 1,
+							"scale": false,
+							"mode": 0
+						}
+					],
+					"power_cost": 0
+				},
+				{
 					"id": "MonkeyHide",
 					"type": 4,
 					"icon": "monkey_hide",
@@ -11752,31 +11891,6 @@
 							"increment": 1,
 							"type": 2,
 							"stat": "ice_shatter_chance",
-							"op": 1,
-							"scale": false,
-							"mode": 0
-						}
-					],
-					"power_cost": 0
-				},
-				{
-					"id": "Viperfists",
-					"active": true,
-					"name": "Viperfists",
-					"type": 4,
-					"category": "Gauntlets",
-					"icon": "viperfist",
-					"description": "You attack faster.",
-					"flavor": "The proof of the Viper is in the strike.",
-					"anim_set": "",
-					"rarity": 3,
-					"properties": [
-						{
-							"valence": 1,
-							"base": 30,
-							"increment": 20,
-							"type": 2,
-							"stat": "attack_rate_mod",
 							"op": 1,
 							"scale": false,
 							"mode": 0
@@ -13208,7 +13322,7 @@
 							"valence": 0,
 							"base": 6,
 							"increment": 4,
-							"type": 0,
+							"type": 2,
 							"scale": false,
 							"op": 1
 						},
@@ -13218,7 +13332,7 @@
 							"valence": 0,
 							"base": 20,
 							"increment": 4,
-							"type": 0,
+							"type": 2,
 							"scale": false,
 							"op": 1
 						}
@@ -14007,7 +14121,7 @@
 				{
 					"id": "PotentStone",
 					"active": true,
-					"name": "Potentcy Stone",
+					"name": "Potency Stone",
 					"type": 6,
 					"category": "Amulet",
 					"icon": "potent_stone",
@@ -15326,9 +15440,9 @@
 							"stat": "visibility_bonus",
 							"mode": 0,
 							"valence": 0,
-							"base": 10,
-							"increment": 2,
-							"type": 0,
+							"base": 5,
+							"increment": 1,
+							"type": 2,
 							"scale": false,
 							"op": 1
 						}
@@ -15736,7 +15850,7 @@
 							"mode": 0,
 							"valence": 0,
 							"base": 10,
-							"increment": 2,
+							"increment": 1,
 							"type": 2,
 							"scale": false,
 							"op": 1
@@ -16310,6 +16424,81 @@
 							"mode": 0,
 							"valence": 0,
 							"base": 5,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "BlessingBalor",
+					"active": true,
+					"name": "Blessing of Balor",
+					"type": 11,
+					"category": "Blessing",
+					"icon": "blessing_balor",
+					"description": "You do more damage.",
+					"flavor": "",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 4,
+					"properties": [
+						{
+							"stat": "damage_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": 35,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "BlessingBowen",
+					"active": true,
+					"name": "Blessing of Bowen",
+					"type": 11,
+					"category": "Blessing",
+					"icon": "blessing_bowen",
+					"description": "You evade attacks.",
+					"flavor": "",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 4,
+					"properties": [
+						{
+							"stat": "evasion",
+							"mode": 0,
+							"valence": 0,
+							"base": 35,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "BlessingBran",
+					"active": true,
+					"name": "Blessing of Bran",
+					"type": 11,
+					"category": "Blessing",
+					"icon": "blessing_bran",
+					"description": "You find more embers.",
+					"flavor": "",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 4,
+					"properties": [
+						{
+							"stat": "ember_drop_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 35,
 							"increment": 0,
 							"type": 2,
 							"scale": false,
@@ -17053,6 +17242,54 @@
 					]
 				},
 				{
+					"id": "BrudderAxe",
+					"active": false,
+					"name": "Brudder Axe",
+					"type": 0,
+					"category": "Axe",
+					"icon": "warlord_broom",
+					"description": "",
+					"flavor": "",
+					"anim_set": "sword",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"valence": 0,
+							"base": 5,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"mode": 0,
+							"stat": "damage"
+						},
+						{
+							"valence": 0,
+							"base": 1.5,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"mode": 0,
+							"stat": "attack_rate"
+						},
+						{
+							"valence": 0,
+							"base": 100,
+							"increment": 0,
+							"type": 2,
+							"stat": "attack_poise_damage",
+							"op": 0,
+							"scale": false,
+							"mode": 0
+						}
+					],
+					"attacks": [
+						{
+							"attack": "warlord"
+						}
+					]
+				},
+				{
 					"id": "Belittler",
 					"active": false,
 					"name": "Belittler",
@@ -17066,7 +17303,7 @@
 					"properties": [
 						{
 							"valence": 0,
-							"base": 6,
+							"base": 8,
 							"increment": 0,
 							"type": 0,
 							"scale": false,
@@ -17684,6 +17921,65 @@
 					"attacks": [
 						{
 							"attack": "cretin_big_axe"
+						}
+					]
+				},
+				{
+					"id": "BeastKnuckles",
+					"active": false,
+					"name": "Beast Knuckles",
+					"type": 0,
+					"category": "Club",
+					"icon": "cretin_club",
+					"description": "",
+					"flavor": "",
+					"anim_set": "sword",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"valence": 0,
+							"base": 8,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"mode": 0,
+							"stat": "damage"
+						},
+						{
+							"valence": 0,
+							"base": 1,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"mode": 0,
+							"stat": "attack_rate"
+						},
+						{
+							"valence": 0,
+							"base": 150,
+							"increment": 1,
+							"type": 0,
+							"stat": "attack_poise_damage",
+							"op": 0,
+							"scale": false,
+							"mode": 0
+						}
+					],
+					"attacks": [
+						{
+							"attack": "club"
+						}
+					],
+					"power_attacks": [
+						{
+							"attack": "cretin_spin"
+						},
+						{
+							"attack": "cretin_spin"
+						},
+						{
+							"attack": "cretin_spin"
 						}
 					]
 				},
@@ -18379,7 +18675,7 @@
 							"stat": "damage",
 							"mode": 0,
 							"valence": 0,
-							"base": 20,
+							"base": 16,
 							"increment": 0,
 							"type": 0,
 							"scale": false
@@ -18448,7 +18744,7 @@
 							"stat": "damage",
 							"mode": 0,
 							"valence": 0,
-							"base": 20,
+							"base": 8,
 							"increment": 0,
 							"type": 0,
 							"scale": false
@@ -18608,7 +18904,7 @@
 					"properties": [
 						{
 							"type": 0,
-							"base": 6,
+							"base": 3,
 							"increment": 0,
 							"valence": 0,
 							"scale": false,
@@ -18644,6 +18940,44 @@
 						},
 						{
 							"attack": "dagger"
+						}
+					]
+				},
+				{
+					"id": "HollowShamshir",
+					"active": false,
+					"name": "Hollow's Shamshir",
+					"type": 0,
+					"category": "Sword",
+					"icon": "shadow_blade",
+					"description": "",
+					"flavor": "",
+					"anim_set": "sword",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"type": 0,
+							"base": 10,
+							"increment": 0,
+							"valence": 0,
+							"scale": false,
+							"mode": 0,
+							"stat": "damage"
+						},
+						{
+							"type": 0,
+							"base": 1,
+							"increment": 0,
+							"valence": 0,
+							"scale": false,
+							"mode": 0,
+							"stat": "attack_rate"
+						}
+					],
+					"attacks": [
+						{
+							"attack": "longsword1"
 						}
 					]
 				},
@@ -18697,6 +19031,55 @@
 							"stat": "evasion",
 							"op": 1,
 							"mode": 0
+						}
+					]
+				},
+				{
+					"id": "AnguishedBreath",
+					"active": false,
+					"name": "Anguished Breath",
+					"type": 0,
+					"category": "Staff",
+					"icon": "stardust",
+					"description": "",
+					"flavor": "",
+					"anim_set": "staff",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 0.25,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "attack_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 32,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "inaccuracy",
+							"mode": 0,
+							"valence": 0,
+							"base": 0.1,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"op": 2
+						}
+					],
+					"projectile": "AnguishedBreath",
+					"attacks": [
+						{
+							"attack": "staff3"
 						}
 					]
 				},
@@ -20133,8 +20516,8 @@
 				24,
 				36,
 				39,
-				303,
-				479
+				305,
+				488
 			],
 			"props": {
 				"displayColumn": "name"
@@ -23158,6 +23541,64 @@
 					"layer": 0
 				},
 				{
+					"id": "HollowChaser",
+					"speed": 180,
+					"size": 5,
+					"range": 240,
+					"arc_segments": 27,
+					"knockback": 0,
+					"poise_damage": 0.2,
+					"moves": true,
+					"vel_align": true,
+					"pierces": false,
+					"layer": 0,
+					"loops": true,
+					"offset": 25,
+					"damage_type": "Shadow",
+					"anim": "demonic_spirit",
+					"trail": "EnergyTrail",
+					"explosion": "LandPuff",
+					"sound": "proj_venom"
+				},
+				{
+					"id": "AnguishedBreath",
+					"speed": 240,
+					"size": 10,
+					"range": 360,
+					"arc_segments": 270,
+					"knockback": 0,
+					"poise_damage": 0.2,
+					"moves": true,
+					"vel_align": false,
+					"pierces": true,
+					"layer": 0,
+					"loops": true,
+					"offset": 15,
+					"damage_type": "Shadow",
+					"anim": "adrift_fire",
+					"trail": "Trail",
+					"explosion": "TrailBurst"
+				},
+				{
+					"id": "AnguishedArrow",
+					"speed": 0.4,
+					"size": 3,
+					"range": 100,
+					"arc_segments": 27,
+					"knockback": 0,
+					"poise_damage": 0.2,
+					"moves": false,
+					"vel_align": false,
+					"pierces": true,
+					"layer": 1,
+					"loops": true,
+					"offset": 0,
+					"damage_type": "Shadow",
+					"anim": "adrift_falling_arrow",
+					"explosion": "TrailBurst",
+					"sound": "proj_arrow"
+				},
+				{
 					"id": "VenomSquirt",
 					"speed": 0.3,
 					"size": 20,
@@ -23871,7 +24312,7 @@
 					],
 					"arsenal": [
 						{
-							"item": "WarlordBroom",
+							"item": "BrudderAxe",
 							"difficulty_bar": 0
 						}
 					],
@@ -23914,7 +24355,7 @@
 					],
 					"arsenal": [
 						{
-							"item": "WarlordBroom",
+							"item": "BrudderAxe",
 							"difficulty_bar": 0
 						}
 					],
@@ -24246,10 +24687,6 @@
 						{
 							"item": "CretinClub",
 							"difficulty_bar": 0
-						},
-						{
-							"item": "CretinPlate",
-							"difficulty_bar": 10
 						}
 					]
 				},
@@ -24862,14 +25299,16 @@
 						{
 							"anim": "guardian_ire",
 							"wide": true,
-							"body_type": 2
+							"body_type": 2,
+							"hit_sound": "enemy_draugur_hit",
+							"die_sound": "enemy_draugur_die"
 						}
 					],
 					"stat": [
 						{
 							"stat": "health",
 							"base": 3000,
-							"increment": 100
+							"increment": 0
 						},
 						{
 							"stat": "speed",
@@ -24921,7 +25360,7 @@
 						{
 							"stat": "health",
 							"base": 3000,
-							"increment": 100
+							"increment": 0
 						},
 						{
 							"stat": "speed",
@@ -25399,15 +25838,15 @@
 					"visual": [
 						{
 							"anim": "guardian_shame",
-							"wide": false,
-							"body_type": 0
+							"wide": true,
+							"body_type": 2
 						}
 					],
 					"stat": [
 						{
 							"stat": "health",
-							"base": 3000,
-							"increment": 100
+							"base": 300,
+							"increment": 0
 						},
 						{
 							"stat": "speed",
@@ -25416,11 +25855,16 @@
 						},
 						{
 							"stat": "size",
-							"base": 20,
+							"base": 60,
 							"increment": 0
 						}
 					],
-					"arsenal": [],
+					"arsenal": [
+						{
+							"item": "AnguishedBreath",
+							"difficulty_bar": 0
+						}
+					],
 					"team": 8,
 					"type": 2,
 					"ranged": false,
@@ -25435,8 +25879,30 @@
 					"team": 8,
 					"difficulty_bar": 35,
 					"value": 10,
-					"visual": [],
-					"stat": [],
+					"visual": [
+						{
+							"anim": "hollow_mortopavida",
+							"wide": false,
+							"body_type": 2
+						}
+					],
+					"stat": [
+						{
+							"stat": "health",
+							"base": 300,
+							"increment": 0
+						},
+						{
+							"stat": "speed",
+							"base": 80,
+							"increment": 0
+						},
+						{
+							"stat": "size",
+							"base": 48,
+							"increment": 0
+						}
+					],
 					"arsenal": []
 				},
 				{
@@ -25479,7 +25945,7 @@
 						},
 						{
 							"item": "HollowCloak",
-							"difficulty_bar": 0
+							"difficulty_bar": 10
 						}
 					],
 					"type": 1,
@@ -25505,7 +25971,7 @@
 					"stat": [
 						{
 							"stat": "health",
-							"base": 60,
+							"base": 40,
 							"increment": 0
 						},
 						{
@@ -25526,7 +25992,7 @@
 						},
 						{
 							"item": "HollowCloak",
-							"difficulty_bar": 0
+							"difficulty_bar": 10
 						}
 					],
 					"type": 1,
@@ -25568,12 +26034,12 @@
 					],
 					"arsenal": [
 						{
-							"item": "HollowCloak",
+							"item": "HollowChomp",
 							"difficulty_bar": 0
 						},
 						{
-							"item": "HollowChomp",
-							"difficulty_bar": 0
+							"item": "HollowCloak",
+							"difficulty_bar": 10
 						}
 					],
 					"type": 1,
@@ -25620,7 +26086,7 @@
 						},
 						{
 							"item": "HollowCloak",
-							"difficulty_bar": 0
+							"difficulty_bar": 10
 						}
 					],
 					"type": 1,
@@ -25662,12 +26128,12 @@
 					],
 					"arsenal": [
 						{
-							"item": "HollowCloak",
+							"item": "DraugurClaw",
 							"difficulty_bar": 0
 						},
 						{
-							"item": "DraugurClaw",
-							"difficulty_bar": 0
+							"item": "HollowCloak",
+							"difficulty_bar": 10
 						}
 					],
 					"type": 1,
@@ -25675,13 +26141,13 @@
 					"difficulty_bar": 34
 				},
 				{
-					"active": false,
+					"active": true,
 					"id": "HollowReaper",
 					"name": "Hollow Reaper",
 					"type": 1,
 					"ranged": false,
 					"team": 8,
-					"difficulty_bar": 38,
+					"difficulty_bar": 36,
 					"value": 2,
 					"visual": [
 						{
@@ -25690,27 +26156,36 @@
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
 							"hit_emitter": "LandPuff",
-							"body_type": 0
+							"body_type": 2
 						}
 					],
 					"stat": [
 						{
 							"stat": "health",
-							"base": 30,
+							"base": 180,
 							"increment": 0
 						},
 						{
 							"stat": "speed",
-							"base": 60,
+							"base": 90,
 							"increment": 0
 						},
 						{
 							"stat": "size",
-							"base": 26,
+							"base": 32,
 							"increment": 0
 						}
 					],
-					"arsenal": []
+					"arsenal": [
+						{
+							"item": "HollowShamshir",
+							"difficulty_bar": 0
+						},
+						{
+							"item": "HollowCloak",
+							"difficulty_bar": 10
+						}
+					]
 				},
 				{
 					"active": false,
@@ -25719,7 +26194,7 @@
 					"type": 1,
 					"ranged": false,
 					"team": 8,
-					"difficulty_bar": 39,
+					"difficulty_bar": 37,
 					"value": 3,
 					"visual": [
 						{
@@ -25846,8 +26321,8 @@
 				},
 				{
 					"active": false,
-					"id": "ZealotBloodrinker",
-					"name": "Zealot Bloodrinker",
+					"id": "ZealotJusticar",
+					"name": "Zealot Justicar",
 					"type": 1,
 					"ranged": false,
 					"team": 9,
@@ -25855,7 +26330,7 @@
 					"value": 2,
 					"visual": [
 						{
-							"anim": "zealot_bloodrinker",
+							"anim": "zealot_justicar",
 							"wide": false,
 							"hit_sound": "enemy_draugur_hit",
 							"die_sound": "enemy_draugur_die",
@@ -27011,6 +27486,31 @@
 				},
 				{
 					"active": false,
+					"id": "Rawhead",
+					"name": "Rawhead",
+					"type": 3,
+					"ranged": false,
+					"team": 1,
+					"difficulty_bar": 0,
+					"value": 0,
+					"visual": [
+						{
+							"anim": "npc_rawhead",
+							"wide": true,
+							"body_type": 0
+						}
+					],
+					"stat": [
+						{
+							"stat": "size",
+							"base": 48,
+							"increment": 0
+						}
+					],
+					"arsenal": []
+				},
+				{
+					"active": false,
 					"id": "Innocent",
 					"name": "The Innocent",
 					"team": 0,
@@ -27825,7 +28325,17 @@
 				{
 					"name": "father_shame",
 					"ref": "",
-					"items": [],
+					"items": [
+						{
+							"text": "You've shattered the Seal of Shame. Our moment is drawing nearer..."
+						},
+						{
+							"text": "Shame is the weapon of choice for lesser men, used to subvert the instincts of their betters."
+						},
+						{
+							"text": "But truth dispels shame as easily as light dispels shadow."
+						}
+					],
 					"random": false
 				},
 				{
@@ -28282,6 +28792,26 @@
 					]
 				},
 				{
+					"name": "shame_intro",
+					"ref": "guardian_shame",
+					"random": false,
+					"items": [
+						{
+							"text": "Please... Make it stop... I don't know what's real..."
+						}
+					]
+				},
+				{
+					"name": "shame_die",
+					"ref": "guardian_shame",
+					"random": false,
+					"items": [
+						{
+							"text": "Is the nightmare over? Am I waking up? At last..."
+						}
+					]
+				},
+				{
 					"name": "innocent_intro",
 					"ref": "innocent",
 					"items": [
@@ -28422,7 +28952,7 @@
 				},
 				{
 					"name": "hopeless_steal",
-					"ref": "",
+					"ref": "hopeless",
 					"random": false,
 					"items": [
 						{
@@ -30833,21 +31363,21 @@
 				}
 			],
 			"separators": [
-				63,
-				87,
-				106,
-				125,
-				140,
-				159,
-				171,
-				189,
-				213,
-				227,
-				228,
-				232,
-				233,
+				65,
+				89,
+				108,
+				127,
+				142,
+				161,
+				173,
+				191,
+				215,
+				229,
+				230,
 				234,
-				236
+				235,
+				236,
+				238
 			],
 			"props": {
 				"separatorTitles": [
@@ -32466,7 +32996,7 @@
 				},
 				{
 					"id": "HallsAntechamber",
-					"active": true,
+					"active": false,
 					"name": "Halls Antechamber",
 					"subtitle": "",
 					"type": 2,
@@ -32474,30 +33004,68 @@
 					"difficulty_bar": 0,
 					"light": 0.1,
 					"tileset": "halls",
-					"ambient": "ambient_cave",
+					"ambient": "ambient_ominous",
 					"file": "world/HallsAntechamber.tmx"
 				},
 				{
 					"id": "SealShame",
-					"active": true,
+					"active": false,
 					"name": "Seal of Shame",
 					"subtitle": "",
-					"type": 2,
+					"type": 0,
 					"area": 4,
 					"difficulty_bar": 0,
-					"light": 0.2,
-					"tileset": "halls"
+					"light": 0.1,
+					"tileset": "abyss",
+					"ambient": "ambient_ominous"
+				},
+				{
+					"id": "Sepulcher",
+					"active": false,
+					"name": "Sepulcher",
+					"subtitle": "",
+					"type": 0,
+					"area": 4,
+					"difficulty_bar": 0,
+					"light": 0.1,
+					"tileset": "halls",
+					"ambient": "ambient_ominous"
+				},
+				{
+					"id": "ThreeBrothers",
+					"active": false,
+					"name": "Three Brothers",
+					"subtitle": "Recieve a blessing from one Brother",
+					"type": 1,
+					"area": 4,
+					"difficulty_bar": 0,
+					"light": 0,
+					"tileset": "halls",
+					"ambient": "ambient_ominous"
+				},
+				{
+					"id": "Oubliette",
+					"active": false,
+					"name": "Oubliette",
+					"subtitle": "Take your chances with Rawhead",
+					"type": 1,
+					"area": 4,
+					"difficulty_bar": 0,
+					"light": 0,
+					"tileset": "abyss",
+					"ambient": "ambient_ominous"
 				},
 				{
 					"id": "Narthex",
 					"active": false,
 					"name": "Narthex",
-					"subtitle": "",
+					"subtitle": "Choose your path forward",
 					"type": 1,
 					"area": 4,
 					"light": 0.3,
 					"tileset": "halls",
-					"difficulty_bar": 0
+					"difficulty_bar": 0,
+					"ambient": "ambient_ominous"
 				},
 				{
 					"id": "ShrinePride",
@@ -32508,7 +33076,8 @@
 					"area": 4,
 					"light": 0,
 					"tileset": "halls",
-					"difficulty_bar": 0
+					"difficulty_bar": 0,
+					"ambient": "ambient_ominous"
 				},
 				{
 					"id": "TrialShame",
@@ -32519,7 +33088,8 @@
 					"area": 4,
 					"light": 0,
 					"tileset": "halls",
-					"difficulty_bar": 0
+					"difficulty_bar": 0,
+					"ambient": "ambient_ominous"
 				},
 				{
 					"id": "HallsClear",
@@ -32527,7 +33097,7 @@
 					"name": "Halls of Shadow",
 					"type": 0,
 					"light": 0.2,
-					"ambient": "ambient_cave",
+					"ambient": "ambient_ominous",
 					"area": 4,
 					"tileset": "halls",
 					"subtitle": "",
@@ -32552,7 +33122,7 @@
 				},
 				{
 					"id": "PalaceAntechamber",
-					"active": true,
+					"active": false,
 					"name": "Palace Antechamber",
 					"subtitle": "",
 					"type": 2,
@@ -32565,7 +33135,7 @@
 				},
 				{
 					"id": "SealFear",
-					"active": true,
+					"active": false,
 					"name": "Seal of Fear",
 					"subtitle": "",
 					"type": 2,
@@ -32670,8 +33240,8 @@
 				65,
 				93,
 				103,
-				110,
-				118
+				113,
+				121
 			],
 			"props": {
 				"separatorTitles": [
@@ -32697,10 +33267,6 @@
 					"typeStr": "1",
 					"name": "sprite",
 					"display": null
-				},
-				{
-					"typeStr": "3",
-					"name": "amount"
 				},
 				{
 					"typeStr": "2",
@@ -32772,7 +33338,6 @@
 				{
 					"id": "Bones",
 					"sprite": "particles/bones",
-					"amount": 20,
 					"vel_min": 100,
 					"vel_max": 200,
 					"life_min": 0.2,
@@ -32793,7 +33358,6 @@
 				{
 					"id": "Spiderbits",
 					"sprite": "particles/spiderbits",
-					"amount": 20,
 					"align_vel": false,
 					"start_dist": 0,
 					"scale_min": 1,
@@ -32814,7 +33378,6 @@
 				{
 					"id": "CretinBlood",
 					"sprite": "particles/cretin_blood",
-					"amount": 20,
 					"align_vel": true,
 					"start_dist": 5,
 					"scale_min": 0.2,
@@ -32835,7 +33398,6 @@
 				{
 					"id": "Blood",
 					"sprite": "particles/blood",
-					"amount": 20,
 					"align_vel": true,
 					"start_dist": 5,
 					"scale_min": 0.2,
@@ -32856,7 +33418,6 @@
 				{
 					"id": "DemonBlood",
 					"sprite": "particles/demon_blood",
-					"amount": 20,
 					"align_vel": true,
 					"start_dist": 5,
 					"scale_min": 0.2,
@@ -32877,7 +33438,6 @@
 				{
 					"id": "ShadowBlood",
 					"sprite": "particles/shadow",
-					"amount": 20,
 					"align_vel": true,
 					"start_dist": 5,
 					"scale_min": 0.2,
@@ -32898,7 +33458,6 @@
 				{
 					"id": "Doodads",
 					"sprite": "",
-					"amount": 20,
 					"start_dist": 0,
 					"scale_min": 1,
 					"scale_max": 1,
@@ -32919,7 +33478,6 @@
 				{
 					"id": "Chest",
 					"sprite": "particles/chest",
-					"amount": 50,
 					"start_dist": 0,
 					"scale_min": 1,
 					"scale_max": 1,
@@ -32940,7 +33498,6 @@
 				{
 					"id": "Stars",
 					"sprite": "particles/stars",
-					"amount": 20,
 					"scale_min": 1,
 					"scale_max": 1,
 					"vel_min": 0,
@@ -32961,7 +33518,6 @@
 				{
 					"id": "StarBurst",
 					"sprite": "particles/stars",
-					"amount": 20,
 					"scale_min": 1,
 					"scale_max": 1,
 					"vel_min": 30,
@@ -32982,7 +33538,6 @@
 				{
 					"id": "EnergyBits",
 					"sprite": "particles/energy_bit",
-					"amount": 30,
 					"start_dist": 2,
 					"scale_min": 1,
 					"scale_max": 1,
@@ -33003,7 +33558,6 @@
 				{
 					"id": "EnergyTrail",
 					"sprite": "particles/energy_bit",
-					"amount": 30,
 					"align_vel": false,
 					"start_dist": 2,
 					"scale_min": 1,
@@ -33024,7 +33578,6 @@
 				{
 					"id": "EnergyBitsLarge",
 					"sprite": "particles/energy_bit",
-					"amount": 30,
 					"align_vel": false,
 					"start_dist": 10,
 					"scale_min": 1,
@@ -33045,7 +33598,6 @@
 				{
 					"id": "Fluff",
 					"sprite": "particles/fluff",
-					"amount": 50,
 					"scale_min": 0.5,
 					"scale_max": 1,
 					"vel_min": 5,
@@ -33066,7 +33618,6 @@
 				{
 					"id": "Soot",
 					"sprite": "particles/soot",
-					"amount": 50,
 					"start_dist": 0,
 					"scale_min": 0.5,
 					"scale_max": 1,
@@ -33087,7 +33638,6 @@
 				{
 					"id": "Poison",
 					"sprite": "particles/puff",
-					"amount": 50,
 					"align_vel": false,
 					"start_dist": 0,
 					"scale_min": 0.5,
@@ -33106,30 +33656,8 @@
 					"rot_vel_max": 0
 				},
 				{
-					"id": "Blizzard",
-					"sprite": "particles/puff",
-					"amount": 500,
-					"scale_min": 1,
-					"scale_max": 1,
-					"vel_min": 0,
-					"vel_max": 0,
-					"drag_min": 0,
-					"drag_max": 0,
-					"life_min": 0.2,
-					"life_max": 0.6,
-					"fade_start": 0.8,
-					"fade_end": 0,
-					"rot_min": 0,
-					"rot_max": 0,
-					"rot_vel_min": 0,
-					"rot_vel_max": 0,
-					"start_dist": 0,
-					"align_vel": false
-				},
-				{
 					"id": "Trail",
 					"sprite": "particles/trail",
-					"amount": 20,
 					"scale_min": 1,
 					"scale_max": 1,
 					"vel_min": 0,
@@ -33150,7 +33678,6 @@
 				{
 					"id": "TrailSmall",
 					"sprite": "particles/trail_small",
-					"amount": 20,
 					"align_vel": false,
 					"start_dist": 0,
 					"scale_min": 1,
@@ -33171,7 +33698,6 @@
 				{
 					"id": "TrailBurst",
 					"sprite": "particles/trail",
-					"amount": 20,
 					"align_vel": false,
 					"start_dist": 0,
 					"scale_min": 1,
@@ -33192,7 +33718,6 @@
 				{
 					"id": "Pickup",
 					"sprite": "particles/trail",
-					"amount": 20,
 					"scale_min": 1,
 					"scale_max": 1,
 					"vel_min": 20,
@@ -33213,7 +33738,6 @@
 				{
 					"id": "WalkPuff",
 					"sprite": "particles/puff",
-					"amount": 10,
 					"scale_min": 1,
 					"scale_max": 1,
 					"vel_min": 15,
@@ -33234,7 +33758,6 @@
 				{
 					"id": "LandPuff",
 					"sprite": "particles/puff",
-					"amount": 15,
 					"scale_min": 1,
 					"scale_max": 1,
 					"vel_min": 60,
@@ -33255,7 +33778,6 @@
 				{
 					"id": "Hopecrystal",
 					"sprite": "particles/hopecrystal",
-					"amount": 15,
 					"start_dist": 0,
 					"scale_min": 1,
 					"scale_max": 1,
@@ -33276,7 +33798,6 @@
 				{
 					"id": "IceShards",
 					"sprite": "particles/ice_shard",
-					"amount": 15,
 					"align_vel": false,
 					"start_dist": 0,
 					"scale_min": 1,
@@ -33297,7 +33818,6 @@
 				{
 					"id": "Sparks",
 					"sprite": "particles/sparks",
-					"amount": 20,
 					"start_dist": 0,
 					"scale_min": 1,
 					"scale_max": 1,
@@ -33318,7 +33838,6 @@
 				{
 					"id": "Sparkles",
 					"sprite": "particles/sparkles",
-					"amount": 20,
 					"align_vel": false,
 					"start_dist": 10,
 					"scale_min": 1,
@@ -33339,7 +33858,6 @@
 				{
 					"id": "RisingSparkles",
 					"sprite": "particles/sparkles",
-					"amount": 20,
 					"align_vel": false,
 					"start_dist": 5,
 					"scale_min": 1,
@@ -33360,7 +33878,6 @@
 				{
 					"id": "GlobBits",
 					"sprite": "particles/glob",
-					"amount": 10,
 					"align_vel": false,
 					"start_dist": 3,
 					"scale_min": 1,
@@ -33381,7 +33898,6 @@
 				{
 					"id": "MeteorDebris",
 					"sprite": "particles/trail",
-					"amount": 20,
 					"align_vel": false,
 					"start_dist": 0,
 					"scale_min": 1,
@@ -33402,7 +33918,6 @@
 				{
 					"id": "Sunlit",
 					"sprite": "particles/stars",
-					"amount": 20,
 					"align_vel": false,
 					"start_dist": 10,
 					"scale_min": 1,
@@ -33423,7 +33938,6 @@
 				{
 					"id": "Moonlit",
 					"sprite": "particles/moons",
-					"amount": 20,
 					"align_vel": false,
 					"start_dist": 10,
 					"scale_min": 1,
