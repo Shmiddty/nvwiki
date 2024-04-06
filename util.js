@@ -1,4 +1,10 @@
 const methods = {
+  str: function str(o) {
+    return o.toString()
+  },
+  debug: function debug(...args) {
+    console.log(...args)
+  },
   chunk: function chunk(a, size) {
     return Array.from({ length: Math.ceil(a.length / size) }).map((_, i) =>
       a.slice(i * size, (i + 1) * size)

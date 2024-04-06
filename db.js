@@ -84,6 +84,11 @@ module.exports = function (data) {
       return $(`
   sheets[name="equipment"].columns
       `).evaluate(data)
+    },
+    stats: function () {
+      return $(`
+  sheets[name="stats"].lines
+  `).evaluate(data)
     }
   }
 }

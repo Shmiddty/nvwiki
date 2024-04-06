@@ -4,6 +4,7 @@
   "description": "Tool for updating the wiki for Into the Necrovale",
   "main": "index.js",
   "scripts": {
+    "update": "cd /lib/nv/ && bash mediaextrach.sh && cd ../.. && node items.js && node groups.js",
     "lint": "eslint . --ext .js,.mjs --fix",
     "format": "prettier --write ./"
   },

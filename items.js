@@ -1,9 +1,11 @@
 const fs = require('fs').promises
 const db = require('./db.js')
 const bot = require('mwbot')
+const atl = require('atlas-parser')
+const jimp = require('jimp')
 const { apiUrl, apiLimit, concurrency } = require('./mwconfig.json')
-const { item } = require('./wiki.js')
-const { stagger, mwContinuedRequest } = require('./util.js')
+const { item, license } = require('./wiki.js')
+const { debug, str, stagger, mwContinuedRequest } = require('./util.js')
 const toString = (o) => o.toString()
 
 const client = new bot({
@@ -21,8 +23,10 @@ Promise.all([
     .readFile('./credentials.secret')
     .then(toString)
     .then((str) => str.split('\n')),
-  fs.readFile('./lib/nv/gamedata.json').then(toString).then(JSON.parse)
-]).then(async ([[username, password], data]) => {
+  fs.readFile('./lib/nv/gamedata.json').then(toString).then(JSON.parse),
+  fs.readFile('./lib/nv/UI.atlas').then(str).then(atl.parse),
+  jimp.read('./lib/nv/UI.png')
+]).then(async ([[username, password], data, ui, UI]) => {
   const $db = db(data)
   const eq = await $db.equipment()
 
@@ -36,6 +40,39 @@ Promise.all([
     username,
     password
   })
+
+  const exImgs = await mwContinuedRequest(client, {
+    action: 'query',
+    list: 'allimages',
+    ailimit: 500
+  }).then((imgs) => {
+    return imgs.map((i) => i.name.toLowerCase().replace('_', '/').slice(0, -4))
+  })
+  const imgs = Object.entries(ui['UI.png'].frames).filter(
+    ([k]) => k.includes('icons') && !exImgs.includes(k)
+  )
+
+  await stagger(imgs, apiLimit.count, apiLimit.period, (chn) =>
+    bot
+      .map(chn, async ([k, v]) => {
+        const fname = k.replace('/', '_') + '.png'
+        await UI.clone()
+          .crop(...v.xy, ...v.size)
+          .write(`./dist/${fname}`)
+        debug('Uploading:', fname)
+        if (DRY) return
+        return client.upload(
+          false,
+          `./dist/${fname}`,
+          'Uploaded by nvwikibot',
+          {
+            text: license('Casey Clyde')
+          }
+        )
+      })
+      .then(debug)
+      .catch(console.error)
+  )
 
   const exItems = await mwContinuedRequest(client, {
     action: 'query',

@@ -49,7 +49,6 @@ ${rows.map((i) => [' |-', ' | ' + i.join('\n | ')].join('\n')).join('\n')}
   item: function item(i) {
     const f = Object.entries({
       ...i,
-      //rarity: rarity(i.rarity),
       icon: icon(i.icon),
       properties: methods.stats(i.properties)
     })
