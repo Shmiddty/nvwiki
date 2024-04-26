@@ -40,7 +40,7 @@ ${rows.map((i) => [' |-', ' | ' + i.join('\n | ')].join('\n')).join('\n')}
         (A, B) => (A.mode - B.mode) * 2 + A.display.localeCompare(B.display)
       )
       .map(methods.stat)
-      .join('\n')
+      .join('')
   },
   stat: function stat(p) {
     const ps = Object.entries(p).map(field).join('|')

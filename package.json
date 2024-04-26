@@ -4,7 +4,7 @@
   "description": "Tool for updating the wiki for Into the Necrovale",
   "main": "index.js",
   "scripts": {
-    "update": "cd /lib/nv/ && bash mediaextrach.sh && cd ../.. && node items.js && node groups.js",
+    "update": "cd ./lib/nv/ && bash mediaextract.sh && cd ../.. && node items.js && node groups.js",
     "lint": "eslint . --ext .js,.mjs --fix",
     "format": "prettier --write ./"
   },
@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "atlas-parser": "github:Shmiddty/atlas-parser",
+    "cli-progress": "^3.12.0",
     "jimp": "^0.22.12",
     "jsonata": "^2.0.4",
     "mwbot": "^2.1.3"

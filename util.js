@@ -13,11 +13,9 @@ const methods = {
   delay: function delay(n) {
     return new Promise((resolve) => setTimeout(resolve, n))
   },
-  stagger: function (arr, chunkSize, timeStep, cb) {
+  stagger: function (arr, timeStep, cb) {
     return Promise.all(
-      methods
-        .chunk(arr, chunkSize)
-        .map((chn, i) => methods.delay(i * timeStep).then(() => cb(chn, i)))
+      arr.map((itm, i) => methods.delay(i * timeStep).then(() => cb(itm, i)))
     )
   },
 
