@@ -160,6 +160,15 @@
 					"display_type": 3
 				},
 				{
+					"id": "attack_cooldown",
+					"display": "Attack Cooldown",
+					"type": 0,
+					"display_type": 3,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
 					"base": 1,
 					"type": 0,
 					"id": "attack_rate_mod",
@@ -322,7 +331,7 @@
 					"bound": 0
 				},
 				{
-					"id": "health_amount",
+					"id": "health_gained",
 					"display": "Health",
 					"type": 0,
 					"display_type": 3,
@@ -349,7 +358,7 @@
 					"display_type": 0
 				},
 				{
-					"id": "health_cost",
+					"id": "health_lost",
 					"display": "Health Cost",
 					"type": 0,
 					"base": 0,
@@ -673,6 +682,24 @@
 					"bound": 0
 				},
 				{
+					"id": "block_mobility",
+					"display": "Block Mobility",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0.8,
+					"bound": 1
+				},
+				{
+					"id": "block_defense",
+					"display": "Block Defense",
+					"type": 0,
+					"display_type": 1,
+					"base": 0,
+					"breakpoint": 0,
+					"bound": 0
+				},
+				{
 					"id": "amulet_effect",
 					"type": 0,
 					"base": 1,
@@ -904,15 +931,6 @@
 					"bound": 1,
 					"breakpoint": 0.8,
 					"display": "Attack Mobility",
-					"display_type": 1
-				},
-				{
-					"id": "block_mobility",
-					"type": 0,
-					"base": 0,
-					"breakpoint": 0.8,
-					"bound": 1,
-					"display": "Block Mobility",
 					"display_type": 1
 				},
 				{
@@ -1729,13 +1747,13 @@
 			"separators": [
 				1,
 				12,
-				30,
-				57,
-				71,
-				83,
-				94,
-				119,
-				160
+				31,
+				58,
+				74,
+				86,
+				97,
+				121,
+				162
 			],
 			"props": {
 				"separatorTitles": [
@@ -1974,7 +1992,7 @@
 							"valence": 0,
 							"scale": false,
 							"mode": 0,
-							"stat": "health_amount"
+							"stat": "health_gained"
 						}
 					],
 					"sound": "drink_potion",
@@ -2034,7 +2052,7 @@
 							"valence": 0,
 							"scale": true,
 							"mode": 0,
-							"stat": "health_amount"
+							"stat": "health_gained"
 						}
 					],
 					"sound": "drink_potion",
@@ -2329,7 +2347,7 @@
 							"valence": 0,
 							"scale": false,
 							"mode": 0,
-							"stat": "health_amount"
+							"stat": "health_gained"
 						}
 					],
 					"sound": "drink_potion",
@@ -2348,8 +2366,8 @@
 					"rarity": 2,
 					"properties": [
 						{
-							"base": 20,
-							"increment": 2,
+							"base": 25,
+							"increment": 3,
 							"type": 0,
 							"valence": 1,
 							"scale": false,
@@ -2363,7 +2381,7 @@
 							"type": 0,
 							"scale": false,
 							"mode": 0,
-							"stat": "health_cost"
+							"stat": "health_lost"
 						}
 					],
 					"sound": "drink_potion",
@@ -2383,6 +2401,15 @@
 					"power_cost": 0,
 					"rarity": 2,
 					"properties": [
+						{
+							"stat": "potion_applied_duration",
+							"mode": 0,
+							"valence": 0,
+							"base": 15,
+							"increment": 4,
+							"type": 0,
+							"scale": false
+						},
 						{
 							"stat": "power_cost",
 							"mode": 0,
@@ -2513,6 +2540,15 @@
 					"rarity": 3,
 					"properties": [
 						{
+							"valence": 0,
+							"base": 15,
+							"increment": 4,
+							"type": 0,
+							"scale": false,
+							"mode": 0,
+							"stat": "potion_applied_duration"
+						},
+						{
 							"valence": 1,
 							"base": 2,
 							"increment": 0,
@@ -2521,15 +2557,6 @@
 							"op": 1,
 							"scale": false,
 							"mode": 0
-						},
-						{
-							"valence": 0,
-							"base": 15,
-							"increment": 4,
-							"type": 0,
-							"scale": false,
-							"mode": 0,
-							"stat": "potion_applied_duration"
 						}
 					],
 					"sound": "coca",
@@ -2549,13 +2576,22 @@
 					"rarity": 4,
 					"properties": [
 						{
+							"stat": "potion_applied_duration",
+							"mode": 0,
+							"valence": 0,
+							"base": 60,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
 							"valence": 0,
 							"base": 300,
 							"increment": 0,
 							"type": 0,
 							"scale": false,
 							"mode": 0,
-							"stat": "health_amount"
+							"stat": "health_gained"
 						},
 						{
 							"stat": "speed_mod",
@@ -2566,15 +2602,6 @@
 							"type": 2,
 							"scale": false,
 							"op": 1
-						},
-						{
-							"stat": "potion_applied_duration",
-							"mode": 0,
-							"valence": 0,
-							"base": 60,
-							"increment": 0,
-							"type": 0,
-							"scale": false
 						}
 					],
 					"sound": "drink_potion"
@@ -2592,6 +2619,15 @@
 					"power_cost": 0,
 					"rarity": 4,
 					"properties": [
+						{
+							"valence": 0,
+							"base": 60,
+							"increment": 1,
+							"type": 0,
+							"scale": false,
+							"mode": 0,
+							"stat": "potion_applied_duration"
+						},
 						{
 							"valence": 1,
 							"base": 500,
@@ -2621,15 +2657,6 @@
 							"op": 1,
 							"scale": false,
 							"mode": 0
-						},
-						{
-							"valence": 0,
-							"base": 60,
-							"increment": 1,
-							"type": 0,
-							"scale": false,
-							"mode": 0,
-							"stat": "potion_applied_duration"
 						}
 					],
 					"sound": "drink_potion"
@@ -2901,7 +2928,7 @@
 							"type": 0,
 							"scale": false,
 							"mode": 0,
-							"stat": "health_amount"
+							"stat": "health_gained"
 						},
 						{
 							"valence": 0,
@@ -2934,7 +2961,7 @@
 							"type": 0,
 							"scale": false,
 							"mode": 0,
-							"stat": "health_amount"
+							"stat": "health_gained"
 						},
 						{
 							"valence": 0,
@@ -2967,7 +2994,7 @@
 							"type": 0,
 							"scale": false,
 							"mode": 0,
-							"stat": "health_amount"
+							"stat": "health_gained"
 						},
 						{
 							"valence": 0,
@@ -3000,7 +3027,7 @@
 							"type": 0,
 							"scale": false,
 							"mode": 0,
-							"stat": "health_amount"
+							"stat": "health_gained"
 						}
 					]
 				},
@@ -3024,7 +3051,7 @@
 							"type": 0,
 							"scale": false,
 							"mode": 0,
-							"stat": "health_amount"
+							"stat": "health_gained"
 						},
 						{
 							"valence": 0,
@@ -3057,7 +3084,7 @@
 							"type": 0,
 							"scale": false,
 							"mode": 0,
-							"stat": "health_amount"
+							"stat": "health_gained"
 						},
 						{
 							"valence": 0,
@@ -3084,7 +3111,7 @@
 					"rarity": 0,
 					"properties": [
 						{
-							"stat": "health_amount",
+							"stat": "health_gained",
 							"mode": 0,
 							"valence": 0,
 							"base": 60,
@@ -3119,7 +3146,7 @@
 					"rarity": 1,
 					"properties": [
 						{
-							"stat": "health_amount",
+							"stat": "health_gained",
 							"mode": 0,
 							"valence": 0,
 							"base": 120,
@@ -3154,7 +3181,7 @@
 					"rarity": 2,
 					"properties": [
 						{
-							"stat": "health_amount",
+							"stat": "health_gained",
 							"mode": 0,
 							"valence": 0,
 							"base": 200,
@@ -3189,7 +3216,7 @@
 					"rarity": 3,
 					"properties": [
 						{
-							"stat": "health_amount",
+							"stat": "health_gained",
 							"mode": 0,
 							"valence": 0,
 							"base": 300,
@@ -3224,7 +3251,7 @@
 					"rarity": 4,
 					"properties": [
 						{
-							"stat": "health_amount",
+							"stat": "health_gained",
 							"mode": 0,
 							"valence": 0,
 							"base": 500,
@@ -8385,7 +8412,7 @@
 					"icon": "heater",
 					"name": "Heater Shield",
 					"category": "Shield",
-					"description": "Protects you from damage while held up.",
+					"description": "A shield with a mixture of defense and mobility.",
 					"flavor": "The iconic tool of a man willing to risk his life for a cause.",
 					"rarity": 0,
 					"properties": [
@@ -8398,10 +8425,90 @@
 							"stat": "block_mobility",
 							"op": 1,
 							"mode": 2
+						},
+						{
+							"stat": "block_defense",
+							"mode": 2,
+							"valence": 1,
+							"base": 60,
+							"increment": 4,
+							"type": 2,
+							"scale": false,
+							"op": 1
 						}
 					],
 					"anim_set": "unarmed",
 					"power_cost": 0,
+					"attacks": [
+						{
+							"attack": "block"
+						}
+					]
+				},
+				{
+					"id": "Targe",
+					"active": true,
+					"name": "Targe",
+					"type": 1,
+					"category": "Shield",
+					"icon": "targe",
+					"description": "Nimble but lacking in defense.",
+					"flavor": "Do what you can, with what you have.",
+					"anim_set": "unarmed",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"valence": 1,
+							"base": 20,
+							"increment": 3,
+							"type": 2,
+							"scale": false,
+							"stat": "block_mobility",
+							"op": 1,
+							"mode": 2
+						},
+						{
+							"stat": "block_defense",
+							"mode": 2,
+							"valence": 1,
+							"base": 40,
+							"increment": 3,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					],
+					"attacks": [
+						{
+							"attack": "block"
+						}
+					]
+				},
+				{
+					"id": "KiteShield",
+					"active": true,
+					"name": "Kite Shield",
+					"type": 1,
+					"category": "Shield",
+					"icon": "kite_shield",
+					"description": "Great defense, but no mobility.",
+					"flavor": "The best thing to do when it rains, is to let it rain.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "block_defense",
+							"mode": 2,
+							"valence": 1,
+							"base": 80,
+							"increment": 3,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					],
 					"attacks": [
 						{
 							"attack": "block"
@@ -8766,6 +8873,44 @@
 							"type": 2,
 							"scale": false,
 							"op": 1
+						}
+					],
+					"attacks": [
+						{
+							"attack": "staff1"
+						}
+					]
+				},
+				{
+					"id": "RepulsionTotem",
+					"active": true,
+					"name": "Repulsion Totem",
+					"type": 1,
+					"category": "Off-hand",
+					"icon": "force_wave",
+					"description": "All nearby enemies are pushed away.",
+					"flavor": "A familiar feeling to you.",
+					"anim_set": "staff",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"base": 5,
+							"type": 0,
+							"increment": -0.3,
+							"valence": 0,
+							"scale": false,
+							"stat": "attack_cooldown",
+							"mode": 0
+						},
+						{
+							"base": 200,
+							"increment": 20,
+							"type": 0,
+							"valence": 0,
+							"scale": false,
+							"mode": 0,
+							"stat": "knockback"
 						}
 					],
 					"attacks": [
@@ -9287,7 +9432,7 @@
 							"stat": "knockback_touch",
 							"mode": 0,
 							"valence": 0,
-							"base": 40,
+							"base": 60,
 							"increment": 20,
 							"type": 0,
 							"scale": false,
@@ -9547,7 +9692,7 @@
 					"type": 2,
 					"category": "Hat",
 					"icon": "cult",
-					"description": "When you attack, nearby enemies are stunned.",
+					"description": "When you break an enemies poise, nearby enemies are stunned.",
 					"flavor": "Obedience or death, the options of a true cult.",
 					"anim_set": "",
 					"power_cost": 0,
@@ -9557,8 +9702,8 @@
 							"stat": "attack_stun_range",
 							"mode": 0,
 							"valence": 0,
-							"base": 60,
-							"increment": 10,
+							"base": 120,
+							"increment": 20,
 							"type": 0,
 							"scale": false,
 							"op": 1
@@ -9702,7 +9847,7 @@
 							"stat": "barrier",
 							"mode": 0,
 							"valence": 1,
-							"base": 25,
+							"base": 20,
 							"increment": 5,
 							"type": 0,
 							"scale": false,
@@ -10923,8 +11068,8 @@
 							"stat": "max_damage_percent",
 							"mode": 0,
 							"valence": 0,
-							"base": 20,
-							"increment": -2,
+							"base": 30,
+							"increment": -3,
 							"type": 2,
 							"scale": false,
 							"op": 1
@@ -11611,7 +11756,8 @@
 							"base": 10,
 							"increment": 6,
 							"type": 2,
-							"scale": false
+							"scale": false,
+							"op": 1
 						}
 					]
 				},
@@ -11971,7 +12117,7 @@
 						{
 							"stat": "inaccuracy",
 							"mode": 0,
-							"valence": 0,
+							"valence": 2,
 							"base": 30,
 							"increment": 0,
 							"type": 2,
@@ -12933,7 +13079,7 @@
 							"mode": 0,
 							"valence": 1,
 							"base": -10,
-							"increment": -2,
+							"increment": -1,
 							"type": 2,
 							"scale": false,
 							"op": 1
@@ -13843,7 +13989,7 @@
 					"properties": [
 						{
 							"base": 5,
-							"increment": 5,
+							"increment": 2,
 							"type": 0,
 							"stat": "barrier",
 							"op": 1,
@@ -15791,6 +15937,406 @@
 					"power_description": "--- RUNES ---"
 				},
 				{
+					"id": "DogRune",
+					"active": true,
+					"name": "Rune of the Dog",
+					"type": 8,
+					"category": "Rune",
+					"icon": "rune_dog",
+					"description": "You gain a small amount of health.",
+					"flavor": "A wolf brought low by man.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"valence": 1,
+							"base": 20,
+							"increment": 5,
+							"type": 0,
+							"stat": "health",
+							"op": 1,
+							"scale": false,
+							"mode": 0
+						}
+					]
+				},
+				{
+					"id": "CatRune",
+					"active": true,
+					"name": "Rune of the Cat",
+					"type": 8,
+					"category": "Rune",
+					"icon": "rune_cat",
+					"description": "You gain power faster.",
+					"flavor": "Still in possession of its predatory instincts.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"valence": 0,
+							"base": 5,
+							"increment": 2,
+							"type": 2,
+							"stat": "power_gain_mod",
+							"op": 1,
+							"scale": false,
+							"mode": 0
+						}
+					]
+				},
+				{
+					"id": "Ruby",
+					"active": true,
+					"name": "Ruby",
+					"type": 8,
+					"category": "Rune",
+					"icon": "rune_ruby",
+					"description": "Your attacks have a chance at igniting enemies, causing damage over time.",
+					"flavor": "Ultimately, a mere stone.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "fire_strike",
+							"mode": 0,
+							"valence": 0,
+							"base": 5,
+							"increment": 2,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "Sapphire",
+					"active": true,
+					"name": "Sapphire",
+					"type": 8,
+					"category": "Rune",
+					"icon": "rune_sapphire",
+					"description": "Your attacks have a chance at freezing enemies, slowing their movement and attacks.",
+					"flavor": "A beautiful thing with no greater significance.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "fire_strike",
+							"mode": 0,
+							"valence": 0,
+							"base": 5,
+							"increment": 2,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "Emerald",
+					"active": true,
+					"name": "Emerald",
+					"type": 8,
+					"category": "Rune",
+					"icon": "rune_emerald",
+					"description": "Your attacks have a chance at electrifying enemies, causing them to take 20% more damage.",
+					"flavor": "Its beauty lies in its perception, not its nature.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "fire_strike",
+							"mode": 0,
+							"valence": 0,
+							"base": 5,
+							"increment": 2,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "Moonstone",
+					"active": true,
+					"name": "Moonstone",
+					"type": 8,
+					"category": "Rune",
+					"icon": "rune_moonstone",
+					"description": "Your attacks have a chance at causing enemies to become moonlit, negating their defense.",
+					"flavor": "As beautiful as you want it to be.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "moon_strike",
+							"mode": 0,
+							"valence": 0,
+							"base": 5,
+							"increment": 2,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "Sunstone",
+					"active": true,
+					"name": "Sunstone",
+					"type": 8,
+					"category": "Rune",
+					"icon": "rune_sunstone",
+					"description": "Your attacks have a chance at causing enemies to become sunlit, negating their evasion.",
+					"flavor": "Created before you, and will exist past you.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "sun_strike",
+							"mode": 0,
+							"valence": 0,
+							"base": 5,
+							"increment": 2,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "SageBundle",
+					"active": true,
+					"name": "Sage Bundle",
+					"type": 8,
+					"category": "Rune",
+					"icon": "rune_sage",
+					"description": "Potions last longer.",
+					"flavor": "Humans underestimate smell. Animals never do.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "potion_duration",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "SpringLeaf",
+					"active": true,
+					"name": "Spring Leaf",
+					"type": 8,
+					"category": "Rune",
+					"icon": "springleaf",
+					"description": "Electric attacks do more damage.",
+					"flavor": "If it's always Spring, it's never Spring.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "electric_attack_damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "WinterLeaf",
+					"active": true,
+					"name": "Winter Leaf",
+					"type": 8,
+					"category": "Rune",
+					"icon": "winterleaf",
+					"description": "Ice attacks do more damage.",
+					"flavor": "Winter takes its fair share of life.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "ice_attack_damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "FallLeaf",
+					"active": true,
+					"name": "Fall Leaf",
+					"type": 8,
+					"category": "Rune",
+					"icon": "fallleaf",
+					"description": "Fire attacks do more damage.",
+					"flavor": "Fall is a bittersweet threshold.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "fire_attack_damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "Coinpurse",
+					"active": true,
+					"name": "Coinpurse",
+					"type": 8,
+					"category": "Rune",
+					"icon": "coinpurse",
+					"description": "You find more Coins.",
+					"flavor": "Buying nothing is a 100% discount.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "coin_drop_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 15,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "WaterFlask",
+					"active": true,
+					"name": "Water Flask",
+					"type": 8,
+					"category": "Rune",
+					"icon": "water_flask",
+					"description": "Healing is more effective.",
+					"flavor": "We carry our ocean with us.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "heal_effect",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "Ocarina",
+					"active": true,
+					"name": "Ocarina",
+					"type": 8,
+					"category": "Rune",
+					"icon": "ocarina",
+					"description": "Your roll goes farther.",
+					"flavor": "The unlikely tool of a hero.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "roll_length",
+							"mode": 0,
+							"valence": 0,
+							"base": 10,
+							"increment": 4,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "ImperialCoin",
+					"active": true,
+					"name": "Imperial Coin",
+					"type": 8,
+					"category": "Rune",
+					"icon": "imperial_coin",
+					"description": "You are more likely to deliver a critical hit.",
+					"flavor": "The Empire is gone, but the coins live on.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "crit_chance",
+							"mode": 0,
+							"valence": 0,
+							"base": 15,
+							"increment": 5,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "Compass",
+					"active": true,
+					"name": "Compass",
+					"type": 8,
+					"category": "Rune",
+					"icon": "compass",
+					"description": "Reduces the inaccuracy of your attacks.",
+					"flavor": "",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "inaccuracy",
+							"mode": 0,
+							"valence": 0,
+							"base": -10,
+							"increment": -5,
+							"type": 0,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
 					"id": "LizardRune",
 					"active": true,
 					"name": "Rune of the Lizard",
@@ -16167,8 +16713,8 @@
 							"stat": "health_steal",
 							"mode": 0,
 							"valence": 0,
-							"base": 5,
-							"increment": 1,
+							"base": 1,
+							"increment": 0.5,
 							"type": 2,
 							"scale": false,
 							"op": 1
@@ -16177,7 +16723,7 @@
 							"stat": "health_drain",
 							"mode": 0,
 							"valence": 2,
-							"base": 2,
+							"base": 3,
 							"increment": 0,
 							"type": 0,
 							"scale": false,
@@ -17397,7 +17943,7 @@
 					"properties": [
 						{
 							"valence": 0,
-							"base": 2,
+							"base": 1,
 							"increment": 0.25,
 							"type": 0,
 							"scale": false,
@@ -18589,7 +19135,7 @@
 					]
 				},
 				{
-					"id": "CretinArsenal",
+					"id": "CretinStabber",
 					"active": false,
 					"name": "Cretin's Arsenal",
 					"type": 0,
@@ -18620,12 +19166,45 @@
 							"scale": false
 						}
 					],
-					"power_projectile": "Mortar",
 					"attacks": [
 						{
 							"attack": "cretin_dagger"
 						}
 					]
+				},
+				{
+					"id": "CretinBombag",
+					"active": false,
+					"name": "Cretin's Bombag",
+					"type": 1,
+					"category": "Bombs",
+					"icon": "cretin_staff",
+					"description": "",
+					"flavor": "",
+					"anim_set": "unarmed",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "damage",
+							"mode": 0,
+							"valence": 0,
+							"base": 6,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						},
+						{
+							"stat": "attack_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 4,
+							"increment": 0,
+							"type": 0,
+							"scale": false
+						}
+					],
+					"projectile": "Mortar"
 				},
 				{
 					"id": "CretinBigAxe",
@@ -20741,44 +21320,6 @@
 					"power_cost": 0
 				},
 				{
-					"id": "WindSpear",
-					"active": false,
-					"name": "Wind Spear",
-					"type": 1,
-					"category": "Off-hand",
-					"icon": "wind",
-					"description": "Does no damage, but knocks back enemies in front of you with the power of wind.",
-					"flavor": "Tap into the secret currents in the sea of air.",
-					"anim_set": "",
-					"rarity": 1,
-					"properties": [
-						{
-							"type": 0,
-							"base": 1,
-							"increment": 0,
-							"valence": 0,
-							"scale": false,
-							"stat": "attack_rate",
-							"mode": 0
-						},
-						{
-							"type": 0,
-							"base": 120,
-							"increment": 3,
-							"valence": 0,
-							"scale": false,
-							"mode": 0,
-							"stat": "knockback"
-						}
-					],
-					"power_cost": 0,
-					"attacks": [
-						{
-							"attack": "spear1"
-						}
-					]
-				},
-				{
 					"id": "TomoBell",
 					"active": false,
 					"name": "Tomo's Bell",
@@ -20807,7 +21348,7 @@
 					"properties": []
 				},
 				{
-					"id": "Targe",
+					"id": "Targe2",
 					"active": false,
 					"name": "Targe",
 					"type": 1,
@@ -20820,44 +21361,6 @@
 					"rarity": 0,
 					"properties": [],
 					"attacks": []
-				},
-				{
-					"id": "ForceWave",
-					"active": false,
-					"name": "Repulsion Totem",
-					"type": 1,
-					"category": "Off-hand",
-					"icon": "force_wave",
-					"description": "All nearby enemies are pushed away.",
-					"flavor": "A familiar feeling to you.",
-					"anim_set": "staff",
-					"power_cost": 0,
-					"rarity": 1,
-					"properties": [
-						{
-							"base": 0.5,
-							"type": 0,
-							"increment": 0,
-							"valence": 0,
-							"scale": false,
-							"stat": "attack_rate",
-							"mode": 0
-						},
-						{
-							"base": 80,
-							"increment": 2,
-							"type": 0,
-							"valence": 0,
-							"scale": false,
-							"mode": 0,
-							"stat": "knockback"
-						}
-					],
-					"attacks": [
-						{
-							"attack": "staff1"
-						}
-					]
 				},
 				{
 					"id": "VortexStaff",
@@ -20916,6 +21419,44 @@
 					"power_cost": 0,
 					"rarity": 2,
 					"properties": []
+				},
+				{
+					"id": "WindSpear",
+					"active": false,
+					"name": "Wind Spear",
+					"type": 1,
+					"category": "Off-hand",
+					"icon": "wind",
+					"description": "Knocks back enemies in front of you with the power of wind.",
+					"flavor": "Tap into the secret currents in the sea of air.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"type": 0,
+							"base": 3,
+							"increment": 0,
+							"valence": 0,
+							"scale": false,
+							"stat": "attack_cooldown",
+							"mode": 0
+						},
+						{
+							"type": 0,
+							"base": 120,
+							"increment": 3,
+							"valence": 0,
+							"scale": false,
+							"mode": 0,
+							"stat": "knockback"
+						}
+					],
+					"attacks": [
+						{
+							"attack": "spear_swipe"
+						}
+					]
 				},
 				{
 					"id": "Teleport",
@@ -21224,56 +21765,6 @@
 					]
 				},
 				{
-					"id": "DogRune",
-					"active": false,
-					"name": "Rune of the Dog",
-					"type": 8,
-					"category": "Rune",
-					"icon": "rune_dog",
-					"description": "You gain a small amount of health.",
-					"flavor": "A wolf brought low by man.",
-					"anim_set": "",
-					"power_cost": 0,
-					"rarity": 0,
-					"properties": [
-						{
-							"valence": 1,
-							"base": 20,
-							"increment": 0,
-							"type": 0,
-							"stat": "health",
-							"op": 1,
-							"scale": false,
-							"mode": 0
-						}
-					]
-				},
-				{
-					"id": "CatRune",
-					"active": false,
-					"name": "Rune of the Cat",
-					"type": 8,
-					"category": "Rune",
-					"icon": "rune_cat",
-					"description": "You gain power faster.",
-					"flavor": "Still in possession of its predatory instincts.",
-					"anim_set": "",
-					"power_cost": 0,
-					"rarity": 0,
-					"properties": [
-						{
-							"valence": 0,
-							"base": 5,
-							"increment": 0.1,
-							"type": 2,
-							"stat": "power_gain_mod",
-							"op": 1,
-							"scale": false,
-							"mode": 0
-						}
-					]
-				},
-				{
 					"id": "BeetleRune",
 					"active": false,
 					"name": "Rune of the Beetle",
@@ -21432,8 +21923,8 @@
 				24,
 				44,
 				47,
-				318,
-				514
+				321,
+				534
 			],
 			"props": {
 				"displayColumn": "name"
@@ -25902,7 +26393,11 @@
 					],
 					"arsenal": [
 						{
-							"item": "CretinArsenal",
+							"item": "CretinStabber",
+							"difficulty_bar": 0
+						},
+						{
+							"item": "CretinBombag",
 							"difficulty_bar": 0
 						},
 						{
@@ -27815,7 +28310,7 @@
 						},
 						{
 							"stat": "speed",
-							"base": 140,
+							"base": 120,
 							"increment": 0
 						},
 						{
@@ -27855,7 +28350,7 @@
 					"stat": [
 						{
 							"stat": "health",
-							"base": 40,
+							"base": 20,
 							"increment": 0
 						},
 						{
@@ -33817,23 +34312,6 @@
 					"difficulty_bar": 0
 				},
 				{
-					"id": "SpinnerTunnels",
-					"active": true,
-					"name": "Spinner Tunnels",
-					"type": 3,
-					"area": 1,
-					"light": 0.1,
-					"tileset": "mines",
-					"ambient": "ambient_cave",
-					"enemies": [
-						{
-							"type": "SpiderSpawn"
-						}
-					],
-					"subtitle": "Survive the waves of Spinners",
-					"difficulty_bar": 6
-				},
-				{
 					"id": "Siege",
 					"active": true,
 					"name": "Siege",
@@ -34236,6 +34714,23 @@
 					"ambient": "ambient_cave"
 				},
 				{
+					"id": "SpinnerTunnels",
+					"active": true,
+					"name": "Spinner Tunnels",
+					"subtitle": "Survive the waves of Spinners",
+					"type": 3,
+					"area": 2,
+					"difficulty_bar": 0,
+					"light": 0.1,
+					"tileset": "caves",
+					"ambient": "ambient_cave",
+					"enemies": [
+						{
+							"type": "SpiderSpawn"
+						}
+					]
+				},
+				{
 					"id": "Cradle",
 					"active": false,
 					"name": "Cradle",
@@ -34329,7 +34824,7 @@
 					"id": "Baitshop",
 					"active": true,
 					"name": "Baitshop",
-					"subtitle": "Buy Bait wtih Coins",
+					"subtitle": "Buy Bait with Coins",
 					"type": 1,
 					"area": 3,
 					"difficulty_bar": 0,
@@ -34641,7 +35136,15 @@
 					"difficulty_bar": 0,
 					"light": 0.2,
 					"tileset": "river",
-					"ambient": "ambient_swamp"
+					"ambient": "ambient_swamp",
+					"enemies": [
+						{
+							"type": "AdriftPhantom"
+						},
+						{
+							"type": "AdriftWraith"
+						}
+					]
 				},
 				{
 					"id": "Convergence",
@@ -34979,13 +35482,14 @@
 				13,
 				21,
 				37,
-				65,
-				75,
+				64,
+				74,
 				93,
 				108,
 				124,
 				133,
 				138,
+				145,
 				146
 			],
 			"props": {
@@ -34998,9 +35502,10 @@
 					"Ruins Combat",
 					"River Special",
 					"River Combat",
-					"Halls",
+					"Halls Special",
 					"Halls Combat",
-					"Palace",
+					"Palace Special",
+					"Palace Combat",
 					"Any"
 				]
 			}
