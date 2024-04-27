@@ -55,6 +55,29 @@ ${rows.map((i) => [' |-', ' | ' + i.join('\n | ')].join('\n')).join('\n')}
       .map(field)
       .join('|')
     return `<noinclude>{{Item/Store|${f}}}</noinclude>`
+  },
+  cargoQuery: function (where, omitFields = {}) {
+    const fields = [
+      "CONCAT('[[File:',icon,'|class=pixel|63px]]')=Icon",
+      '_pageName=Name',
+      !omitFields.rarity && "CONCAT('{{Rarity{{!}}', rarity, '}}')=Rarity",
+      !omitFields.type && "CONCAT('[[',type,']]')=Type",
+      !omitFields.category && "CONCAT('[[',category,']]')=Category",
+      !omitFields.description && "CONCAT('',description)=Description",
+      !omitFields.power && "CONCAT('',power_cost)=Power Cost",
+      !omitFields.power && "CONCAT('',power_description)=Power Description",
+      !omitFields.stats && 'properties=Properties',
+      !omitFields.flavor && `CONCAT("''",flavor, "''")=Flavor`
+    ]
+      .filter(Boolean)
+      .join(',')
+    return `{{#cargo_query:
+table=Item
+|fields=${fields}
+|where=${where}
+|format=dynamic table
+|rows per page=500
+}}`
   }
 }
 
