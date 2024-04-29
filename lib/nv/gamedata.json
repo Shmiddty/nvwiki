@@ -6369,7 +6369,7 @@
 						},
 						{
 							"valence": 0,
-							"base": 2000,
+							"base": 20000,
 							"increment": 0,
 							"type": 2,
 							"stat": "attack_poise_damage",
@@ -6386,6 +6386,16 @@
 							"op": 1,
 							"scale": false,
 							"mode": 1
+						},
+						{
+							"stat": "proj_pierce",
+							"mode": 1,
+							"valence": 0,
+							"base": 50,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
 						}
 					],
 					"projectile": "Dart",
@@ -14307,7 +14317,7 @@
 							"mode": 0
 						},
 						{
-							"base": 50,
+							"base": 100,
 							"increment": 0,
 							"type": 2,
 							"stat": "damage_taken",
@@ -16025,7 +16035,7 @@
 					"rarity": 0,
 					"properties": [
 						{
-							"stat": "fire_strike",
+							"stat": "ice_strike",
 							"mode": 0,
 							"valence": 0,
 							"base": 5,
@@ -16050,7 +16060,7 @@
 					"rarity": 0,
 					"properties": [
 						{
-							"stat": "fire_strike",
+							"stat": "shock_strike",
 							"mode": 0,
 							"valence": 0,
 							"base": 5,
@@ -34481,19 +34491,6 @@
 					"ambient": "ambient_cave"
 				},
 				{
-					"id": "SeraphCell",
-					"active": true,
-					"name": "Seraph Cell",
-					"subtitle": "Entreat the Seraph",
-					"type": 1,
-					"area": 2,
-					"difficulty_bar": 16,
-					"light": 0,
-					"tileset": "ruins",
-					"music": "music_witch",
-					"ambient": "ambient_mystical"
-				},
-				{
 					"id": "SealGreed",
 					"active": false,
 					"name": "Seal of Greed",
@@ -35426,6 +35423,19 @@
 					"file": "world/Vault.tmx"
 				},
 				{
+					"id": "SeraphCell",
+					"active": true,
+					"name": "Seraph Cell",
+					"subtitle": "Entreat the Seraph",
+					"type": 1,
+					"area": 5,
+					"difficulty_bar": 0,
+					"light": 0,
+					"tileset": "palace",
+					"music": "music_witch",
+					"ambient": "ambient_mystical"
+				},
+				{
 					"id": "Rotunda",
 					"active": false,
 					"name": "Rotunda",
@@ -35483,12 +35493,12 @@
 				21,
 				37,
 				64,
-				74,
-				93,
-				108,
-				124,
-				133,
-				138,
+				73,
+				92,
+				107,
+				123,
+				132,
+				137,
 				145,
 				146
 			],

@@ -2138,6 +2138,13 @@ icons/kingly
   orig: 16, 16
   offset: 0, 0
   index: -1
+icons/kite_shield
+  rotate: false
+  xy: 253, 560
+  size: 15, 16
+  orig: 16, 16
+  offset: 0, 0
+  index: -1
 icons/knave
   rotate: false
   xy: 317, 630
@@ -2175,7 +2182,7 @@ icons/last_principles
   index: -1
 icons/laughing_shield
   rotate: false
-  xy: 253, 560
+  xy: 235, 575
   size: 15, 16
   orig: 16, 16
   offset: 0, 0
@@ -2280,7 +2287,7 @@ icons/lightning
   index: -1
 icons/likker
   rotate: false
-  xy: 235, 575
+  xy: 217, 588
   size: 15, 16
   orig: 16, 16
   offset: 0, 0
@@ -2441,7 +2448,7 @@ icons/map_refuge
   index: -1
 icons/map_wellspring
   rotate: false
-  xy: 217, 588
+  xy: 199, 591
   size: 15, 16
   orig: 16, 16
   offset: 1, 0
@@ -2476,7 +2483,7 @@ icons/merchant_boots
   index: -1
 icons/messenger_death
   rotate: false
-  xy: 199, 591
+  xy: 288, 552
   size: 15, 16
   orig: 16, 16
   offset: 1, 0
@@ -3953,7 +3960,7 @@ icons/web_slinger
   index: -1
 icons/weeping
   rotate: false
-  xy: 288, 552
+  xy: 253, 560
   size: 15, 16
   orig: 16, 16
   offset: 0, 0

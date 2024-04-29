@@ -4,6 +4,9 @@ set -o pipefail
 
 
 fdir=./temp/
+#TODO?
+#find ~ -name Necrovale.x64
+#then replace Necrovale.x64 with hlboot.dat
 gfile=~/.steam/steam/steamapps/common/Necrovale/hlboot.dat
 mkdir $fdir
 
