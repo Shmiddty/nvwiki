@@ -14,6 +14,14 @@ const methods = {
     return new Promise((resolve) => setTimeout(resolve, n))
   },
   stagger: function (arr, timeStep, cb) {
+    //function staggered(i) {
+    //  return methods
+    //    .delay(timeStep)
+    //    .then(() => cb(arr[i], i))
+    //    .then(() => staggered(i + 1))
+    //}
+    //return staggered(0)
+
     return Promise.all(
       arr.map((itm, i) => methods.delay(i * timeStep).then(() => cb(itm, i)))
     )
