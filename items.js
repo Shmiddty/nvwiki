@@ -76,7 +76,7 @@ Promise.all([
 
     await UI.clone()
       .crop(...v.xy, ...v.size)
-      .write(`./dist/${fname}`)
+      .writeAsync(`./dist/${fname}`)
 
     if (DRY) return
     return client
