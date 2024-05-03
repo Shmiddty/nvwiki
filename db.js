@@ -89,6 +89,38 @@ module.exports = function (data) {
       return $(`
   sheets[name="stats"].lines
   `).evaluate(data)
+    },
+    levels: function () {
+      return $(`
+  $lv:=sheets[name="levels"].(
+    $types:=$split($substring(columns[name="type"].typeStr,2),",");
+    $areas:=$split($substring(columns[name="area"].typeStr,2),",");
+    [lines[active=true].(
+      $i:=$;
+      $ ~> | $ | {
+        "type": $types[$i.type],
+        "typeId": $i.type,
+        "area": $areas[$i.area],
+        "areaId": $i.area
+      } |
+    )]
+  )`).evaluate(data)
+    },
+    levelsByArea: function () {
+      return $(`
+  $lv:=sheets[name="levels"].(
+    $types:=$split($substring(columns[name="type"].typeStr,2),",");
+    $areas:=$split($substring(columns[name="area"].typeStr,2),",");
+    [lines[active=true].(
+      $i:=$;
+      $ ~> | $ | {
+        "type": $types[$i.type],
+        "typeId": $i.type,
+        "area": $areas[$i.area],
+        "areaId": $string($i.area)
+      } |
+    )]{ areaId: [$] }
+  )`).evaluate(data)
     }
   }
 }

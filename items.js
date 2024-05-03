@@ -6,7 +6,7 @@ const jimp = require('jimp')
 const cliProgress = require('cli-progress')
 const { apiUrl, apiLimit, concurrency } = require('./mwconfig.json')
 const { item, license } = require('./wiki.js')
-const { str, delay, stagger, mwContinuedRequest } = require('./util.js')
+const { str, stagger, mwContinuedRequest } = require('./util.js')
 const toString = (o) => o.toString()
 
 const client = new bot({
