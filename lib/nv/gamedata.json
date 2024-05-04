@@ -882,10 +882,10 @@
 				{
 					"id": "rarity_bonus",
 					"type": 0,
-					"base": 0,
+					"base": 1,
 					"bound": 0,
 					"breakpoint": 0,
-					"display": "Rarity Bonus",
+					"display": "Rarity Find",
 					"display_type": 1
 				},
 				{
@@ -2050,7 +2050,7 @@
 							"increment": 10,
 							"type": 0,
 							"valence": 0,
-							"scale": true,
+							"scale": false,
 							"mode": 0,
 							"stat": "health_gained"
 						}
@@ -2878,6 +2878,15 @@
 							"type": 2,
 							"scale": false,
 							"op": 1
+						},
+						{
+							"stat": "potion_applied_duration",
+							"mode": 0,
+							"valence": 0,
+							"base": 60,
+							"increment": 1,
+							"type": 0,
+							"scale": false
 						}
 					],
 					"sound": "drink_potion"
@@ -2904,6 +2913,15 @@
 							"type": 2,
 							"scale": false,
 							"op": 1
+						},
+						{
+							"stat": "potion_applied_duration",
+							"mode": 0,
+							"valence": 0,
+							"base": 60,
+							"increment": 1,
+							"type": 0,
+							"scale": false
 						}
 					],
 					"sound": "coca"
@@ -2981,7 +2999,7 @@
 					"type": 9,
 					"category": "Chewable",
 					"icon": "fruit_bitter",
-					"description": "Provides some health, and some despair.",
+					"description": "Provides some health, free of despair.",
 					"flavor": "It takes willpower to consume this.",
 					"anim_set": "",
 					"power_cost": 0,
@@ -2995,15 +3013,6 @@
 							"scale": false,
 							"mode": 0,
 							"stat": "health_gained"
-						},
-						{
-							"valence": 0,
-							"base": 5,
-							"increment": 0,
-							"type": 0,
-							"scale": false,
-							"mode": 0,
-							"stat": "hope_lost"
 						}
 					]
 				},
@@ -3014,20 +3023,30 @@
 					"type": 9,
 					"category": "Chewable",
 					"icon": "fruit_bland",
-					"description": "Provides a decent amount of health. Doesn't cause despair.",
+					"description": "Increases the amount of Coins you find.",
 					"flavor": "Merely fine. Hunger might help get it down.",
 					"anim_set": "",
 					"power_cost": 0,
 					"rarity": 2,
 					"properties": [
 						{
+							"stat": "coin_drop_rate",
+							"mode": 0,
 							"valence": 0,
-							"base": 70,
+							"base": 50,
 							"increment": 0,
 							"type": 0,
 							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "potion_applied_duration",
 							"mode": 0,
-							"stat": "health_gained"
+							"valence": 0,
+							"base": -1,
+							"increment": 0,
+							"type": 0,
+							"scale": false
 						}
 					]
 				},
@@ -3038,29 +3057,40 @@
 					"type": 9,
 					"category": "Chewable",
 					"icon": "fruit_juicy",
-					"description": "Provides a good amount of health, and a little bit of hope as well.",
+					"description": "Increases the rarity of items you find, and the amount of Coins.",
 					"flavor": "An interesting and attractive flavor.",
 					"anim_set": "",
 					"power_cost": 0,
 					"rarity": 3,
 					"properties": [
 						{
-							"valence": 0,
-							"base": 100,
-							"increment": 0,
-							"type": 0,
-							"scale": false,
+							"stat": "coin_drop_rate",
 							"mode": 0,
-							"stat": "health_gained"
+							"valence": 0,
+							"base": 75,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
 						},
 						{
+							"stat": "rarity_bonus",
+							"mode": 0,
 							"valence": 0,
-							"base": 20,
+							"base": 50,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "potion_applied_duration",
+							"mode": 0,
+							"valence": 0,
+							"base": -1,
 							"increment": 0,
 							"type": 0,
-							"scale": false,
-							"mode": 0,
-							"stat": "hope_gained"
+							"scale": false
 						}
 					]
 				},
@@ -3071,29 +3101,50 @@
 					"type": 9,
 					"category": "Chewable",
 					"icon": "fruit_hope",
-					"description": "Provides a swell of health and hope.",
+					"description": "Increases the amount of Embers and Coins you find, and the rarity of items.",
 					"flavor": "A beautiful and mysterious flavor, reminiscent of all good things.",
 					"anim_set": "",
 					"power_cost": 0,
 					"rarity": 4,
 					"properties": [
 						{
-							"valence": 0,
-							"base": 200,
-							"increment": 0,
-							"type": 0,
-							"scale": false,
+							"stat": "coin_drop_rate",
 							"mode": 0,
-							"stat": "health_gained"
+							"valence": 0,
+							"base": 50,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
 						},
 						{
+							"stat": "rarity_bonus",
+							"mode": 0,
 							"valence": 0,
-							"base": 40,
+							"base": 50,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "ember_drop_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 50,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "potion_applied_duration",
+							"mode": 0,
+							"valence": 0,
+							"base": -1,
 							"increment": 0,
 							"type": 0,
-							"scale": false,
-							"mode": 0,
-							"stat": "hope_gained"
+							"scale": false
 						}
 					]
 				},
@@ -4248,6 +4299,70 @@
 					"power_description": "Dash through enemies while twirling the fan."
 				},
 				{
+					"id": "CretinPoker",
+					"active": true,
+					"type": 0,
+					"icon": "goblin",
+					"name": "Cretin's Poker",
+					"category": "Spear",
+					"description": "Hooked spear that pulls enemies closer.",
+					"flavor": "Used by the tunnel-dwellers to snatch unsuspecting folk into their hidey-holes.",
+					"rarity": 1,
+					"properties": [
+						{
+							"base": 24,
+							"increment": 0,
+							"type": 0,
+							"valence": 0,
+							"scale": false,
+							"mode": 0,
+							"stat": "damage"
+						},
+						{
+							"valence": 0,
+							"base": 2.5,
+							"increment": 0,
+							"type": 0,
+							"scale": false,
+							"mode": 0,
+							"stat": "attack_rate"
+						},
+						{
+							"valence": 0,
+							"base": 200,
+							"increment": 0,
+							"type": 2,
+							"stat": "attack_poise_damage",
+							"op": 1,
+							"scale": false,
+							"mode": 1
+						},
+						{
+							"valence": 0,
+							"base": 100,
+							"increment": 0,
+							"type": 0,
+							"stat": "knockback",
+							"op": 2,
+							"scale": false,
+							"mode": 1
+						}
+					],
+					"anim_set": "spear",
+					"power_cost": 3,
+					"attacks": [
+						{
+							"attack": "poker"
+						}
+					],
+					"power_description": "Do massive knockback in a line.",
+					"power_attacks": [
+						{
+							"attack": "poker_reject"
+						}
+					]
+				},
+				{
 					"id": "DancingDeath",
 					"active": true,
 					"type": 0,
@@ -4546,70 +4661,6 @@
 					"power_attacks": [
 						{
 							"attack": "shock_jab"
-						}
-					]
-				},
-				{
-					"id": "CretinPoker",
-					"active": true,
-					"type": 0,
-					"icon": "goblin",
-					"name": "Cretin's Poker",
-					"category": "Spear",
-					"description": "Hooked spear that pulls enemies closer.",
-					"flavor": "Used by the tunnel-dwellers to snatch unsuspecting folk into their hidey-holes.",
-					"rarity": 2,
-					"properties": [
-						{
-							"base": 24,
-							"increment": 0,
-							"type": 0,
-							"valence": 0,
-							"scale": false,
-							"mode": 0,
-							"stat": "damage"
-						},
-						{
-							"valence": 0,
-							"base": 2.5,
-							"increment": 0,
-							"type": 0,
-							"scale": false,
-							"mode": 0,
-							"stat": "attack_rate"
-						},
-						{
-							"valence": 0,
-							"base": 200,
-							"increment": 0,
-							"type": 2,
-							"stat": "attack_poise_damage",
-							"op": 1,
-							"scale": false,
-							"mode": 1
-						},
-						{
-							"valence": 0,
-							"base": 100,
-							"increment": 0,
-							"type": 0,
-							"stat": "knockback",
-							"op": 2,
-							"scale": false,
-							"mode": 1
-						}
-					],
-					"anim_set": "spear",
-					"power_cost": 3,
-					"attacks": [
-						{
-							"attack": "poker"
-						}
-					],
-					"power_description": "Do massive knockback in a line.",
-					"power_attacks": [
-						{
-							"attack": "poker_reject"
 						}
 					]
 				},
@@ -8590,11 +8641,11 @@
 						},
 						{
 							"valence": 1,
-							"base": 10,
-							"increment": 0,
+							"base": 60,
+							"increment": 4,
 							"type": 2,
 							"scale": false,
-							"stat": "block_mobility",
+							"stat": "block_defense",
 							"op": 1,
 							"mode": 2
 						}
@@ -8712,6 +8763,16 @@
 							"valence": 0,
 							"base": 20,
 							"increment": 20,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "block_defense",
+							"mode": 2,
+							"valence": 1,
+							"base": 40,
+							"increment": 3,
 							"type": 2,
 							"scale": false,
 							"op": 1
@@ -8953,11 +9014,11 @@
 						},
 						{
 							"valence": 1,
-							"base": 10,
-							"increment": 0,
+							"base": 60,
+							"increment": 4,
 							"type": 2,
 							"scale": false,
-							"stat": "block_mobility",
+							"stat": "block_defense",
 							"op": 1,
 							"mode": 2
 						}
@@ -8998,6 +9059,16 @@
 							"valence": 1,
 							"base": 10,
 							"increment": 10,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "block_defense",
+							"mode": 2,
+							"valence": 1,
+							"base": 60,
+							"increment": 4,
 							"type": 2,
 							"scale": false,
 							"op": 1
@@ -9426,6 +9497,31 @@
 					]
 				},
 				{
+					"id": "BeggarsHood",
+					"active": true,
+					"type": 2,
+					"icon": "beggars_hood",
+					"name": "Beggar's Hood",
+					"category": "Hat",
+					"description": "More coins drop.",
+					"flavor": "Need is the opposite of luck.",
+					"rarity": 0,
+					"properties": [
+						{
+							"base": 50,
+							"increment": 10,
+							"type": 2,
+							"stat": "coin_drop_rate",
+							"op": 1,
+							"valence": 0,
+							"scale": false,
+							"mode": 0
+						}
+					],
+					"anim_set": "",
+					"power_cost": 0
+				},
+				{
 					"id": "Juggernaut",
 					"active": true,
 					"name": "Juggernaut's Helm",
@@ -9466,31 +9562,6 @@
 							"increment": 2,
 							"type": 2,
 							"stat": "evasion",
-							"op": 1,
-							"valence": 0,
-							"scale": false,
-							"mode": 0
-						}
-					],
-					"anim_set": "",
-					"power_cost": 0
-				},
-				{
-					"id": "BeggarsHood",
-					"active": true,
-					"type": 2,
-					"icon": "beggars_hood",
-					"name": "Beggar's Hood",
-					"category": "Hat",
-					"description": "More coins drop.",
-					"flavor": "Need is the opposite of luck.",
-					"rarity": 1,
-					"properties": [
-						{
-							"base": 50,
-							"increment": 10,
-							"type": 2,
-							"stat": "coin_drop_rate",
 							"op": 1,
 							"valence": 0,
 							"scale": false,
@@ -11772,6 +11843,41 @@
 					]
 				},
 				{
+					"id": "Workadays",
+					"active": true,
+					"name": "Workadays",
+					"type": 4,
+					"category": "Gloves",
+					"icon": "workadays",
+					"description": "You deal more damage, but are unlikely to deliver a critical hit.",
+					"flavor": "Work hard and don't expect much.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "damage_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": 20,
+							"increment": 20,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						},
+						{
+							"stat": "crit_chance",
+							"mode": 0,
+							"valence": 0,
+							"base": -70,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
 					"id": "LeatherGloves",
 					"active": true,
 					"type": 4,
@@ -11942,34 +12048,34 @@
 					]
 				},
 				{
-					"id": "Workadays",
+					"id": "LeadenWeights",
 					"active": true,
-					"name": "Workadays",
+					"name": "Leaden Weights",
 					"type": 4,
-					"category": "Gloves",
-					"icon": "workadays",
-					"description": "You deal more damage, but are unlikely to deliver a critical hit.",
-					"flavor": "Work hard and don't expect much.",
+					"category": "Gauntlets",
+					"icon": "leaden_weights",
+					"description": "You attack slower, but deal more damage.",
+					"flavor": "Think before you act. But don't think too hard.",
 					"anim_set": "",
 					"power_cost": 0,
 					"rarity": 1,
 					"properties": [
 						{
-							"stat": "damage_mod",
+							"stat": "attack_rate_mod",
 							"mode": 0,
 							"valence": 0,
-							"base": 20,
-							"increment": 20,
+							"base": -30,
+							"increment": 0,
 							"type": 2,
 							"scale": false,
 							"op": 1
 						},
 						{
-							"stat": "crit_chance",
+							"stat": "damage_mod",
 							"mode": 0,
 							"valence": 0,
-							"base": -70,
-							"increment": 0,
+							"base": 40,
+							"increment": 30,
 							"type": 2,
 							"scale": false,
 							"op": 1
@@ -12172,41 +12278,6 @@
 					]
 				},
 				{
-					"id": "LeadenWeights",
-					"active": true,
-					"name": "Leaden Weights",
-					"type": 4,
-					"category": "Gauntlets",
-					"icon": "leaden_weights",
-					"description": "You attack slower, but deal more damage.",
-					"flavor": "Think before you act. But don't think too hard.",
-					"anim_set": "",
-					"power_cost": 0,
-					"rarity": 2,
-					"properties": [
-						{
-							"stat": "attack_rate_mod",
-							"mode": 0,
-							"valence": 0,
-							"base": -30,
-							"increment": 0,
-							"type": 2,
-							"scale": false,
-							"op": 1
-						},
-						{
-							"stat": "damage_mod",
-							"mode": 0,
-							"valence": 0,
-							"base": 40,
-							"increment": 30,
-							"type": 2,
-							"scale": false,
-							"op": 1
-						}
-					]
-				},
-				{
 					"id": "Gomjabar",
 					"active": true,
 					"name": "Gomjabar",
@@ -12265,6 +12336,31 @@
 						}
 					],
 					"power_cost": 0
+				},
+				{
+					"id": "Ichorites",
+					"active": true,
+					"name": "Ichorites",
+					"type": 4,
+					"category": "Gloves",
+					"icon": "ichor",
+					"description": "Steal health when you deal damage.",
+					"flavor": "The ichor is an acquired taste.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 2,
+					"properties": [
+						{
+							"stat": "health_steal",
+							"mode": 0,
+							"valence": 0,
+							"base": 1,
+							"increment": 1,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
 				},
 				{
 					"id": "MonkeyHide",
@@ -12490,31 +12586,6 @@
 							"valence": 0,
 							"base": 3,
 							"increment": 3,
-							"type": 2,
-							"scale": false,
-							"op": 1
-						}
-					]
-				},
-				{
-					"id": "Ichorites",
-					"active": true,
-					"name": "Ichorites",
-					"type": 4,
-					"category": "Gloves",
-					"icon": "ichor",
-					"description": "Steal health when you deal damage.",
-					"flavor": "The ichor is an acquired taste.",
-					"anim_set": "",
-					"power_cost": 0,
-					"rarity": 3,
-					"properties": [
-						{
-							"stat": "health_steal",
-							"mode": 0,
-							"valence": 0,
-							"base": 1,
-							"increment": 1,
 							"type": 2,
 							"scale": false,
 							"op": 1
@@ -12902,6 +12973,31 @@
 					]
 				},
 				{
+					"id": "WadingBoots",
+					"active": true,
+					"name": "Wading Boots",
+					"type": 5,
+					"category": "Boots",
+					"icon": "wading_boots",
+					"description": "Potions are much more likely to drop.",
+					"flavor": "Wade in, root around, see what you find.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 0,
+					"properties": [
+						{
+							"stat": "potion_drop_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 100,
+							"increment": 30,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
 					"id": "LeatherBoots",
 					"active": true,
 					"type": 5,
@@ -13097,31 +13193,6 @@
 					]
 				},
 				{
-					"id": "WadingBoots",
-					"active": true,
-					"name": "Wading Boots",
-					"type": 5,
-					"category": "Boots",
-					"icon": "wading_boots",
-					"description": "Potions are much more likely to drop.",
-					"flavor": "Wade in, root around, see what you find.",
-					"anim_set": "",
-					"power_cost": 0,
-					"rarity": 1,
-					"properties": [
-						{
-							"stat": "potion_drop_rate",
-							"mode": 0,
-							"valence": 0,
-							"base": 100,
-							"increment": 30,
-							"type": 2,
-							"scale": false,
-							"op": 1
-						}
-					]
-				},
-				{
 					"id": "DesertTramps",
 					"active": true,
 					"name": "Desert Tramps",
@@ -13145,6 +13216,31 @@
 							"op": 0
 						}
 					]
+				},
+				{
+					"id": "Bullhooves",
+					"active": true,
+					"name": "Bullhooves",
+					"type": 5,
+					"category": "Shoes",
+					"icon": "bullhooves",
+					"description": "Generate power faster.",
+					"flavor": "One victory often leads to another.",
+					"anim_set": "",
+					"rarity": 1,
+					"properties": [
+						{
+							"valence": 0,
+							"base": 20,
+							"increment": 20,
+							"type": 2,
+							"stat": "power_gain_mod",
+							"op": 1,
+							"scale": false,
+							"mode": 0
+						}
+					],
+					"power_cost": 0
 				},
 				{
 					"id": "Mobility",
@@ -13229,31 +13325,6 @@
 						}
 					],
 					"anim_set": "",
-					"power_cost": 0
-				},
-				{
-					"id": "Bullhooves",
-					"active": true,
-					"name": "Bullhooves",
-					"type": 5,
-					"category": "Shoes",
-					"icon": "bullhooves",
-					"description": "Generate power faster.",
-					"flavor": "One victory often leads to another.",
-					"anim_set": "",
-					"rarity": 2,
-					"properties": [
-						{
-							"valence": 0,
-							"base": 20,
-							"increment": 20,
-							"type": 2,
-							"stat": "power_gain_mod",
-							"op": 1,
-							"scale": false,
-							"mode": 0
-						}
-					],
 					"power_cost": 0
 				},
 				{
@@ -13695,7 +13766,7 @@
 					"rarity": 4,
 					"properties": [
 						{
-							"base": 5,
+							"base": 20,
 							"increment": 3,
 							"type": 2,
 							"stat": "rarity_bonus",
@@ -13970,12 +14041,12 @@
 					"category": "Amulet",
 					"description": "Gives you more health.",
 					"flavor": "Enriches and warms the blood. Reddens the cheeks.",
-					"rarity": 1,
+					"rarity": 0,
 					"properties": [
 						{
-							"base": 100,
+							"base": 50,
 							"type": 1,
-							"increment": 100,
+							"increment": 50,
 							"stat": "health",
 							"op": 1,
 							"valence": 0,
@@ -14202,6 +14273,41 @@
 					]
 				},
 				{
+					"id": "TyrantMark",
+					"active": true,
+					"type": 6,
+					"icon": "tyrant",
+					"name": "Mark of the Tyrant",
+					"category": "Amulet",
+					"description": "Enemies don't move when knocked back, and are stunned for longer.",
+					"flavor": "Without conscience, the world is a magnificent toy.",
+					"rarity": 1,
+					"properties": [
+						{
+							"valence": 1,
+							"base": 50,
+							"increment": 10,
+							"type": 2,
+							"stat": "knockback_time",
+							"op": 1,
+							"scale": false,
+							"mode": 0
+						},
+						{
+							"valence": 0,
+							"base": -90,
+							"increment": 0,
+							"type": 2,
+							"stat": "knockback_distance",
+							"op": 1,
+							"scale": false,
+							"mode": 0
+						}
+					],
+					"anim_set": "",
+					"power_cost": 0
+				},
+				{
 					"id": "Splenetic",
 					"active": true,
 					"name": "Splenetic Amulet",
@@ -14262,41 +14368,6 @@
 					"power_cost": 0
 				},
 				{
-					"id": "TyrantMark",
-					"active": true,
-					"type": 6,
-					"icon": "tyrant",
-					"name": "Mark of the Tyrant",
-					"category": "Amulet",
-					"description": "Enemies don't move when knocked back, and are stunned for longer.",
-					"flavor": "Without conscience, the world is a magnificent toy.",
-					"rarity": 2,
-					"properties": [
-						{
-							"valence": 1,
-							"base": 50,
-							"increment": 10,
-							"type": 2,
-							"stat": "knockback_time",
-							"op": 1,
-							"scale": false,
-							"mode": 0
-						},
-						{
-							"valence": 0,
-							"base": -90,
-							"increment": 0,
-							"type": 2,
-							"stat": "knockback_distance",
-							"op": 1,
-							"scale": false,
-							"mode": 0
-						}
-					],
-					"anim_set": "",
-					"power_cost": 0
-				},
-				{
 					"id": "Berserk",
 					"type": 6,
 					"icon": "berserk",
@@ -14339,7 +14410,7 @@
 					"category": "Amulet",
 					"icon": "ghostly",
 					"description": "Dodging counts as evading.",
-					"flavor": "",
+					"flavor": "Luck might be part of the plan.",
 					"anim_set": "",
 					"rarity": 2,
 					"properties": [
@@ -14423,7 +14494,7 @@
 					"type": 6,
 					"category": "Amulet",
 					"icon": "sin_cleanser",
-					"description": "When you hit a burning enemy, they are hit with a meteor..",
+					"description": "When you hit a burning enemy, they are hit with a meteor.",
 					"flavor": "There is only one way to purify sin.",
 					"anim_set": "",
 					"power_cost": 0,
@@ -14502,8 +14573,8 @@
 					"category": "Amulet",
 					"properties": [
 						{
-							"base": 14,
-							"increment": 6,
+							"base": 28,
+							"increment": 10,
 							"type": 2,
 							"stat": "elemental_whirlwind",
 							"op": 1,
@@ -15100,7 +15171,7 @@
 					"category": "Book",
 					"description": "Reading its terse passages brings comfort, increasing Hope gain.",
 					"flavor": "\"Truth is a path / Deep into the woods / Of the unknown / That ends where it began.\"",
-					"rarity": 1,
+					"rarity": 0,
 					"properties": [
 						{
 							"base": 25,
@@ -15307,6 +15378,56 @@
 					]
 				},
 				{
+					"id": "JereauxsBillfold",
+					"active": true,
+					"name": "Jereaux's Billfold",
+					"type": 7,
+					"category": "Book",
+					"icon": "billfold",
+					"description": "Picking up coins heals you.",
+					"flavor": "Money wont save your soul, but it can save your life.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"stat": "health_per_coin",
+							"mode": 0,
+							"valence": 1,
+							"base": 1,
+							"increment": 1,
+							"type": 1,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "CrusadersDirge",
+					"active": true,
+					"name": "Crusader's Dirge",
+					"type": 7,
+					"category": "Book",
+					"icon": "dirge",
+					"description": "Killing enemies provides hope.",
+					"flavor": "Mourn for them by continuing their righteous cause.",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 1,
+					"properties": [
+						{
+							"valence": 1,
+							"base": 0.1,
+							"increment": 0.1,
+							"type": 0,
+							"stat": "hope_per_kill",
+							"op": 1,
+							"scale": false,
+							"mode": 0
+						}
+					]
+				},
+				{
 					"id": "Makar",
 					"active": true,
 					"type": 7,
@@ -15457,31 +15578,6 @@
 					]
 				},
 				{
-					"id": "JereauxsBillfold",
-					"active": true,
-					"name": "Jereaux's Billfold",
-					"type": 7,
-					"category": "Book",
-					"icon": "billfold",
-					"description": "Picking up coins heals you.",
-					"flavor": "Money wont save your soul, but it can save your life.",
-					"anim_set": "",
-					"power_cost": 0,
-					"rarity": 2,
-					"properties": [
-						{
-							"stat": "health_per_coin",
-							"mode": 0,
-							"valence": 1,
-							"base": 1,
-							"increment": 1,
-							"type": 1,
-							"scale": false,
-							"op": 1
-						}
-					]
-				},
-				{
 					"id": "SandScript",
 					"active": true,
 					"name": "Sand Script",
@@ -15507,6 +15603,31 @@
 					]
 				},
 				{
+					"id": "WarriorPoet",
+					"active": true,
+					"name": "The Warrior Poet",
+					"type": 7,
+					"category": "Book",
+					"icon": "warrior_poet",
+					"description": "Power moves themselves can generate power.",
+					"flavor": "A coward fears violence, so a coward is never wise.",
+					"anim_set": "",
+					"rarity": 2,
+					"properties": [
+						{
+							"valence": 1,
+							"base": 50,
+							"increment": 50,
+							"type": 2,
+							"stat": "power_self_gen",
+							"op": 1,
+							"scale": false,
+							"mode": 0
+						}
+					],
+					"power_cost": 0
+				},
+				{
 					"id": "VulgarScrawl",
 					"active": true,
 					"name": "Vulgar Scrawl",
@@ -15517,7 +15638,7 @@
 					"flavor": "Crude and repulsive.",
 					"anim_set": "",
 					"power_cost": 0,
-					"rarity": 2,
+					"rarity": 3,
 					"properties": [
 						{
 							"stat": "knockback_explosion",
@@ -15530,31 +15651,6 @@
 							"op": 1
 						}
 					]
-				},
-				{
-					"id": "CrusadersDirge",
-					"active": true,
-					"name": "Crusader's Dirge",
-					"type": 7,
-					"category": "Book",
-					"icon": "dirge",
-					"description": "Killing enemies provides hope.",
-					"flavor": "Mourn for them by continuing their righteous cause.",
-					"anim_set": "",
-					"rarity": 3,
-					"properties": [
-						{
-							"valence": 1,
-							"base": 0.1,
-							"increment": 0.1,
-							"type": 0,
-							"stat": "hope_per_kill",
-							"op": 1,
-							"scale": false,
-							"mode": 0
-						}
-					],
-					"power_cost": 0
 				},
 				{
 					"id": "Logbook",
@@ -15627,31 +15723,6 @@
 							"type": 2,
 							"scale": false,
 							"op": 1
-						}
-					],
-					"power_cost": 0
-				},
-				{
-					"id": "WarriorPoet",
-					"active": true,
-					"name": "The Warrior Poet",
-					"type": 7,
-					"category": "Book",
-					"icon": "warrior_poet",
-					"description": "Power moves themselves can generate power.",
-					"flavor": "A coward fears violence, so a coward is never wise.",
-					"anim_set": "",
-					"rarity": 3,
-					"properties": [
-						{
-							"valence": 1,
-							"base": 50,
-							"increment": 50,
-							"type": 2,
-							"stat": "power_self_gen",
-							"op": 1,
-							"scale": false,
-							"mode": 0
 						}
 					],
 					"power_cost": 0
@@ -16463,8 +16534,8 @@
 							"stat": "visibility_bonus",
 							"mode": 0,
 							"valence": 0,
-							"base": 5,
-							"increment": 1,
+							"base": 4,
+							"increment": 1.5,
 							"type": 2,
 							"scale": false,
 							"op": 1
@@ -17469,12 +17540,12 @@
 					]
 				},
 				{
-					"id": "BlessingBalor",
+					"id": "KnowledgeAnimals",
 					"active": true,
-					"name": "Blessing of Balor",
+					"name": "Knowledge of Animals",
 					"type": 11,
 					"category": "Blessing",
-					"icon": "blessing_balor",
+					"icon": "knowledge_animal",
 					"description": "You do more damage.",
 					"flavor": "",
 					"anim_set": "",
@@ -17494,20 +17565,20 @@
 					]
 				},
 				{
-					"id": "BlessingBowen",
+					"id": "KnowledgeVegetables",
 					"active": true,
-					"name": "Blessing of Bowen",
+					"name": "Knowledge of Vegetables",
 					"type": 11,
 					"category": "Blessing",
-					"icon": "blessing_bowen",
-					"description": "You evade attacks.",
+					"icon": "knowledge_vegetable",
+					"description": "You have more health.",
 					"flavor": "",
 					"anim_set": "",
 					"power_cost": 0,
 					"rarity": 4,
 					"properties": [
 						{
-							"stat": "evasion",
+							"stat": "health_mod",
 							"mode": 0,
 							"valence": 0,
 							"base": 35,
@@ -17519,13 +17590,13 @@
 					]
 				},
 				{
-					"id": "BlessingBran",
+					"id": "KnowledgeMinerals",
 					"active": true,
-					"name": "Blessing of Bran",
+					"name": "Knowledge of Minerals",
 					"type": 11,
 					"category": "Blessing",
-					"icon": "blessing_bran",
-					"description": "You find more embers.",
+					"icon": "knowledge_mineral",
+					"description": "You find more Embers.",
 					"flavor": "",
 					"anim_set": "",
 					"power_cost": 0,
@@ -17606,6 +17677,81 @@
 							"mode": 0,
 							"valence": 0,
 							"base": 50,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "BlessingBalor",
+					"active": true,
+					"name": "Blessing of Balor",
+					"type": 11,
+					"category": "Blessing",
+					"icon": "blessing_balor",
+					"description": "With this Knowledge, you do more damage.",
+					"flavor": "",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 4,
+					"properties": [
+						{
+							"stat": "damage_mod",
+							"mode": 0,
+							"valence": 0,
+							"base": 35,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "BlessingBowen",
+					"active": true,
+					"name": "Blessing of Bowen",
+					"type": 11,
+					"category": "Blessing",
+					"icon": "blessing_bowen",
+					"description": "With this Knowledge, you evade attacks.",
+					"flavor": "",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 4,
+					"properties": [
+						{
+							"stat": "evasion",
+							"mode": 0,
+							"valence": 0,
+							"base": 35,
+							"increment": 0,
+							"type": 2,
+							"scale": false,
+							"op": 1
+						}
+					]
+				},
+				{
+					"id": "BlessingBran",
+					"active": true,
+					"name": "Blessing of Bran",
+					"type": 11,
+					"category": "Blessing",
+					"icon": "blessing_bran",
+					"description": "With this Knowledge, you find more embers.",
+					"flavor": "",
+					"anim_set": "",
+					"power_cost": 0,
+					"rarity": 4,
+					"properties": [
+						{
+							"stat": "ember_drop_rate",
+							"mode": 0,
+							"valence": 0,
+							"base": 35,
 							"increment": 0,
 							"type": 2,
 							"scale": false,
@@ -21933,8 +22079,8 @@
 				24,
 				44,
 				47,
-				321,
-				534
+				322,
+				537
 			],
 			"props": {
 				"displayColumn": "name"
@@ -26465,12 +26611,74 @@
 				},
 				{
 					"active": true,
+					"id": "CretinCrusher",
+					"name": "Cretin Crusher",
+					"type": 1,
+					"ranged": false,
+					"team": 4,
+					"difficulty_bar": 16,
+					"value": 2,
+					"visual": [
+						{
+							"anim": "cretin_crusher",
+							"wide": false,
+							"body_type": 0,
+							"hit_sound": "enemy_cretin_hit",
+							"die_sound": "enemy_cretin_die",
+							"hit_emitter": "CretinBlood"
+						}
+					],
+					"stat": [
+						{
+							"stat": "health",
+							"base": 240,
+							"increment": 0
+						},
+						{
+							"stat": "knockback",
+							"base": 200,
+							"increment": 0
+						},
+						{
+							"stat": "speed",
+							"base": 80,
+							"increment": 0
+						},
+						{
+							"stat": "size",
+							"base": 32,
+							"increment": 0
+						},
+						{
+							"stat": "poise_mod",
+							"base": 3,
+							"increment": 0
+						},
+						{
+							"stat": "attack_poise_damage",
+							"base": 3,
+							"increment": 0
+						}
+					],
+					"arsenal": [
+						{
+							"item": "CretinClub",
+							"difficulty_bar": 0
+						},
+						{
+							"item": "CretinPlate",
+							"difficulty_bar": 10
+						}
+					]
+				},
+				{
+					"active": true,
 					"id": "CretinColossus",
 					"name": "Cretin Colossus",
 					"type": 1,
 					"ranged": false,
 					"team": 4,
-					"difficulty_bar": 18,
+					"difficulty_bar": 17,
 					"value": 4,
 					"visual": [
 						{
@@ -26517,28 +26725,6 @@
 					"arsenal": [
 						{
 							"item": "CretinBigAxe",
-							"difficulty_bar": 0
-						},
-						{
-							"item": "CretinPlate",
-							"difficulty_bar": 10
-						}
-					]
-				},
-				{
-					"active": false,
-					"id": "CretinCrusher",
-					"name": "Cretin Crusher",
-					"type": 1,
-					"ranged": false,
-					"team": 4,
-					"difficulty_bar": 0,
-					"value": 2,
-					"visual": [],
-					"stat": [],
-					"arsenal": [
-						{
-							"item": "CretinClub",
 							"difficulty_bar": 0
 						},
 						{
@@ -30624,6 +30810,41 @@
 					"random": false
 				},
 				{
+					"name": "innocent_folly",
+					"ref": "innocent",
+					"random": true,
+					"items": [
+						{
+							"text": "Don't worry, I think it's safe here..."
+						},
+						{
+							"text": "Everything's going to be alright, right?"
+						},
+						{
+							"text": "I need to find some flower... pretty flowers..."
+						},
+						{
+							"text": "What a beautiful day for a stroll..."
+						}
+					]
+				},
+				{
+					"name": "innocent_folly_end",
+					"ref": "innocent",
+					"random": true,
+					"items": [
+						{
+							"text": "It feels so good to be amongst the flowers."
+						},
+						{
+							"text": "Are you also here to collect flowers?"
+						},
+						{
+							"text": "Hmm... I'll have to decide which is my favorite..."
+						}
+					]
+				},
+				{
 					"name": "malingerer_intro",
 					"ref": "malingerer",
 					"random": false,
@@ -30823,6 +31044,28 @@
 						},
 						{
 							"text": "You feel inspired by his scrappy spirit."
+						}
+					]
+				},
+				{
+					"name": "bombardment_intro",
+					"ref": "instigator",
+					"random": true,
+					"items": [
+						{
+							"text": "Eh heh heh... Let's rip and burn 'em. Death to art!"
+						},
+						{
+							"text": "Crush 'em, smash 'em, blast these ugly Sculptures!"
+						},
+						{
+							"text": "Burn! Kill! Crush! Destruction is fun! Rip the Sculptures ta' bits!"
+						},
+						{
+							"text": "Down they go, wipe 'em all away, crush the art inta' dust!"
+						},
+						{
+							"text": "Crash, smash, trash all these Sculptures! Whee!"
 						}
 					]
 				},
@@ -32366,7 +32609,7 @@
 							"text": "Welcome Stranger, to my garden. All are welcome here. "
 						},
 						{
-							"text": "It's only the beginnings of a beginning. The land here is foul and bitter."
+							"text": "It's only the beginnings of a beginning. The land here is foul and bitter from what it's been through."
 						},
 						{
 							"text": "But with consistent tending, applied patiently over a long period of time..."
@@ -32564,13 +32807,13 @@
 					"ref": "mystic",
 					"items": [
 						{
-							"text": "Long have I sat, motionless, pondering..."
-						},
-						{
-							"text": "A sailor on the infinite ocean. Much wisdom I have accrued."
+							"text": "Long have I sat, reading these ancient texts. From them I have accrued much wisdom."
 						},
 						{
 							"text": "Speak with me, and I will impart the blessings of my wisdom upon you."
+						},
+						{
+							"text": "Let the Blessing of Wind carry you."
 						}
 					],
 					"random": false
@@ -32586,33 +32829,14 @@
 					"random": false
 				},
 				{
-					"name": "mystic_speech0",
-					"ref": "mystic",
-					"items": [
-						{
-							"text": "A fish is twitching and flopping on the ground."
-						},
-						{
-							"text": "A wildflower seed is blown over sand and stone, coming to rest in the damp soil."
-						},
-						{
-							"text": "The eye of The Father fixates on you, for a moment, and then looks away."
-						}
-					],
-					"random": false
-				},
-				{
 					"name": "mystic_speech1",
 					"ref": "mystic",
 					"items": [
 						{
-							"text": "To want is to suffer. And to live is to want."
+							"text": "To want is to suffer. And to live is to want. In these books I have seen the monsters bred for lack of want."
 						},
 						{
-							"text": "In my dreams I have seen the monsters bred for lack of want."
-						},
-						{
-							"text": "I bow my head to you. Let this wisdom accompany you for a while."
+							"text": "Let this Wisdom of Rain accompany you for a while."
 						}
 					],
 					"random": false
@@ -32622,13 +32846,10 @@
 					"ref": "mystic",
 					"items": [
 						{
-							"text": "Without struggle, life unravels into nothingness."
+							"text": "Without struggle, life unravels into nothingness. Love your struggle, tend to it. Treat it as though it truly matters."
 						},
 						{
-							"text": "Love your struggle, tend to it. Treat it as though it truly matters."
-						},
-						{
-							"text": "May this wisdom shield you, for a time."
+							"text": "May this Wisdom of Stone shield you, for a time."
 						}
 					],
 					"random": false
@@ -32638,13 +32859,10 @@
 					"ref": "mystic",
 					"items": [
 						{
-							"text": "Remember the struggle of your father. And the struggle of his father."
+							"text": "Remember the struggle of your father. And the struggle of his father. Going back, all the way, is an endless story. You are only a small part."
 						},
 						{
-							"text": "Going back, all the way, is an endless story. You are only a small part."
-						},
-						{
-							"text": "May this wisdom guide you on your way."
+							"text": "May this Wisdom of Seeds guide you on your way."
 						}
 					],
 					"random": false
@@ -32654,13 +32872,10 @@
 					"ref": "mystic",
 					"items": [
 						{
-							"text": "Do not fear the end of the world."
+							"text": "Do not fear the end of the world. The world was meant to be destroyed, and created again."
 						},
 						{
-							"text": "The world was meant to be destroyed, and created again."
-						},
-						{
-							"text": "May this wisdom steel you in your sacred task."
+							"text": "May this Wisdom of Fire steel you in your sacred task."
 						}
 					],
 					"random": false
@@ -32670,13 +32885,10 @@
 					"ref": "mystic",
 					"items": [
 						{
-							"text": "We will all die. But what a rarity it is to be alive at all."
+							"text": "We will all die. But what a rarity it is to be alive at all. Most things that might have existed, never have. "
 						},
 						{
-							"text": "Most things that might have existed, never have. "
-						},
-						{
-							"text": "The Father praise you. Let this wisdom carry you."
+							"text": "The Father praise you. Let this Wisdom of the Wheel carry you."
 						}
 					],
 					"random": false
@@ -32721,7 +32933,7 @@
 							"text": "A fool would say that nothing matters, that the universe is ambivalent to us."
 						},
 						{
-							"text": "Everything is connected, therefore everything matters."
+							"text": "But everything is connected, therefore everything matters."
 						},
 						{
 							"text": "Your generosity is seen. Please, carry this wisdom with you on your journey."
@@ -32760,106 +32972,6 @@
 						},
 						{
 							"text": "Keep this with you, a final gift."
-						}
-					],
-					"random": false
-				},
-				{
-					"name": "mystic_speech1x",
-					"ref": "mystic",
-					"items": [
-						{
-							"text": "A fish is twitching and flopping on the ground."
-						}
-					],
-					"random": false
-				},
-				{
-					"name": "mystic_speech2x",
-					"ref": "mystic",
-					"items": [
-						{
-							"text": "A wildflower seed is blown over sand and stone, coming to rest in the damp soil."
-						}
-					],
-					"random": false
-				},
-				{
-					"name": "mystic_speech3x",
-					"ref": "mystic",
-					"items": [
-						{
-							"text": "You've been walking through a dark forest, but ahead is a familiar cabin."
-						}
-					],
-					"random": false
-				},
-				{
-					"name": "mystic_speech4x",
-					"ref": "mystic",
-					"items": [
-						{
-							"text": "A silent bell rings out, echoing the song in your heart."
-						}
-					],
-					"random": false
-				},
-				{
-					"name": "mystic_speech5x",
-					"ref": "mystic",
-					"items": [
-						{
-							"text": "It's early morning, and the sun refuses to rise. You can feel the world spinning."
-						}
-					],
-					"random": false
-				},
-				{
-					"name": "mystic_speech6x",
-					"ref": "mystic",
-					"items": [
-						{
-							"text": "Your friends are all together, in embrace beyond propriety."
-						}
-					],
-					"random": false
-				},
-				{
-					"name": "mystic_speech7x",
-					"ref": "mystic",
-					"items": [
-						{
-							"text": "The Goddess is wet with sunlight, and stretching herself out into the morning."
-						}
-					],
-					"random": false
-				},
-				{
-					"name": "mystic_speech8x",
-					"ref": "mystic",
-					"items": [
-						{
-							"text": "The eye of The Father fixates on you, for a moment, and then looks away."
-						}
-					],
-					"random": false
-				},
-				{
-					"name": "mystic_speech9x",
-					"ref": "mystic",
-					"items": [
-						{
-							"text": "A strange orb in the infinite darkness, spinning freely."
-						}
-					],
-					"random": false
-				},
-				{
-					"name": "mystic_speech10x",
-					"ref": "mystic",
-					"items": [
-						{
-							"text": "It's a lot easier to be gone, than it is to be here."
 						}
 					],
 					"random": false
@@ -33275,18 +33387,18 @@
 			],
 			"separators": [
 				50,
-				75,
-				99,
-				118,
-				137,
-				152,
-				171,
-				183,
-				201,
-				225,
-				239,
-				240,
-				244
+				78,
+				102,
+				121,
+				140,
+				155,
+				174,
+				186,
+				204,
+				217,
+				231,
+				232,
+				236
 			],
 			"props": {
 				"separatorTitles": [
@@ -33553,84 +33665,6 @@
 					"difficulty_bar": 0
 				},
 				{
-					"id": "Entryway",
-					"light": 0,
-					"ambient": "ambient_forest",
-					"name": "Necrovale Gateway",
-					"type": 2,
-					"active": false,
-					"area": 0,
-					"file": "world/Entryway.tmx",
-					"subtitle": "",
-					"difficulty_bar": 0
-				},
-				{
-					"id": "Intro1",
-					"active": false,
-					"name": "The Vestibule",
-					"type": 2,
-					"area": 1,
-					"light": 0.2,
-					"ambient": "ambient_cave",
-					"enemies": [
-						{
-							"type": "DraugurLackey"
-						}
-					],
-					"tileset": "dungeon",
-					"subtitle": "",
-					"difficulty_bar": 0
-				},
-				{
-					"id": "Pit",
-					"active": false,
-					"name": "The Pit",
-					"subtitle": "",
-					"type": 2,
-					"area": 1,
-					"light": 0.1,
-					"tileset": "slums",
-					"ambient": "ambient_cave",
-					"difficulty_bar": 0
-				},
-				{
-					"id": "Intro2",
-					"active": false,
-					"name": "The Vestibule",
-					"type": 2,
-					"area": 1,
-					"light": 0.2,
-					"ambient": "ambient_cave",
-					"enemies": [
-						{
-							"type": "DraugurLackey"
-						}
-					],
-					"tileset": "dungeon",
-					"subtitle": "",
-					"difficulty_bar": 0
-				},
-				{
-					"id": "Intro3",
-					"active": false,
-					"name": "The Vestibule",
-					"type": 2,
-					"area": 1,
-					"light": 0.2,
-					"ambient": "ambient_cave",
-					"enemies": [
-						{
-							"type": "DraugurLackey"
-						},
-						{
-							"type": "DraugurArcher"
-						}
-					],
-					"tileset": "dungeon",
-					"subtitle": "",
-					"difficulty_bar": 0
-				},
-				{
 					"id": "Cloister",
 					"active": true,
 					"name": "Cloister",
@@ -33647,29 +33681,6 @@
 					],
 					"file": "world/Cloister.tmx",
 					"ambient": "ambient_mystical"
-				},
-				{
-					"id": "Sanguinary",
-					"active": true,
-					"name": "Sanguinary",
-					"subtitle": "Restore your health in exchange for Hope",
-					"type": 1,
-					"area": 0,
-					"difficulty_bar": 0,
-					"light": 0.1,
-					"music": "music_witch",
-					"ambient": "ambient_ominous"
-				},
-				{
-					"id": "Cache",
-					"active": true,
-					"name": "Cache",
-					"subtitle": "Raid the cache of treasure",
-					"type": 1,
-					"area": 0,
-					"difficulty_bar": 0,
-					"light": 0.1,
-					"ambient": "ambient_cave"
 				},
 				{
 					"id": "Respite",
@@ -33720,15 +33731,82 @@
 					"ambient": "ambient_cave"
 				},
 				{
-					"id": "Armory",
-					"active": true,
-					"name": "Armory",
-					"subtitle": "Choose a piece of equipment",
-					"type": 1,
+					"id": "Entryway",
+					"light": 0,
+					"ambient": "ambient_forest",
+					"name": "Necrovale Gateway",
+					"type": 2,
+					"active": false,
 					"area": 0,
-					"difficulty_bar": 6,
-					"light": 0.15,
-					"tileset": "slums"
+					"file": "world/Entryway.tmx",
+					"subtitle": "",
+					"difficulty_bar": 0
+				},
+				{
+					"id": "Intro1",
+					"active": false,
+					"name": "The Vestibule",
+					"type": 2,
+					"area": 0,
+					"light": 0.2,
+					"ambient": "ambient_cave",
+					"enemies": [
+						{
+							"type": "DraugurLackey"
+						}
+					],
+					"tileset": "dungeon",
+					"subtitle": "",
+					"difficulty_bar": 0
+				},
+				{
+					"id": "Pit",
+					"active": false,
+					"name": "The Pit",
+					"subtitle": "",
+					"type": 2,
+					"area": 0,
+					"light": 0.1,
+					"tileset": "slums",
+					"ambient": "ambient_cave",
+					"difficulty_bar": 0
+				},
+				{
+					"id": "Intro2",
+					"active": false,
+					"name": "The Vestibule",
+					"type": 2,
+					"area": 0,
+					"light": 0.2,
+					"ambient": "ambient_cave",
+					"enemies": [
+						{
+							"type": "DraugurLackey"
+						}
+					],
+					"tileset": "dungeon",
+					"subtitle": "",
+					"difficulty_bar": 0
+				},
+				{
+					"id": "Intro3",
+					"active": false,
+					"name": "The Vestibule",
+					"type": 2,
+					"area": 0,
+					"light": 0.2,
+					"ambient": "ambient_cave",
+					"enemies": [
+						{
+							"type": "DraugurLackey"
+						},
+						{
+							"type": "DraugurArcher"
+						}
+					],
+					"tileset": "dungeon",
+					"subtitle": "",
+					"difficulty_bar": 0
 				},
 				{
 					"id": "DungeonAntechamber",
@@ -33846,6 +33924,17 @@
 					"difficulty_bar": 0
 				},
 				{
+					"id": "Armory",
+					"active": true,
+					"name": "Armory",
+					"subtitle": "Choose a piece of equipment",
+					"type": 1,
+					"area": 1,
+					"difficulty_bar": 3,
+					"light": 0.15,
+					"tileset": "slums"
+				},
+				{
 					"id": "TestArrogance",
 					"active": true,
 					"name": "Test of Arrogance",
@@ -33861,18 +33950,6 @@
 							"type": "HopelessCutthroat"
 						}
 					]
-				},
-				{
-					"id": "Sorrowell",
-					"active": true,
-					"name": "Sorrowell",
-					"subtitle": "Dare to drink the bile",
-					"type": 1,
-					"area": 1,
-					"difficulty_bar": 0,
-					"light": 0,
-					"tileset": "dungeon",
-					"ambient": "ambient_ominous"
 				},
 				{
 					"id": "WishingWell",
@@ -33909,18 +33986,6 @@
 					"light": 0,
 					"tileset": "dungeon",
 					"music": "music_vault",
-					"ambient": "ambient_cave"
-				},
-				{
-					"id": "FoolsFount",
-					"active": true,
-					"name": "Fools Fount",
-					"subtitle": "Spend your health on items of increasing Rarity",
-					"type": 1,
-					"area": 1,
-					"difficulty_bar": 6,
-					"light": 0.1,
-					"tileset": "slums",
 					"ambient": "ambient_cave"
 				},
 				{
@@ -34184,9 +34249,9 @@
 					]
 				},
 				{
-					"id": "Dominarium",
+					"id": "Keep",
 					"active": true,
-					"name": "Dominarium",
+					"name": "Keep",
 					"subtitle": "Destroy the Draugur Commanders",
 					"type": 0,
 					"area": 1,
@@ -34467,16 +34532,27 @@
 					"ambient": "ambient_cave"
 				},
 				{
-					"id": "ShrineContentment",
-					"active": false,
-					"name": "Shrine of Contentment",
-					"subtitle": "",
+					"id": "Cache",
+					"active": true,
+					"name": "Cache",
+					"subtitle": "Raid the cache of treasure",
 					"type": 1,
 					"area": 2,
-					"light": 0.2,
-					"tileset": "ruins",
 					"difficulty_bar": 0,
-					"ambient": "ambient_mystical"
+					"light": 0.1,
+					"ambient": "ambient_cave",
+					"tileset": "caves"
+				},
+				{
+					"id": "Scholarium",
+					"active": true,
+					"name": "Scholarium",
+					"subtitle": "Pay coins to recieve Knowledge",
+					"type": 1,
+					"area": 2,
+					"difficulty_bar": 15,
+					"light": 0.2,
+					"tileset": "ruins"
 				},
 				{
 					"id": "Loculus",
@@ -34485,7 +34561,7 @@
 					"subtitle": "Sacrifice an item for a Flickering Ember",
 					"type": 1,
 					"area": 2,
-					"difficulty_bar": 16,
+					"difficulty_bar": 15,
 					"light": 0,
 					"tileset": "caves",
 					"ambient": "ambient_cave"
@@ -34625,12 +34701,12 @@
 				},
 				{
 					"id": "Garrison",
-					"active": false,
+					"active": true,
 					"name": "Garrison",
 					"subtitle": "Clear out the Cretin Crushers",
 					"type": 0,
 					"area": 2,
-					"difficulty_bar": 0,
+					"difficulty_bar": 16,
 					"light": 0.2,
 					"enemies": [
 						{
@@ -34647,7 +34723,7 @@
 					"subtitle": "Survive the rounds of Colossus attacks",
 					"type": 0,
 					"area": 2,
-					"difficulty_bar": 18,
+					"difficulty_bar": 17,
 					"light": 0.2,
 					"enemies": [
 						{
@@ -34659,12 +34735,12 @@
 				},
 				{
 					"id": "Bombardment",
-					"active": false,
+					"active": true,
 					"name": "Bombardment",
-					"subtitle": "Destroy the Sappers before they destroy the idol",
+					"subtitle": "Destroy the Sappers before they destroy the Statues",
 					"type": 3,
 					"area": 2,
-					"difficulty_bar": 16,
+					"difficulty_bar": 15,
 					"light": 0.2,
 					"enemies": [
 						{
@@ -34676,9 +34752,9 @@
 				},
 				{
 					"id": "InnocentsFolly",
-					"active": false,
+					"active": true,
 					"name": "Innocent's Folly",
-					"subtitle": "Protect the Innocent from the Raiders",
+					"subtitle": "Protect the Innocent from the Cretins",
 					"type": 3,
 					"area": 2,
 					"difficulty_bar": 0,
@@ -35201,6 +35277,31 @@
 					"file": "world/HallsAntechamber.tmx"
 				},
 				{
+					"id": "Sanguinary",
+					"active": true,
+					"name": "Sanguinary",
+					"subtitle": "Restore your health in exchange for Hope",
+					"type": 1,
+					"area": 4,
+					"difficulty_bar": 0,
+					"light": 0.1,
+					"music": "music_witch",
+					"ambient": "ambient_ominous",
+					"tileset": "halls"
+				},
+				{
+					"id": "Sorrowell",
+					"active": true,
+					"name": "Sorrowell",
+					"subtitle": "Dare to drink the bile",
+					"type": 1,
+					"area": 4,
+					"difficulty_bar": 0,
+					"light": 0,
+					"tileset": "halls",
+					"ambient": "ambient_ominous"
+				},
+				{
 					"id": "Narthex",
 					"active": false,
 					"name": "Narthex",
@@ -35409,7 +35510,7 @@
 					"name": "Treasure Vault",
 					"subtitle": "Collect some treasure from the Cat",
 					"type": 1,
-					"area": 0,
+					"area": 5,
 					"difficulty_bar": 0,
 					"light": 0.2,
 					"tileset": "palace",
@@ -35434,6 +35535,18 @@
 					"tileset": "palace",
 					"music": "music_witch",
 					"ambient": "ambient_mystical"
+				},
+				{
+					"id": "FoolsFount",
+					"active": true,
+					"name": "Fools Fount",
+					"subtitle": "Spend your health on items of increasing Rarity",
+					"type": 1,
+					"area": 5,
+					"difficulty_bar": 6,
+					"light": 0.1,
+					"tileset": "palace",
+					"ambient": "ambient_cave"
 				},
 				{
 					"id": "Rotunda",
@@ -35488,34 +35601,40 @@
 				}
 			],
 			"separators": [
-				8,
 				13,
-				21,
-				37,
-				64,
-				73,
-				92,
-				107,
-				123,
-				132,
-				137,
+				18,
+				33,
+				51,
+				60,
+				70,
+				81,
+				89,
+				104,
+				116,
+				120,
+				131,
+				134,
+				136,
 				145,
 				146
 			],
 			"props": {
 				"separatorTitles": [
 					"Intro",
-					"Common",
-					"Dungeons Special",
-					"Dungeons Combat",
-					"Ruins Special",
-					"Ruins Combat",
-					"River Special",
-					"River Combat",
-					"Halls Special",
-					"Halls Combat",
-					"Palace Special",
-					"Palace Combat",
+					"Necrovale Dungeons",
+					null,
+					null,
+					"Hornslack Ruins",
+					null,
+					null,
+					"River of Souls",
+					null,
+					null,
+					"Halls of Shadow",
+					null,
+					null,
+					"Palace of the Witch",
+					null,
 					"Any"
 				]
 			}
