@@ -4,6 +4,9 @@ function field([k, v]) {
 function icon(s) {
   return `Icons_${s}.png`
 }
+function capitalize(s) {
+  return s ? s.charAt(0).toUpperCase() + s.slice(1) : ''
+}
 const methods = {
   pagetype: function (type) {
     return `{{PAGENAME}} is a type of [[${type}]].`
@@ -24,8 +27,11 @@ ${rows.map((i) => [' |-', ' | ' + i.join('\n | ')].join('\n')).join('\n')}
 `
   },
   icon: function icon(i, cap = '') {
+    return i ? methods.img(`Icons_${i}.png`, cap) : '(not found)'
+  },
+  img: function icon(i, cap = '') {
     return i
-      ? `[[File:Icons_${i}.png|class=pixel|64px${cap ? '|' + cap : ''}]]`
+      ? `[[File:${i}|class=pixel|64px${cap ? '|' + cap : ''}]]`
       : '(not found)'
   },
   page: function (name) {
@@ -56,9 +62,21 @@ ${rows.map((i) => [' |-', ' | ' + i.join('\n | ')].join('\n')).join('\n')}
       .join('|')
     return `<noinclude>{{Item/Store|${f}}}</noinclude>`
   },
-  cargoQuery: function (where, omitFields = {}) {
+  character: function ({ visual, arsenal, ...i }) {
+    const f = Object.entries({
+      ...i,
+      ranged: +i.ranged,
+      icon: capitalize(i.icon),
+      size: i.stat.find((v) => v.stat === 'size')?.base ?? 0,
+      stat: methods.stats(i.stat)
+    })
+      .map(field)
+      .join('|')
+    return `<noinclude>{{Character/Store|${f}}}</noinclude>`
+  },
+  cargoItemQuery: function (where, omitFields = {}) {
     const fields = [
-      "CONCAT('[[File:',icon,'|class=pixel|63px]]')=Icon",
+      "CONCAT('[[File:',icon,'|class=pixel|64px]]')=Icon",
       '_pageName=Name',
       !omitFields.rarity && "CONCAT('{{Rarity{{!}}', rarity, '}}')=Rarity",
       !omitFields.type && "CONCAT('[[',type,']]')=Type",
@@ -66,13 +84,34 @@ ${rows.map((i) => [' |-', ' | ' + i.join('\n | ')].join('\n')).join('\n')}
       !omitFields.description && "CONCAT('',description)=Description",
       !omitFields.power && "CONCAT('',power_cost)=Power Cost",
       !omitFields.power && "CONCAT('',power_description)=Power Description",
-      !omitFields.stats && 'properties=Properties',
+      !omitFields.stats && 'properties=Stats',
       !omitFields.flavor && `CONCAT("''",flavor, "''")=Flavor`
     ]
       .filter(Boolean)
       .join(',')
     return `{{#cargo_query:
 table=Item
+|fields=${fields}
+|where=${where}
+|format=dynamic table
+|rows per page=500
+}}`
+  },
+  cargoCharacterQuery: function (where, omitFields = {}) {
+    const fields = [
+      "CONCAT('[[File:',icon,'|class=pixel|64px]]')=Icon",
+      '_pageName=Name',
+      !omitFields.type && "CONCAT('[[',type,']]')=Type",
+      !omitFields.team && "CONCAT('[[',team,']]')=Team",
+      !omitFields.value && 'value=Value',
+      !omitFields.difficulty_bar && 'difficulty_bar=Difficulty Bar',
+      !omitFields.ranged && 'ranged=Ranged',
+      !omitFields.stats && 'stat=Stats'
+    ]
+      .filter(Boolean)
+      .join(',')
+    return `{{#cargo_query:
+table=ACharacter
 |fields=${fields}
 |where=${where}
 |format=dynamic table

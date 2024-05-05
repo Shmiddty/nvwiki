@@ -68,7 +68,7 @@ Promise.all([
   const timeStep = Math.ceil(apiLimit.period / apiLimit.count)
   await stagger(entries, timeStep, ([t, key, val], i) => {
     prog.update(i + 1, { name: key })
-    const content = wiki.cargoQuery(
+    const content = wiki.cargoItemQuery(
       [
         `type='${key}'`,
         `category='${key}'`,

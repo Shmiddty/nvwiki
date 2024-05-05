@@ -51,11 +51,6 @@ Promise.all([
     username,
     password
   })
-  //const cookie = Object.values(
-  //  client.globalRequestOptions.jar._jar.store.idx['wiki.gg']['/']
-  //)
-  //  .map((v) => v.toString())
-  //  .join(';')
 
   // --- Images --- //
 
@@ -75,7 +70,7 @@ Promise.all([
   prog.start(imgs.length, 0, { name: '' })
 
   const timeStep = Math.ceil(apiLimit.period / apiLimit.count)
-  await stagger(imgs, timeStep, async ([k, v], i) => {
+  await stagger(imgs, timeStep, async ([k, [v]], i) => {
     const fname = k.replace('/', '_') + '.png'
     prog.update(i + 1, { name: fname })
 
@@ -85,36 +80,9 @@ Promise.all([
       .writeAsync(fPath)
 
     if (DRY) return
-    //const file = await fs.open(fPath)
-    //const form = Object.assign(new FormData(), {
-    //  action: 'upload',
-    //  format: 'json',
-    //  file,
-    //  //text: license('Casey Clyde'),
-    //  //comment: 'Uploaded by nvwikibot',
-    //  ignorewarnings: OWI ? '1' : '0',
-    //  filename: fname,
-    //  token
-    //})
-    //console.log(form)
-    //return (
-    //  fetch(apiUrl, {
-    //    method: 'POST',
-    //    //headers: {
-    //    //  ...client.globalRequestOptions.headers,
-    //    //  Cookie: cookie
-    //    //},
-    //    body: form
-    //  })
-    //    .then((r) => r.json())
-    //    //.then((r) => r.text())
-    //    //.then(console.log)
-    //    .catch(console.error)
-    //)
-    // TODO: this is broken
-    // because... mwbot uses the deprecated request module?
+
     return client
-      .upload(false, `./dist/${fname}`, 'Uploaded by nvwikibot', {
+      .upload(fname, `./dist/${fname}`, 'Uploaded by nvwikibot', {
         text: license('Casey Clyde'),
         ignorewarnings: OWI
       })

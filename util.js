@@ -10,6 +10,9 @@ const methods = {
       a.slice(i * size, (i + 1) * size)
     )
   },
+  upperFirst: function (s) {
+    return s.charAt(0).toUpperCase() + s.slice(1)
+  },
   delay: function delay(n) {
     return new Promise((resolve) => setTimeout(resolve, n))
   },

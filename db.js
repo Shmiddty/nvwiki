@@ -121,6 +121,73 @@ module.exports = function (data) {
       } |
     )]{ areaId: [$] }
   )`).evaluate(data)
+    },
+    characters: function () {
+      return $(`
+  $lv:=sheets[name="characters"].(
+    $types:=$split($substring(columns[name="type"].typeStr,2),",");
+    $teams:=$split($substring(columns[name="team"].typeStr,2),",");
+    $stats:=$$.sheets[name="stats"].lines;
+    [lines[active=true or type>1].(
+      $i:=$;
+      $ ~> | $ | {
+        "type": $types[$i.type],
+        "typeId": $i.type,
+        "team": $teams[$i.team],
+        "teamId": $i.team,
+        "stat": [$i.stat.(
+          $me:=$;
+          $mine:=$stats[id=$me.stat];
+          $merge([$mine, $me])
+        )]
+
+      } |
+    )]
+  )`).evaluate(data)
+    },
+    charactersByTeam: function () {
+      return $(`
+  $lv:=sheets[name="characters"].(
+    $types:=$split($substring(columns[name="type"].typeStr,2),",");
+    $teams:=$split($substring(columns[name="team"].typeStr,2),",");
+    $stats:=$$.sheets[name="stats"].lines;
+    [lines[active=true or type>1].(
+      $i:=$;
+      $ ~> | $ | {
+        "type": $types[$i.type],
+        "typeId": $i.type,
+        "team": $teams[$i.team],
+        "teamId": $i.team,
+        "stat": [$i.stat.(
+          $me:=$;
+          $mine:=$stats[id=$me.stat];
+          $merge([$mine, $me])
+        )]
+      } |
+    )]{ team: [$] }
+  )`).evaluate(data)
+    },
+    charactersByType: function () {
+      return $(`
+  $lv:=sheets[name="characters"].(
+    $types:=$split($substring(columns[name="type"].typeStr,2),",");
+    $teams:=$split($substring(columns[name="team"].typeStr,2),",");
+    $stats:=$$.sheets[name="stats"].lines;
+    [lines[active=true or type>1].(
+      $i:=$;
+      $ ~> | $ | {
+        "type": $types[$i.type],
+        "typeId": $i.type,
+        "team": $teams[$i.team],
+        "teamId": $i.team,
+        "stat": [$i.stat.(
+          $me:=$;
+          $mine:=$stats[id=$me.stat];
+          $merge([$mine, $me])
+        )]
+      } |
+    )]{ type: [$] }
+  )`).evaluate(data)
     }
   }
 }

@@ -13,6 +13,7 @@
   "dependencies": {
     "atlas-parser": "github:Shmiddty/atlas-parser",
     "cli-progress": "^3.12.0",
+    "gifwrap": "github:jimp-dev/gifwrap",
     "jimp": "^0.22.12",
     "jsonata": "^2.0.4",
     "mwbot": "^2.1.3"
