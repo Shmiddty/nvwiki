@@ -72,16 +72,17 @@ Promise.all([
     imgs.map(async ([k, frames], i) => {
       const fname = k.replace(/\//g, '_').replace(/state./, 'idle') + '.gif'
       prog.update(i + 1, { name: fname })
-      const maxW = Math.max(...frames.map((v) => v.size[0]))
-      const maxH = Math.max(...frames.map((v) => v.size[1]))
-      const minXoff = Math.min(...frames.map((v) => v.offset[0]))
-      const minYoff = Math.min(...frames.map((v) => v.offset[1]))
+      const minXOffset = Math.min(...frames.map((v) => v.offset[0]))
+      const minYOffset = Math.min(
+        ...frames.map((v) => v.orig[1] - v.offset[1] - v.size[1])
+      )
       const frms = await Promise.all(
         frames.map(async (v) => {
-          const [w, h] = v.size
+          const [h] = v.size
+          const [oH] = v.orig
           const [x, y] = v.offset
-          const dX = Math.ceil((maxW - w) / 2 + (x - minXoff) / 2)
-          const dY = Math.ceil(maxH - h + (y - minYoff) / 2)
+          const dX = x - minXOffset
+          const dY = oH - y - h - minYOffset
 
           const frame = await charsImg.clone().crop(...v.xy, ...v.size)
           return new GifFrame(frame.bitmap, {

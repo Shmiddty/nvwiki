@@ -99,7 +99,7 @@ table=Item
   },
   cargoCharacterQuery: function (where, omitFields = {}) {
     const fields = [
-      "CONCAT('[[File:',icon,'|class=pixel|64px]]')=Icon",
+      "CONCAT('[[File:',icon,'|class=pixel|x64px]]')=Icon",
       '_pageName=Name',
       !omitFields.type && "CONCAT('[[',type,']]')=Type",
       !omitFields.team && "CONCAT('[[',team,']]')=Team",
