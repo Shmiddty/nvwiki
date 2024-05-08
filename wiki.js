@@ -97,10 +97,14 @@ table=Item
 |rows per page=500
 }}`
   },
-  cargoCharacterQuery: function (where, omitFields = {}) {
+  cargoCharacterQuery: function (
+    where,
+    omitFields = {},
+    format = 'dynamic table|rows per page=500'
+  ) {
     const fields = [
-      "CONCAT('[[File:',icon,'|class=pixel|x64px]]')=Icon",
-      '_pageName=Name',
+      !omitFields.icon && "CONCAT('[[File:',icon,'|class=pixel|x64px]]')=Icon",
+      !omitFields.name && '_pageName=Name',
       !omitFields.type && "CONCAT('[[',type,']]')=Type",
       !omitFields.team && "CONCAT('[[',team,']]')=Team",
       !omitFields.value && 'value=Value',
@@ -114,9 +118,26 @@ table=Item
 table=ACharacter
 |fields=${fields}
 |where=${where}
-|format=dynamic table
-|rows per page=500
+|format=${format}
 }}`
+  },
+  queryById: function (ids) {
+    return "id='" + ids.join("' OR id='") + "'"
+  },
+  cargoCharacterList: function (ids) {
+    return methods.cargoCharacterQuery(
+      methods.queryById(ids),
+      {
+        icon: true,
+        type: true,
+        team: true,
+        value: true,
+        difficulty_bar: true,
+        ranged: true,
+        stats: true
+      },
+      'list'
+    )
   }
 }
 

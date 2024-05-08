@@ -122,6 +122,22 @@ module.exports = function (data) {
     )]{ areaId: [$] }
   )`).evaluate(data)
     },
+    levelsByType: function () {
+      return $(`
+  $lv:=sheets[name="levels"].(
+    $types:=$split($substring(columns[name="type"].typeStr,2),",");
+    $areas:=$split($substring(columns[name="area"].typeStr,2),",");
+    [lines[active=true].(
+      $i:=$;
+      $ ~> | $ | {
+        "type": $types[$i.type],
+        "typeId": $i.type,
+        "area": $areas[$i.area],
+        "areaId": $string($i.area)
+      } |
+    )]{ type: [$] }
+  )`).evaluate(data)
+    },
     characters: function () {
       return $(`
   $lv:=sheets[name="characters"].(
