@@ -34,14 +34,6 @@ Promise.all([
   })
   const $db = db(data)
 
-  const areaNames = [
-    'All Areas',
-    'Necrovale Dungeons',
-    'Hornslack Ruins',
-    'River of Souls',
-    'Halls of Shadow',
-    'Palace of the Witch'
-  ]
   const lvByArea = await $db.levelsByArea()
   const levels = await $db.levels()
   const lvByType = await $db.levelsByType()
@@ -51,7 +43,7 @@ Promise.all([
       i.name,
       [
         i.subtitle && `<blockquote>${i.subtitle}</blockquote>`,
-        `${i.name} is a ${wiki.page(i.type + ' Level')} found in ${wiki.page(areaNames[i.areaId])} with a delve depth of at least ${i.difficulty_bar}.`,
+        `${i.name} is a ${wiki.page(i.type + ' Level')} found in ${wiki.page(i.area)} with a delve depth of at least ${i.difficulty_bar}.`,
         i.enemies?.length && '== Characters ==',
         i.enemies?.length &&
           wiki.cargoCharacterQuery(wiki.queryById(i.enemies.map((e) => e.type)))
@@ -69,7 +61,7 @@ Promise.all([
           )
           .map((i) => [
             wiki.page(i.name),
-            wiki.page(areaNames[i.areaId]),
+            wiki.page(i.area),
             wiki.page(i.type + ' Level'),
             i.subtitle,
             i.difficulty_bar,
@@ -79,8 +71,8 @@ Promise.all([
           ])
       )
     ],
-    ...Object.entries(lvByArea).map(([areaId, lvls]) => [
-      areaNames[areaId],
+    ...Object.entries(lvByArea).map(([area, lvls]) => [
+      area,
       wiki.table(
         ['Name', 'Type', 'Subtitle', 'Difficulty Bar', 'Characters'],
         lvls
@@ -104,7 +96,7 @@ Promise.all([
           .sort((a, b) => a.name.localeCompare(b.name))
           .map((i) => [
             wiki.page(i.name),
-            wiki.page(areaNames[i.areaId]),
+            wiki.page(i.area),
             i.subtitle,
             i.difficulty_bar,
             i.enemies

@@ -76,9 +76,9 @@ Promise.all([
         `properties LIKE '%${key}%'`
       ][t],
       {
-        category: !varied(val, 'category'),
-        type: !varied(val, 'type'),
-        rarity: !varied(val, 'rarity'),
+        category: !val.some((v) => v.category !== key),
+        type: !val.some((v) => v.type !== key),
+        rarity: !val.some((v) => v.rarity !== key),
         stats: !val.some((i) => i.properties.length),
         description: !val.some((i) => i.description.length),
         flavor: !val.some((i) => i.flavor.length),

@@ -65,7 +65,6 @@ ${rows.map((i) => [' |-', ' | ' + i.join('\n | ')].join('\n')).join('\n')}
   character: function ({ visual, arsenal, ...i }) {
     const f = Object.entries({
       ...i,
-      ranged: +i.ranged,
       icon: capitalize(i.icon),
       size: i.stat.find((v) => v.stat === 'size')?.base ?? 0,
       stat: methods.stats(i.stat)
@@ -78,7 +77,7 @@ ${rows.map((i) => [' |-', ' | ' + i.join('\n | ')].join('\n')).join('\n')}
     const fields = [
       "CONCAT('[[File:',icon,'|class=pixel|64px]]')=Icon",
       '_pageName=Name',
-      !omitFields.rarity && "CONCAT('{{Rarity{{!}}', rarity, '}}')=Rarity",
+      !omitFields.rarity && "CONCAT('{{Rarity{{!}}', rarityId, '}}')=Rarity",
       !omitFields.type && "CONCAT('[[',type,']]')=Type",
       !omitFields.category && "CONCAT('[[',category,']]')=Category",
       !omitFields.description && "CONCAT('',description)=Description",
@@ -109,7 +108,6 @@ table=Item
       !omitFields.team && "CONCAT('[[',team,']]')=Team",
       !omitFields.value && 'value=Value',
       !omitFields.difficulty_bar && 'difficulty_bar=Difficulty Bar',
-      !omitFields.ranged && 'ranged=Ranged',
       !omitFields.stats && 'stat=Stats'
     ]
       .filter(Boolean)
@@ -133,7 +131,6 @@ table=ACharacter
         team: true,
         value: true,
         difficulty_bar: true,
-        ranged: true,
         stats: true
       },
       'list'
