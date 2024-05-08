@@ -98,13 +98,25 @@ module.exports = function (data) {
     },
     levels: function () {
       return filterAll({ active: true })(
-        methods.levelsTable().lines.map(({ type, area, ...rest }) => ({
-          type: methods.levelsTypes()[type],
-          typeId: type,
-          area: methods.levelsAreas()[area],
-          areaId: area,
-          ...rest
-        }))
+        methods
+          .levelsTable()
+          .lines.map(({ type, area, team, enemies, ...rest }) => ({
+            type: methods.levelsTypes()[type],
+            typeId: type,
+            area: methods.levelsAreas()[area],
+            areaId: area,
+            enemies: (enemies || [])
+              .concat(
+                filterAll({ team, type: 1 })(
+                  methods.charactersTable().lines
+                ).map((e) => ({
+                  type: e.id
+                }))
+              )
+              .filter((v, i, a) => a.findIndex((V) => v.type === V.type) === i)
+              .sort(),
+            ...rest
+          }))
       )
     },
     levelsByArea: function () {
