@@ -39,71 +39,15 @@ Promise.all([
   const lvByType = await $db.levelsByType()
 
   const entries = [
-    ...levels.map((i) => [
-      i.name,
-      [
-        i.subtitle && `<blockquote>${i.subtitle}</blockquote>`,
-        `${i.name} is a ${wiki.page(i.type + ' Level')} found in ${wiki.page(i.area)} with a delve depth of at least ${i.difficulty_bar}.`,
-        i.enemies?.length && '== Characters ==',
-        i.enemies?.length &&
-          wiki.cargoCharacterQuery(wiki.queryById(i.enemies.map((e) => e.type)))
-      ]
-        .filter(Boolean)
-        .join('\n')
-    ]),
-    [
-      'Levels',
-      wiki.table(
-        ['Name', 'Area', 'Type', 'Subtitle', 'Difficulty Bar', 'Characters'],
-        levels
-          .sort(
-            (a, b) => (a.areaId - b.areaId) * 2 + a.name.localeCompare(b.name)
-          )
-          .map((i) => [
-            wiki.page(i.name),
-            wiki.page(i.area),
-            wiki.page(i.type + ' Level'),
-            i.subtitle,
-            i.difficulty_bar,
-            i.enemies
-              ? wiki.cargoCharacterList(i.enemies.map((e) => e.type))
-              : ''
-          ])
-      )
-    ],
+    ...levels.map((i) => [i.name, wiki.level(i)]),
+    ['Levels', wiki.cargoLevelQuery(``)],
     ...Object.entries(lvByArea).map(([area, lvls]) => [
       area,
-      wiki.table(
-        ['Name', 'Type', 'Subtitle', 'Difficulty Bar', 'Characters'],
-        lvls
-          .sort((a, b) => a.name.localeCompare(b.name))
-          .map((i) => [
-            wiki.page(i.name),
-            wiki.page(i.type + ' Level'),
-            i.subtitle,
-            i.difficulty_bar,
-            i.enemies
-              ? wiki.cargoCharacterList(i.enemies.map((e) => e.type))
-              : ''
-          ])
-      )
+      wiki.cargoLevelQuery(`area='${area}'`, { area: true })
     ]),
     ...Object.entries(lvByType).map(([type, lvls]) => [
       type + ' Level',
-      wiki.table(
-        ['Name', 'Area', 'Subtitle', 'Difficulty Bar', 'Characters'],
-        lvls
-          .sort((a, b) => a.name.localeCompare(b.name))
-          .map((i) => [
-            wiki.page(i.name),
-            wiki.page(i.area),
-            i.subtitle,
-            i.difficulty_bar,
-            i.enemies
-              ? wiki.cargoCharacterList(i.enemies.map((e) => e.type))
-              : ''
-          ])
-      )
+      wiki.cargoLevelQuery(`type='${type}'`, { type: true })
     ])
   ]
 
@@ -114,7 +58,7 @@ Promise.all([
   await stagger(entries, timeStep, ([key, content], i) => {
     prog.update(i + 1, { name: key })
     if (DRY) {
-      debug(content)
+      debug('\n', content, '\n')
       return
     }
     return client

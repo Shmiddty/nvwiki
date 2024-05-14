@@ -73,6 +73,17 @@ ${rows.map((i) => [' |-', ' | ' + i.join('\n | ')].join('\n')).join('\n')}
       .join('|')
     return `<noinclude>{{Character/Store|${f}}}</noinclude>`
   },
+  level: function ({ enemies, ...level }) {
+    return [
+      `<noinclude>`,
+      `{{Level/Store|${Object.entries(level).map(field).join('|')}}}`,
+      ...enemies.map(
+        ({ type }) =>
+          `{{LevelCharacter/Store|levelId=${level.id}|characterId=${type}}}`
+      ),
+      `</noinclude>`
+    ].join('')
+  },
   cargoItemQuery: function (where, omitFields = {}) {
     const fields = [
       "CONCAT('[[File:',icon,'|class=pixel|64px]]')=Icon",
@@ -135,6 +146,26 @@ table=ACharacter
       },
       'list'
     )
+  },
+  cargoLevelQuery: function (where, omitFields = {}) {
+    const fields = [
+      !omitFields.name && '_pageName=Name',
+      !omitFields.area && "CONCAT('[[',area,']]')=Area",
+      !omitFields.type && "CONCAT('[[',type,' Level]]')=Type",
+      !omitFields.subtitle && 'subtitle=Subtitle',
+      !omitFields.difficulty_bar && 'difficulty_bar=Difficulty Bar',
+      !omitFields.enemies &&
+        `CONCAT("{{LevelCharacterList{{!}}",id,"}}")=Characters`
+    ]
+      .filter(Boolean)
+      .join(',')
+    return [
+      `{{#cargo_query:table=Level|fields=${fields}`,
+      where && `|where=${where}`,
+      `|format=dynamic table|rows per page=500}}`
+    ]
+      .filter(Boolean)
+      .join('')
   }
 }
 
